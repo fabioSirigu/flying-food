@@ -1,23 +1,54 @@
 import React from 'react'
-import { Button } from './components/Button'
-// import { IconButton } from './components/Button/IconButton'
-import { Icon } from './components/Icon'
+import { Button, IconButton } from './components/Button'
+
 import { Text } from './components/Text'
-import { theme } from './style/theme'
 
 function App() {
   return (
     <div className="App">
-      <Text color="primary">Ciao sono un testo</Text>
-      <Text variant="h1">Ciao sono un testo</Text>
+      <Text color="primary" text="Ciao sono un testo" />
+      <Text variant="h1" text="Ciao sono un testo" />
 
-      <Button rounded radius={3} padding="lg" color="primary">
-        <Icon color={theme.colors['text']} iconName="plus" />
-      </Button>
+      <Button
+        radius={3}
+        padding="lg"
+        color="secondary"
+        colorText="background"
+        font="span"
+        title="Order Now"
+      />
 
-      <Button radius={3} padding="lg" color="secondary" colorText="text" font="span">
-        Order Now
-      </Button>
+      <Button
+        outline
+        border="1"
+        radius={3}
+        padding="lg"
+        color="primary"
+        colorText="background"
+        font="span"
+        title="Ordered"
+        iconName="right"
+      />
+
+      <IconButton
+        rounded
+        padding="lg"
+        color="primary"
+        iconName="plus"
+        iconColor="textLight"
+      />
+
+      <Button
+        review
+        border="1"
+        radius={3}
+        padding="lg"
+        color="secondaryDark"
+        colorText="text"
+        font="span"
+        title="Leave a Review"
+        iconName="right"
+      />
     </div>
   )
 }

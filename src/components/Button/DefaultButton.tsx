@@ -1,4 +1,5 @@
 import React, { PropsWithChildren } from 'react'
+import { Icon } from '../Icon'
 import { Text } from '../Text'
 import { ButtonProps, StyledButton } from './styled'
 
@@ -8,10 +9,13 @@ export const DefaultButton = ({
   color = 'primary',
   colorText = 'text',
   font = 'span',
-  padding = 'md',
+  padding = 'lg',
+  title,
   rounded,
-  bordered,
+  outline,
   children,
+  iconName,
+  review,
 
   ...rest
 }: Props) => {
@@ -22,12 +26,12 @@ export const DefaultButton = ({
       font={font}
       padding={padding}
       rounded={rounded}
-      bordered={bordered}
+      outline={outline}
+      review={review}
       {...rest}
     >
-      <Text color={colorText} variant={font}>
-        {children}
-      </Text>
+      {title && <Text color={colorText} variant={font} text={title} />}
+      {iconName && <Icon color="text" iconName={iconName} />}
     </StyledButton>
   )
 }

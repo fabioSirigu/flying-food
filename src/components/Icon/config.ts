@@ -1,7 +1,8 @@
-import { faCheck, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faPlus, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 export const icons = {
   plus: faPlus,
-  check: faCheck
+  check: faCheck,
+  right: faChevronRight
 }
 export type NameIcon = keyof typeof icons

@@ -57,6 +57,11 @@ export const theme = {
     sm: 0.4,
     md: 0.6,
     lg: 0.8
+  },
+  sizes: {
+    sm: 24,
+    md: 32,
+    lg: 40
   }
 } as const
 
