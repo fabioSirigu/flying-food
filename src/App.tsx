@@ -40,7 +40,7 @@ function App() {
 
       <Button
         review
-        border="1"
+        border="2"
         radius={3}
         padding="lg"
         color="secondaryDark"
@@ -48,6 +48,7 @@ function App() {
         font="span"
         title="Leave a Review"
         iconName="right"
+        iconBackground="secondary"
       />
     </div>
   )
