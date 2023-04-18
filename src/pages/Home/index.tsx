@@ -13,7 +13,7 @@ export function Home() {
         padding="lg"
         color="secondary"
         colorText="background"
-        font="span"
+        font="p"
         title="Order Now"
       />
 
@@ -33,12 +33,12 @@ export function Home() {
         rounded
         padding="lg"
         color="primary"
+        colorText="text"
         iconName="plus"
-        iconColor="textLight"
+        iconColor="text"
       />
 
       <Button
-        review
         border="2"
         radius={3}
         padding="lg"

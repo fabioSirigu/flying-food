@@ -10,30 +10,31 @@ export const DefaultButton = ({
   colorText = 'text',
   font = 'span',
   padding = 'lg',
+  iconColor,
+  iconBackground,
   title,
   rounded,
   outline,
   children,
   iconName,
-  review,
 
   ...rest
 }: Props) => {
   return (
     <StyledButton
       color={color}
+      iconBackground={iconBackground}
       colorText={colorText}
       font={font}
       padding={padding}
       rounded={rounded}
       outline={outline}
-      review={review}
       {...rest}
     >
       {title && <Text color={colorText} variant={font} text={title} />}
       {iconName && (
-        <IconWrapper>
-          <Icon color="text" iconName={iconName} />
+        <IconWrapper background={iconBackground}>
+          <Icon color={color} iconName={iconName} />
         </IconWrapper>
       )}
     </StyledButton>
