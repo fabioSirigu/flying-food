@@ -20,6 +20,9 @@ export type ButtonProps = {
   review?: boolean
 }
 export const StyledButton = styled.button<ButtonProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: ${({ theme, color, outline }) =>
     outline ? 'transparent' : theme.colors[color]};
   color: ${({ theme, color, outline, review, colorText }) =>
@@ -51,5 +54,4 @@ export const IconWrapper = styled.div`
   justify-content: center;
   align-items: center;
   aspect-ratio: ${1};
-  color: white;
 `

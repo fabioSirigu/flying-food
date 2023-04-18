@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react'
 import { Icon } from '../Icon'
 import { Text } from '../Text'
-import { ButtonProps, StyledButton } from './styled'
+import { ButtonProps, IconWrapper, StyledButton } from './styled'
 
 type Props = PropsWithChildren<Partial<ButtonProps>>
 
@@ -31,7 +31,11 @@ export const DefaultButton = ({
       {...rest}
     >
       {title && <Text color={colorText} variant={font} text={title} />}
-      {iconName && <Icon color="text" iconName={iconName} />}
+      {iconName && (
+        <IconWrapper>
+          <Icon color="text" iconName={iconName} />
+        </IconWrapper>
+      )}
     </StyledButton>
   )
 }
