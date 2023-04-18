@@ -1,5 +1,7 @@
 import React from 'react'
 import { Button, IconButton } from '../../components/Button'
+import { Input } from '../../components/Input'
+import { SearchBox } from '../../components/SearchBox'
 import { Text } from '../../components/Text'
 
 export function Home() {
@@ -49,6 +51,10 @@ export function Home() {
         iconName="right"
         iconBackground="secondary"
       />
+
+      <Input background="background" placeholder="Search..." />
+
+      <SearchBox background="background" placeholder="Search..." colorText="text" />
     </div>
   )
 }
