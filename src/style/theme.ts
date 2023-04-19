@@ -28,19 +28,19 @@ export const theme = {
       lineHeight: 1.6
     },
     h3: {
-      size: 'xl',
-      lineHeight: 1.4
-    },
-    h4: {
       size: 'lg',
       lineHeight: 1.4
     },
-    h5: {
+    h4: {
       size: 'md',
       lineHeight: 1.4
     },
+    h5: {
+      size: 'sm',
+      lineHeight: 1.4
+    },
     h6: {
-      size: 'md',
+      size: 'xs',
       lineHeight: 1.4
     },
     p: {

@@ -11,4 +11,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Helvetica", sans-serif;
     height: 100%;
   }
+
+  .App{
+    padding: 2rem 1rem;
+  }
 `

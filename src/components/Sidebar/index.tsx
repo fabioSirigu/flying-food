@@ -28,7 +28,7 @@ export const Sidebar = ({
   return (
     <StyledSidebar>
       <TopSidebar>
-        <Image url="https://assets.stickpng.com/images/585e4bcdcb11b227491c3396.png" />
+        <Image url="https://assets.stickpng.com/images/585e4bc4cb11b227491c3395.png" />
         <Text text={title} color={colorText} />
       </TopSidebar>
     </StyledSidebar>
