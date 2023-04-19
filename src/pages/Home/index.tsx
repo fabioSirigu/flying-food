@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, IconButton } from '../../components/Button'
 import { Input } from '../../components/Input'
 import { SearchBox } from '../../components/SearchBox'
+import { Tag } from '../../components/Tag'
 import { Text } from '../../components/Text'
 
 export function Home() {
@@ -55,6 +56,8 @@ export function Home() {
       <Input background="background" placeholder="Search..." />
 
       <SearchBox background="background" placeholder="Search..." colorText="text" />
+
+      <Tag title="280g" />
     </div>
   )
 }
