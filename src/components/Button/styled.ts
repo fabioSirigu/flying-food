@@ -43,14 +43,13 @@ export const StyledButton = styled.button<ButtonProps>`
       ? `${border}px solid ${theme.colors['secondary']}`
       : 'none'};
   aspect-ratio: ${({ rounded }) => (rounded ? `${1}` : 'none')};
-  margin: 1rem;
   position: relative;
 `
 
 export const IconWrapper = styled.div<WrapperProps>`
-  width: auto;
+  width: 100%;
   height: 100%;
-  color: ${({ theme }) => theme.colors['background']};
+  color: ${({ theme }) => theme.colors['text']};
 
   ${({ background }) =>
     background
