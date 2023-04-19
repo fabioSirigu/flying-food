@@ -9,7 +9,7 @@ export const Layout = () => {
       <Sidebar />
       <StyledRightContainer>
         <Navbar />
-        <StyledMain className="wrapper">
+        <StyledMain>
           <Outlet />
         </StyledMain>
       </StyledRightContainer>

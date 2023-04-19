@@ -1,6 +1,4 @@
-import { Outlet } from 'react-router-dom'
 import styled from 'styled-components'
-// import { ThemeColor, FontVariant, ThemeSpacing } from '../../style/theme'
 
 export const StyledRightContainer = styled.div`
   width: 100%;
