@@ -11,6 +11,7 @@ export type SidebarProps = {
 }
 
 export const StyledSidebar = styled.div<SidebarProps>`
+  margin-top: 20px;
   background-color: ${({ theme, background }) =>
     theme.colors[background || 'background']};
   width: 250px;
@@ -20,5 +21,11 @@ export const StyledSidebar = styled.div<SidebarProps>`
   //border-radius: ${({ theme, radius }) => theme.radii[radius || 3]}rem;
   color: ${({ theme, colorText }) => theme.colors[colorText || 'text']};
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+`
+
+export const TopSidebar = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 `
