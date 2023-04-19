@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   body{
-    background: ${({ theme }) => theme.colors['backgroundDark']};
+    background: ${({ theme }) => theme.colors['background']};
     font-family: "Helvetica", sans-serif;
     height: 100%;
   }
