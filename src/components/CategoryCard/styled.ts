@@ -6,6 +6,7 @@ import { ThemeColor } from '../../style/theme'
 export type CategoryCardProps = {
   background?: ThemeColor
   children?: PropsWithChildren
+  title?: string
 }
 export const StyledCategoryCard = styled.div<CategoryCardProps>`
   background: ${({ theme, background }) => theme.colors[background || 'backgroundLight']};
