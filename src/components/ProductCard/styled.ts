@@ -7,17 +7,17 @@ export type ProductCardProps = {
   children?: PropsWithChildren
 }
 export const StyledCard = styled.div`
-  margin-top: 2rem;
+  margin-top: 4rem;
   border-radius: ${({ theme }) => theme.radii[3]}rem;
-  width: 220px;
+  width: 200px;
   background: ${({ theme }) => theme.colors.backgroundLight};
   position: relative;
-  padding: 2rem 1rem;
+  padding: 2rem 0.8rem;
 `
 
 export const ImageWrapper = styled.div`
   position: absolute;
-  top: -5rem;
+  top: -4.5rem;
   left: 50%;
   transform: translateX(-50%);
 `

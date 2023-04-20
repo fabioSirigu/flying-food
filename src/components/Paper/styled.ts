@@ -7,8 +7,5 @@ export type PaperProps = {
   radius?: number
 }
 export const StyledPaper = styled.div<PaperProps>`
-  /* background: ${({ theme, background }) =>
-    theme.colors[background || 'backgroundLight']}; */
-  //border-radius: ${({ theme, radius }) => theme.radii[radius || 3]};
   width: max-content;
 `
