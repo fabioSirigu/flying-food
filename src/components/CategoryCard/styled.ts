@@ -13,14 +13,20 @@ export type CategoryCardProps = {
 export const StyledCategoryCard = styled.div<CategoryCardProps>`
   background: ${({ theme, background }) => theme.colors[background || 'backgroundLight']};
   border-radius: ${({ theme }) => theme.radii[3]}rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 export const TextWrapper = styled.div`
   text-align: center;
-  width: 60px;
-  border-bottom: 1px solid red;
+
   padding-bottom: 1rem;
   margin: auto;
 `
 
-export const ImageWrapper = styled.div``
+export const SelectedCategory = styled.div`
+  height: 5px;
+  width: 60px;
+  border-bottom: 1px solid red;
+`

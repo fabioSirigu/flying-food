@@ -1,6 +1,7 @@
 import React from 'react'
 import { IconButton } from '../../components/Button'
 import { CategoryCard } from '../../components/CategoryCard'
+// import { CategoryCardProps } from '../../components/CategoryCard/styled'
 import { ProductCard } from '../../components/ProductCard'
 import { Select } from '../../components/Select'
 import { Text } from '../../components/Text'
@@ -15,17 +16,26 @@ import {
   ProductWrapper
 } from './styled'
 
+type Cards = {
+  title: string
+}
+const CategoryCards: Cards[] = [
+  { title: 'All' },
+  { title: 'Salads' },
+  { title: 'Soup' },
+  { title: 'Side Dishes' },
+  { title: 'Fruit' },
+  { title: 'Drinks' }
+]
+
 export function Home() {
   return (
     <div className="App">
       <RowWrapper>
         <CategoryWrapper>
-          <CategoryCard title="All" />
-          <CategoryCard title="Salads" />
-          <CategoryCard title="Soup" />
-          <CategoryCard title="Dishes" />
-          <CategoryCard title="Fruit" />
-          <CategoryCard title="Drinks" />
+          {CategoryCards.map((item) => (
+            <CategoryCard title={item.title} />
+          ))}
         </CategoryWrapper>
         <SliderWrapper />
       </RowWrapper>

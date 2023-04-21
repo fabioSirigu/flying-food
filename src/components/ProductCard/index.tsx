@@ -1,20 +1,9 @@
 import React, { PropsWithChildren } from 'react'
-import { IconButton } from '../Button'
 import { Image } from '../Image'
 import { Paper } from '../Paper'
-import { Price } from '../Price'
-import { Tag } from '../Tag'
 import { Text } from '../Text'
-// import { SearchBox } from '../SearchBox'
-// import { Text } from '../Text'
-import {
-  FooterCardWrapper,
-  FooterRightWrapper,
-  ImageWrapper,
-  ProductCardProps,
-  StyledCard,
-  TextWrapper
-} from './styled'
+import { FooterCard } from './FooterCard'
+import { ImageWrapper, ProductCardProps, StyledCard, TextWrapper } from './styled'
 
 type Props = PropsWithChildren<Partial<ProductCardProps>>
 
@@ -30,16 +19,10 @@ export const ProductCard = ({ background, children, ...rest }: Props) => {
             Titolo
           </Text>
           <Text variant="p" color="textLight">
-            Prova di testo della card
+            Prova di testo della card, contenuto aggiungivo
           </Text>
         </TextWrapper>
-        <FooterCardWrapper>
-          <Price title="120" font="p" />
-          <FooterRightWrapper>
-            <Tag title="280g" font="h6" />
-            <IconButton rounded iconName="plus" padding="lg" color="secondary" />
-          </FooterRightWrapper>
-        </FooterCardWrapper>
+        <FooterCard />
       </StyledCard>
     </Paper>
   )
