@@ -11,7 +11,8 @@ import {
   SelectWrapper,
   TextWrapper,
   IconWrapper,
-  SelectIconWrapper
+  SelectIconWrapper,
+  ProductWrapper
 } from './styled'
 
 export function Home() {
@@ -44,7 +45,16 @@ export function Home() {
           </IconWrapper>
         </SelectIconWrapper>
       </RowWrapper>
-      <ProductCard />
+      <ProductWrapper>
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+      </ProductWrapper>
     </div>
   )
 }

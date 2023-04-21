@@ -10,7 +10,6 @@ const options = [
 export const Select = () => {
   return (
     <StyledSelect>
-      $
       {options.map((item, index) => (
         <option value={index}>{item.label}</option>
       ))}

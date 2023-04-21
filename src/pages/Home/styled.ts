@@ -33,3 +33,8 @@ export const IconWrapper = styled.div`
   display: flex;
   gap: 0.4rem;
 `
+export const ProductWrapper = styled.div`
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+`
