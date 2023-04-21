@@ -21,11 +21,20 @@ export const StyledSidebar = styled.div<SidebarProps>`
   //border-radius: ${({ theme, radius }) => theme.radii[radius || 3]}rem;
   color: ${({ theme, colorText }) => theme.colors[colorText || 'text']};
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `
 
 export const TopSidebar = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin-bottom: 2rem;
+`
+
+export const MainSidebar = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 `

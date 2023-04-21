@@ -3,7 +3,8 @@ import { FontVariant, ThemeColor, ThemeSpacing } from '../../style/theme'
 
 import { Image } from '../Image'
 import { Text } from '../Text'
-import { StyledSidebar, TopSidebar } from './styled'
+import { Sidelink } from './Sidelink'
+import { MainSidebar, StyledSidebar, TopSidebar } from './styled'
 
 type Props = {
   url?: string
@@ -31,6 +32,19 @@ export const Sidebar = ({
         <Image url="https://assets.stickpng.com/images/585e4bc4cb11b227491c3395.png" />
         <Text text={title} color={colorText} />
       </TopSidebar>
+      <MainSidebar>
+        <Sidelink
+          backgroundIcon="primaryDark"
+          iconTitle="plus"
+          background="primary"
+          text="Home"
+        />
+        <Sidelink iconTitle="search" text="Catalog" />
+        <Sidelink iconTitle="check" text="Category" />
+        <Sidelink iconTitle="notice" text="Map" />
+        <Sidelink iconTitle="notice" text="Delivery" />
+        <Sidelink iconTitle="notice" text="Settings" />
+      </MainSidebar>
     </StyledSidebar>
   )
 }
