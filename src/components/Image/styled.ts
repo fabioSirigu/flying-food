@@ -5,6 +5,6 @@ export const StyledImage = styled.img`
   border-radius: 50%;
   width: 120px;
   height: 120px;
-  aspect-ratio: 1;
+  aspect-ratio: 1/1;
   object-fit: cover;
 `

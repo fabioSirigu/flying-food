@@ -4,7 +4,7 @@ import { FontVariant, ThemeColor, ThemeSpacing } from '../../style/theme'
 import { Image } from '../Image'
 import { Text } from '../Text'
 import { Sidelink } from './Sidelink'
-import { MainSidebar, StyledSidebar, TopSidebar } from './styled'
+import { FooterSidebar, MainSidebar, StyledSidebar, TopSidebar } from './styled'
 
 type Props = {
   url?: string
@@ -35,16 +35,19 @@ export const Sidebar = ({
       <MainSidebar>
         <Sidelink
           backgroundIcon="primaryDark"
-          iconTitle="plus"
+          iconTitle="home"
           background="primary"
           text="Home"
         />
         <Sidelink iconTitle="search" text="Catalog" />
         <Sidelink iconTitle="check" text="Category" />
-        <Sidelink iconTitle="notice" text="Map" />
-        <Sidelink iconTitle="notice" text="Delivery" />
-        <Sidelink iconTitle="notice" text="Settings" />
+        <Sidelink iconTitle="map" text="Map" />
+        <Sidelink iconTitle="truck" text="Delivery" />
+        <Sidelink iconTitle="settings" text="Settings" />
       </MainSidebar>
+      <FooterSidebar>
+        <Image url="https://images.vexels.com/media/users/3/199964/isolated/preview/ae782cab8ae7e722febb5869c09574cc-happy-delivery-boy-character.png" />
+      </FooterSidebar>
     </StyledSidebar>
   )
 }

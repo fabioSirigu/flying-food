@@ -38,3 +38,9 @@ export const MainSidebar = styled.div`
   align-items: center;
   gap: 1rem;
 `
+
+export const FooterSidebar = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+`

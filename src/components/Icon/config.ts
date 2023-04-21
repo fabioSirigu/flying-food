@@ -5,7 +5,11 @@ import {
   faMagnifyingGlass,
   faBell,
   faBagShopping,
-  faRightFromBracket
+  faRightFromBracket,
+  faHome,
+  faLocation,
+  faTruckFast,
+  faSliders
 } from '@fortawesome/free-solid-svg-icons'
 
 export const icons = {
@@ -15,6 +19,10 @@ export const icons = {
   search: faMagnifyingGlass,
   notice: faBell,
   bag: faBagShopping,
-  logout: faRightFromBracket
+  logout: faRightFromBracket,
+  home: faHome,
+  map: faLocation,
+  truck: faTruckFast,
+  settings: faSliders
 }
 export type NameIcon = keyof typeof icons
