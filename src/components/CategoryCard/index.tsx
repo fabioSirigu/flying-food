@@ -19,7 +19,9 @@ export const CategoryCard = ({ background, children, title, ...rest }: Props) =>
           <Image url="https://static.vecteezy.com/system/resources/previews/009/345/591/original/stir-fry-salad-with-sushi-and-shrimps-in-a-bowl-with-a-slate-background-top-view-copy-space-shrimp-and-vegetables-served-with-salad-chopsticks-with-asian-food-vector-free-png.png" />
         </ImageWrapper>
         <TextWrapper>
-          <Text text={title || 'All'} variant="span" color="textLight" />
+          <Text variant="span" color="textLight">
+            Sono un testo
+          </Text>
         </TextWrapper>
       </StyledCategoryCard>
     </Paper>

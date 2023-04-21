@@ -14,7 +14,9 @@ export const Tag = ({
 }: Props) => {
   return (
     <StyledTag background={background} font={font} title={title}>
-      <Text color={colorText} variant={font} text={title || 'h6'} />
+      <Text color={colorText} variant={font}>
+        {title}
+      </Text>
     </StyledTag>
   )
 }

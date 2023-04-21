@@ -30,7 +30,9 @@ export const Sidebar = ({
     <StyledSidebar>
       <TopSidebar>
         <Image url="https://assets.stickpng.com/images/585e4bc4cb11b227491c3395.png" />
-        <Text text={title} color={colorText} />
+        <Text variant="h5" color={colorText}>
+          Ciao User
+        </Text>
       </TopSidebar>
       <MainSidebar>
         <Sidelink

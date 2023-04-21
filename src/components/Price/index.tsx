@@ -15,7 +15,9 @@ export const Price = ({
 }: Props) => {
   return (
     <StyledPrice background={background} font={font} title={title} value={value}>
-      <Text color={colorText} variant={font} text={`${value || '$'}${title}` || '56'} />
+      <Text color={colorText} variant={font}>
+        {`${value || '$'}${title}` || '56'}
+      </Text>
     </StyledPrice>
   )
 }

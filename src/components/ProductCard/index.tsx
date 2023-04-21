@@ -26,12 +26,12 @@ export const ProductCard = ({ background, children, ...rest }: Props) => {
           <Image url="https://static.vecteezy.com/system/resources/previews/009/345/591/original/stir-fry-salad-with-sushi-and-shrimps-in-a-bowl-with-a-slate-background-top-view-copy-space-shrimp-and-vegetables-served-with-salad-chopsticks-with-asian-food-vector-free-png.png" />
         </ImageWrapper>
         <TextWrapper>
-          <Text text="Titolo" variant="h3" color="text" />
-          <Text
-            text="Paragrafo prova come descrizione del prodotto"
-            variant="p"
-            color="textLight"
-          />
+          <Text variant="h3" color="text">
+            Titolo
+          </Text>
+          <Text variant="p" color="textLight">
+            Prova di testo della card
+          </Text>
         </TextWrapper>
         <FooterCardWrapper>
           <Price title="120" font="p" />

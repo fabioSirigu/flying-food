@@ -31,7 +31,9 @@ export function Home() {
       </RowWrapper>
       <RowWrapper>
         <TextWrapper>
-          <Text variant="h2" color="text" text="Popular Dishes" />
+          <Text variant="h2" color="text">
+            Popular Dishes
+          </Text>
         </TextWrapper>
         <SelectIconWrapper>
           <SelectWrapper>

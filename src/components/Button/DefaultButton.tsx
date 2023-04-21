@@ -31,7 +31,11 @@ export const DefaultButton = ({
       outline={outline}
       {...rest}
     >
-      {title && <Text color={colorText} variant={font} text={title} />}
+      {title && (
+        <Text color={colorText} variant={font}>
+          {title}
+        </Text>
+      )}
       {iconName && (
         <IconWrapper background={iconBackground}>
           <Icon color={color} iconName={iconName} />

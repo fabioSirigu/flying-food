@@ -11,12 +11,12 @@ export const StyledBody = styled.div`
   height: 100vh;
 `
 
-export const StyledMain = styled.div`
+export const StyledMain = styled.main`
   border-top-left-radius: ${({ theme }) => theme.radii[3]}rem;
   padding-bottom: 2rem;
   width: 100%;
   height: 100%;
   flex: 1;
   overflow-y: scroll;
-  background: ${({ theme }) => theme.colors['backgroundDark']};
+  background: ${({ theme }) => theme.colors.backgroundDark};
 `
