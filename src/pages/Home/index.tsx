@@ -1,7 +1,18 @@
 import React from 'react'
+import { IconButton } from '../../components/Button'
 import { CategoryCard } from '../../components/CategoryCard'
 import { ProductCard } from '../../components/ProductCard'
-import { CategoryWrapper, RowWrapper, SliderWrapper } from './styled'
+import { Select } from '../../components/Select'
+import { Text } from '../../components/Text'
+import {
+  CategoryWrapper,
+  RowWrapper,
+  SliderWrapper,
+  SelectWrapper,
+  TextWrapper,
+  IconWrapper,
+  SelectIconWrapper
+} from './styled'
 
 export function Home() {
   return (
@@ -16,6 +27,22 @@ export function Home() {
           <CategoryCard title="Drinks" />
         </CategoryWrapper>
         <SliderWrapper />
+      </RowWrapper>
+      <RowWrapper>
+        <TextWrapper>
+          <Text variant="h2" color="text" text="Popular Dishes" />
+        </TextWrapper>
+        <SelectIconWrapper>
+          <SelectWrapper>
+            <Select />
+            <Select />
+            <Select />
+          </SelectWrapper>
+          <IconWrapper>
+            <IconButton rounded iconName="bars" color="background" />
+            <IconButton rounded iconName="grid" color="primary" />
+          </IconWrapper>
+        </SelectIconWrapper>
       </RowWrapper>
       <ProductCard />
     </div>

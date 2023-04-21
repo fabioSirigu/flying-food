@@ -12,6 +12,7 @@ export const StyledBody = styled.div`
 
 export const StyledMain = styled.div`
   border-top-left-radius: ${({ theme }) => theme.radii[3]}rem;
+  width: 100%;
   height: 100%;
   background: ${({ theme }) => theme.colors['backgroundDark']};
 `
