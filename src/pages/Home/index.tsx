@@ -1,16 +1,19 @@
 import React from 'react'
 import { CategoryCard } from '../../components/CategoryCard'
 import { ProductCard } from '../../components/ProductCard'
-import { CategoryWrapper } from './styled'
+import { CategoryWrapper, RowWrapper, SliderWrapper } from './styled'
 
 export function Home() {
   return (
     <div className="App">
-      <CategoryWrapper>
-        <CategoryCard title="All" />
-        <CategoryCard title="Salads" />
-        <CategoryCard title="Soup" />
-      </CategoryWrapper>
+      <RowWrapper>
+        <CategoryWrapper>
+          <CategoryCard title="All" />
+          <CategoryCard title="Salads" />
+          <CategoryCard title="Soup" />
+        </CategoryWrapper>
+        <SliderWrapper />
+      </RowWrapper>
       <ProductCard />
     </div>
   )
