@@ -1,10 +1,11 @@
+// import { ValueType } from '../api/types'
 import { IconButton } from '../Button'
 import { Price } from '../Price'
 import { Tag } from '../Tag'
 import { FooterCardWrapper, FooterRightWrapper } from './styled'
 
 type Props = {
-  price: string
+  price: number
   quantity: number
   unity: string
 }

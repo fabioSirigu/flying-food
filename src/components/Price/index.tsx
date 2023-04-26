@@ -1,8 +1,14 @@
 import React, { PropsWithChildren } from 'react'
+import { FontVariant, ThemeColor } from '../../style/theme'
 import { Text } from '../Text'
 import { StyledPrice, PriceProps } from './styled'
 
-type Props = PropsWithChildren<Partial<PriceProps>>
+type Props = {
+  font?: FontVariant
+  background?: ThemeColor
+  title?: number
+  value?: string
+} & PropsWithChildren<Partial<PriceProps>>
 
 export const Price = ({
   background,
@@ -14,10 +20,8 @@ export const Price = ({
   ...rest
 }: Props) => {
   return (
-    <StyledPrice background={background} font={font} title={title} value={value}>
-      <Text color={colorText} variant={font}>
-        {`${value || '$'}${title}` || '56'}
-      </Text>
+    <StyledPrice color={colorText} variant="h3">
+      {`${value || '$'}${title}`}
     </StyledPrice>
   )
 }

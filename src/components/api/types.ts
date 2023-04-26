@@ -3,11 +3,6 @@ export type ValueType = {
   value: number
 }
 
-export type CurrencyType = {
-  type: string
-  value: number
-}
-
 export type ProductDto = {
   id: string
   name: string
@@ -18,7 +13,7 @@ export type ProductDto = {
   rating: number
   delivery: string
   discountRate: number
-  price: CurrencyType
+  price: ValueType
   size: ValueType
   tags: string[]
   imageUrl: string

@@ -9,8 +9,8 @@ export type ProductCardProps = {
 export const StyledCard = styled.div`
   margin-top: 4rem;
   border-radius: ${({ theme }) => theme.radii[3]}rem;
-  width: 220px;
-  height: 320px;
+  width: 240px;
+  height: 380px;
   background: ${({ theme }) => theme.colors.backgroundLight};
   position: relative;
   padding: 2rem 0.8rem;
@@ -32,10 +32,12 @@ export const TextWrapper = styled.div`
 `
 export const FooterCardWrapper = styled.div`
   display: flex;
+  padding: 0 1rem;
+  align-items: center;
   justify-content: space-between;
 `
 
 export const FooterRightWrapper = styled.div`
   display: flex;
-  gap: 0.5rem;
+  gap: 0.2rem;
 `

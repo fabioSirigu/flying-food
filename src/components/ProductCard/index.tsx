@@ -1,4 +1,5 @@
 import React, { PropsWithChildren } from 'react'
+import { ProductDto } from '../api/types'
 import { Image } from '../Image'
 import { Paper } from '../Paper'
 import { Text } from '../Text'
@@ -7,7 +8,7 @@ import { ImageWrapper, ProductCardProps, StyledCard, TextWrapper } from './style
 
 type Props = PropsWithChildren<Partial<ProductCardProps>>
 type Product = {
-  product: any
+  product: ProductDto
 }
 export const ProductCard = ({
   product,

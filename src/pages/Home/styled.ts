@@ -4,7 +4,7 @@ export const RowWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.5rem;
   margin-top: 1rem;
 `
 export const SliderWrapper = styled.div`
