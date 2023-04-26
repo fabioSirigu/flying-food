@@ -11,15 +11,20 @@ import {
 
 type Props = PropsWithChildren<Partial<CategoryCardProps>>
 
-export const CategoryCard = ({ background, children, title, ...rest }: Props) => {
+export const CategoryCard = ({
+  background,
+  category,
+  children,
+  imageUrl,
+  ...rest
+}: Props) => {
   return (
     <Paper>
-      <StyledCategoryCard>
-        <Image url="" />
-
+      <StyledCategoryCard category={category}>
+        <Image url={category?.imageUrl} />
         <TextWrapper>
           <Text variant="h5" color="textLight">
-            {title}
+            {category?.namePlural}
           </Text>
         </TextWrapper>
         <SelectedCategory />

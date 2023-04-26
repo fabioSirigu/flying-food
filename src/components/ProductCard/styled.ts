@@ -9,7 +9,7 @@ export type ProductCardProps = {
 export const StyledCard = styled.div`
   margin-top: 4rem;
   border-radius: ${({ theme }) => theme.radii[3]}rem;
-  width: 250px;
+  width: 220px;
   height: 320px;
   background: ${({ theme }) => theme.colors.backgroundLight};
   position: relative;
