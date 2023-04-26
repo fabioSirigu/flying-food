@@ -9,6 +9,7 @@ export const StyledRightContainer = styled.div`
 export const StyledBody = styled.div`
   display: flex;
   height: 100vh;
+  overflow: hidden;
 `
 
 export const StyledMain = styled.main`
