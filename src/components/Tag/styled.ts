@@ -7,7 +7,8 @@ export type TagProps = {
   radius?: number
   border?: string
   font?: FontVariant
-  title?: string
+  quantity: number | string
+  value?: string
   padding?: ThemeSpacing
 }
 

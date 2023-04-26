@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import React from 'react'
 import { IconButton } from '../../components/Button'
 import { CategoryCard } from '../../components/CategoryCard'
@@ -29,6 +30,24 @@ const CategoryCards: Cards[] = [
 ]
 
 export function Home() {
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    fetch('https://d4crsehc65.execute-api.eu-central-1.amazonaws.com/prod/products', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': 'e34vAOxj2C9fo2NVp9kT89QBOA4P1qvl459VtZak'
+      }
+    })
+      .then((res) => {
+        return res.json()
+      })
+      .then((data) => {
+        setProducts(data)
+      })
+  }, [])
+
   return (
     <div className="App">
       <RowWrapper>
@@ -58,14 +77,7 @@ export function Home() {
         </SelectIconWrapper>
       </RowWrapper>
       <ProductWrapper>
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {products.length && products.map((product) => <ProductCard product={product} />)}
       </ProductWrapper>
     </div>
   )

@@ -8,14 +8,20 @@ export const Tag = ({
   background,
   colorText = 'text',
   font,
-  title,
+  quantity,
+  value,
 
   ...rest
 }: Props) => {
   return (
-    <StyledTag background={background} font={font} title={title}>
+    <StyledTag
+      background={background}
+      font={font}
+      quantity={quantity || 32}
+      value={value}
+    >
       <Text color={colorText} variant={font}>
-        {title}
+        {`${value} ${quantity}`}
       </Text>
     </StyledTag>
   )

@@ -15,7 +15,7 @@ export const CategoryCard = ({ background, children, title, ...rest }: Props) =>
   return (
     <Paper>
       <StyledCategoryCard>
-        <Image url="https://static.vecteezy.com/system/resources/previews/009/345/591/original/stir-fry-salad-with-sushi-and-shrimps-in-a-bowl-with-a-slate-background-top-view-copy-space-shrimp-and-vegetables-served-with-salad-chopsticks-with-asian-food-vector-free-png.png" />
+        <Image url="" />
 
         <TextWrapper>
           <Text variant="h5" color="textLight">

@@ -3,12 +3,18 @@ import { Price } from '../Price'
 import { Tag } from '../Tag'
 import { FooterCardWrapper, FooterRightWrapper } from './styled'
 
-export const FooterCard = () => {
+type Props = {
+  price: string
+  quantity: number
+  unity: string
+}
+
+export const FooterCard = ({ price, unity, quantity }: Props) => {
   return (
     <FooterCardWrapper>
-      <Price title="120" font="p" />
+      <Price title={price} font="p" />
       <FooterRightWrapper>
-        <Tag title="280g" font="h6" />
+        <Tag quantity={quantity} value={unity} font="h6" />
         <IconButton rounded iconName="plus" padding="lg" color="secondary" />
       </FooterRightWrapper>
     </FooterCardWrapper>
