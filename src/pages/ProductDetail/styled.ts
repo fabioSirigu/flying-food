@@ -36,12 +36,20 @@ export const StyledButton = styled(Button)`
   padding: 1rem;
 `
 
-/* export const BackgroundPattern = styled.div`
-  position: absolute;
-  width: 40%;
-  background: rgba(0, 0, 0, 0.5);
-  height: 100%;
-  right: 0;
-  top: 0;
-  z-index: -1;
-` */
+export const StyledReview = styled.div``
+
+export const CardsContainer = styled.div`
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+`
+
+export const ReviewCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 300px;
+  padding: 1rem 1.4rem;
+  background: ${({ theme }) => theme.colors.backgroundLight};
+  border-radius: ${({ theme }) => theme.radii[2]}rem;
+`

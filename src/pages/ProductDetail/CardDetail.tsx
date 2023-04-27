@@ -23,7 +23,7 @@ export const CardDetail = () => {
 
   useEffect(() => {
     getProductById(id).then((data) => setSingleProducts(data))
-  }, [])
+  }, [id])
   return (
     <DetailCard>
       <TextWrapper>
