@@ -5,8 +5,8 @@ import { ButtonProps, IconWrapper, StyledButton } from './styled'
 type Props = PropsWithChildren<Partial<ButtonProps>>
 
 export const IconButton = ({
-  color = 'primary',
-  iconColor = 'text',
+  color,
+  iconColor,
   iconName = 'check',
   padding = 'md',
   rounded,
@@ -17,7 +17,7 @@ export const IconButton = ({
 }: Props) => {
   return (
     <StyledButton
-      color={color}
+      color={color!}
       iconColor={iconColor}
       iconName={iconName}
       padding={padding}
@@ -26,7 +26,7 @@ export const IconButton = ({
       {...rest}
     >
       <IconWrapper>
-        <Icon iconName={iconName} color={iconColor} />
+        <Icon iconName={iconName} color={iconColor!} />
       </IconWrapper>
     </StyledButton>
   )

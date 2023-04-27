@@ -1,9 +1,7 @@
 import React, { PropsWithChildren } from 'react'
-import { DefaultButton } from '../../Button/DefaultButton'
-// import { DefaultButton } from '../../Button/DefaultButton'
-import { IconButton } from '../../Button/IconButton'
+import { useNavigate } from 'react-router-dom'
 
-import { SidelinkProps, SidelinkWrapper } from './styled'
+import { DefaultLink, IconLink, SidelinkProps, SidelinkWrapper } from './styled'
 
 type Props = PropsWithChildren<Partial<SidelinkProps>>
 
@@ -15,17 +13,15 @@ export const Sidelink = ({
   children,
   ...rest
 }: Props) => {
+  const navigate = useNavigate()
+
   return (
-    <SidelinkWrapper backgroundIcon={backgroundIcon} background={background}>
-      <IconButton
-        rounded
+    <SidelinkWrapper backgroundIcon={backgroundIcon} onClick={() => navigate('/')}>
+      <IconLink rounded outline padding="lg" iconName={iconTitle} />
+      <DefaultLink
+        outline
         padding="lg"
-        iconName={iconTitle || 'plus'}
-        color={backgroundIcon || 'background'}
-      />
-      <DefaultButton
-        padding="lg"
-        color={background || 'background'}
+        colorText="text"
         font="h4"
         title={text || 'title'}
       />

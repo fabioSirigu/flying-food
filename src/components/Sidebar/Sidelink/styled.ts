@@ -1,5 +1,7 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { ThemeColor } from '../../../style/theme'
+import { IconButton } from '../../Button'
+import { DefaultButton } from '../../Button/DefaultButton'
 import { NameIcon } from '../../Icon/config'
 
 export type SidelinkProps = {
@@ -16,15 +18,18 @@ export const SidelinkWrapper = styled.div<SidelinkProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  ${({ background }) =>
-    background
-      ? css`
-          background: ${({ theme }) => theme.colors['primary']};
-        `
-      : css`
-          background: ${({ theme }) => theme.colors['background']};
-        `}
+  background: ${({ theme }) => theme.colors['background']};
+  :hover {
+    background: ${({ theme }) => theme.colors['primary']};
+  }
 
   border-radius: ${({ theme }) => theme.radii[3]}rem;
   padding-right: 2rem;
+`
+
+export const IconLink = styled(IconButton)`
+  border: none;
+`
+export const DefaultLink = styled(DefaultButton)`
+  border: none;
 `

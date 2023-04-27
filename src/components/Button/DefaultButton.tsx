@@ -6,10 +6,10 @@ import { ButtonProps, IconWrapper, StyledButton } from './styled'
 type Props = PropsWithChildren<Partial<ButtonProps>>
 
 export const DefaultButton = ({
-  color = 'primary',
-  colorText = 'text',
-  font = 'span',
-  padding = 'lg',
+  color,
+  colorText,
+  font,
+  padding,
   iconColor,
   iconBackground,
   title,
@@ -22,11 +22,11 @@ export const DefaultButton = ({
 }: Props) => {
   return (
     <StyledButton
-      color={color}
+      color={color!}
       iconBackground={iconBackground}
       colorText={colorText}
       font={font}
-      padding={padding}
+      padding={padding!}
       rounded={rounded}
       outline={outline}
       {...rest}
@@ -38,7 +38,7 @@ export const DefaultButton = ({
       )}
       {iconName && (
         <IconWrapper background={iconBackground}>
-          <Icon color={color} iconName={iconName} />
+          <Icon color={color!} iconName={iconName} />
         </IconWrapper>
       )}
     </StyledButton>

@@ -35,12 +35,7 @@ export const Sidebar = ({
         </Text>
       </TopSidebar>
       <MainSidebar>
-        <Sidelink
-          backgroundIcon="primaryDark"
-          iconTitle="home"
-          background="primary"
-          text="Home"
-        />
+        <Sidelink iconTitle="home" text="Home" />
         <Sidelink iconTitle="search" text="Catalog" />
         <Sidelink iconTitle="check" text="Category" />
         <Sidelink iconTitle="map" text="Map" />

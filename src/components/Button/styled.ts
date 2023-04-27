@@ -45,6 +45,7 @@ export const StyledButton = styled.button<ButtonProps>`
       : 'none'};
   aspect-ratio: ${({ rounded }) => (rounded ? `${1}` : 'none')};
   position: relative;
+  cursor: pointer;
 `
 
 export const IconWrapper = styled.div<WrapperProps>`
