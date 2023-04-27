@@ -7,7 +7,6 @@ export type ProductCardProps = {
   children?: PropsWithChildren
 }
 export const StyledCard = styled.div`
-  margin-top: 4rem;
   border-radius: ${({ theme }) => theme.radii[3]}rem;
   width: 240px;
   height: 380px;
@@ -16,9 +15,11 @@ export const StyledCard = styled.div`
   padding: 2rem 0.8rem;
   display: flex;
   flex-direction: column;
+  justify-content: end;
 `
 export const LinkWrapper = styled.div`
   cursor: pointer;
+  flex: 1;
 `
 export const ImageWrapper = styled.div`
   position: absolute;
