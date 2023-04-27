@@ -5,6 +5,7 @@ import { FontVariant, ThemeColor, ThemeSpacing } from '../../style/theme'
 import { NameIcon } from '../Icon/config'
 
 export type ButtonProps = {
+  onClick?: () => void
   color: ThemeColor
   colorText?: ThemeColor
   iconColor?: ThemeColor
@@ -33,7 +34,7 @@ export const StyledButton = styled.button<ButtonProps>`
   padding: ${({ theme, padding, rounded }) =>
     rounded
       ? `${theme.spacings[padding]}rem`
-      : `${theme.spacings[padding] / 2}rem ${theme.spacings[padding] * 4}rem`};
+      : `${theme.spacings[padding] / 2}rem ${theme.spacings[padding] * 2}rem`};
   border-radius: ${({ theme, radius, rounded }) =>
     rounded ? `${50}%` : `${theme.radii[radius || 2]}rem`};
   border: ${({ theme, border, outline, colorText, iconBackground }) =>
@@ -47,7 +48,6 @@ export const StyledButton = styled.button<ButtonProps>`
 `
 
 export const IconWrapper = styled.div<WrapperProps>`
-  width: 100%;
   height: 100%;
   color: ${({ theme }) => theme.colors['text']};
 
@@ -69,18 +69,3 @@ export const IconWrapper = styled.div<WrapperProps>`
   justify-content: center;
   align-items: center;
 `
-/* export const IconWrapperTwo = styled.div`
-  color: ${({ theme }) => theme.colors['text']};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: lightgreen;
-  border-radius: 50%;
-  height: 100%;
-  width: auto;
-  aspect-ratio: 1/1;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  top: 0;
-` */

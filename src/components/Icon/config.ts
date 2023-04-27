@@ -1,6 +1,7 @@
 import {
   faCheck,
   faPlus,
+  faMinus,
   faChevronRight,
   faMagnifyingGlass,
   faBell,
@@ -16,6 +17,7 @@ import {
 
 export const icons = {
   plus: faPlus,
+  minus: faMinus,
   check: faCheck,
   right: faChevronRight,
   search: faMagnifyingGlass,
