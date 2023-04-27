@@ -43,7 +43,13 @@ export const CardDetail = () => {
           <Price title={singleProducts?.price.value} />
           <Counter />
         </PriceWrapper>
-        <StyledButton color="secondary" title="Order Now" font="h4" radius={3} />
+        <StyledButton
+          colorText="text"
+          color="secondary"
+          title="Order Now"
+          font="h4"
+          radius={3}
+        />
       </TextWrapper>
       <ImageWrapper>
         <Image url={singleProducts?.imageUrl} />

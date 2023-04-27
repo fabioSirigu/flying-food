@@ -9,7 +9,7 @@ export type SidelinkProps = {
   backgroundIcon?: ThemeColor
   colorText?: ThemeColor
   iconTitle?: NameIcon
-
+  className?: string
   text?: string
 }
 

@@ -13,8 +13,10 @@ export const ProductDetail = (props: any) => {
           border="1"
           font="h5"
           outline
+          padding="lg"
           title="Return To Catalog"
           iconName="right"
+          colorText="text"
           onClick={() => navigate('/')}
         />
       </RowButton>

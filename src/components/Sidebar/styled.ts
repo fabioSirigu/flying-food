@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { ThemeColor, FontVariant, ThemeSpacing } from '../../style/theme'
+import { Image } from '../Image'
 
 export type SidebarProps = {
   background?: ThemeColor
@@ -29,6 +30,7 @@ export const TopSidebar = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  width: 100px;
   margin-bottom: 2rem;
 `
 

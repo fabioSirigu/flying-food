@@ -17,7 +17,7 @@ export const Sidelink = ({
 
   return (
     <SidelinkWrapper backgroundIcon={backgroundIcon} onClick={() => navigate('/')}>
-      <IconLink rounded outline padding="lg" iconName={iconTitle} />
+      <IconLink rounded padding="lg" color="backgroundLight" iconName={iconTitle} />
       <DefaultLink
         outline
         padding="lg"

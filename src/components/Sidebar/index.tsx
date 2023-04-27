@@ -1,6 +1,5 @@
 // import React, { PropsWithChildren } from 'react'
 import { FontVariant, ThemeColor, ThemeSpacing } from '../../style/theme'
-
 import { Image } from '../Image'
 import { Text } from '../Text'
 import { Sidelink } from './Sidelink'
@@ -31,7 +30,7 @@ export const Sidebar = ({
       <TopSidebar>
         <Image url="https://assets.stickpng.com/images/585e4bc4cb11b227491c3395.png" />
         <Text variant="h5" color={colorText}>
-          Ciao User
+          Nome Utente
         </Text>
       </TopSidebar>
       <MainSidebar>
