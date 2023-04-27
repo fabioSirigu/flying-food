@@ -27,7 +27,6 @@ export function Home() {
     getTags().then((data) => setCategories(data.filter(({ hidden }) => !hidden)))
   }, [])
 
-  // console.log(products)
   return (
     <div className="App">
       <RowWrapper>
