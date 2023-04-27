@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import { ThemeColor, FontVariant, ThemeSpacing } from '../../style/theme'
+import { ThemeColor, ThemeSpacing } from '../../style/theme'
 import { Text } from '../Text'
-// import { ValueType } from '../api/types'
 
 export type PriceProps = {
   colorText?: ThemeColor

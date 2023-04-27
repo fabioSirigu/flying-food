@@ -17,7 +17,7 @@ export const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
 `
-
+export const LinkWrapper = styled.div``
 export const ImageWrapper = styled.div`
   position: absolute;
   width: 120px;
