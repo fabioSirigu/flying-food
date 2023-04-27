@@ -21,7 +21,7 @@ export const ProductDetail = (props: any) => {
           title="Return To Catalog"
           iconName="right"
           colorText="text"
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/catalog')}
         />
       </RowButton>
       <CardDetail />

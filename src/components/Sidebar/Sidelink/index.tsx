@@ -14,7 +14,9 @@ export const Sidelink = ({
   ...rest
 }: Props) => {
   const navigate = useNavigate()
+  const urlPage = [{ url: '/' }, { url: '/catalog' }]
 
+  console.log(urlPage)
   return (
     <SidelinkWrapper backgroundIcon={backgroundIcon} onClick={() => navigate('/')}>
       <IconLink rounded padding="lg" color="backgroundLight" iconName={iconTitle} />
