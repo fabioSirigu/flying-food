@@ -1,7 +1,8 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { Button } from '../../components/Button'
-import { CardDetail } from './CardDetail'
-import { ReviewsContainer } from './ReviewsContainer'
+import { CardDetail } from './components/CardDetail'
+import { Raccomanded } from './components/Raccomanded/Raccomanded'
+import { ReviewsContainer } from './components/Review/ReviewsContainer'
 
 import { RowButton, StyledDetails } from './styled'
 
@@ -26,6 +27,7 @@ export const ProductDetail = (props: any) => {
       </RowButton>
       <CardDetail />
       <ReviewsContainer productId={id} />
+      <Raccomanded />
     </StyledDetails>
   )
 }

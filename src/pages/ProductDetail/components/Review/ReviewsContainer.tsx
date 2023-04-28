@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import { getReviewsByProductId } from '../../components/api'
-import { ReviewDto } from '../../components/api/types'
-import { Text } from '../../components/Text'
+import { getReviewsByProductId } from '../../../../components/api'
+import { ReviewDto } from '../../../../components/api/types'
+import { Text } from '../../../../components/Text'
+import { StyledReview, CardsContainer } from '../../styled'
 import { Review } from './Review'
-import { StyledReview, CardsContainer } from './styled'
 
 type Props = {
   productId?: string
@@ -18,7 +18,9 @@ export const ReviewsContainer = ({ productId }: Props) => {
 
   return (
     <StyledReview>
-      <Text color="text">Review</Text>
+      <Text color="text" variant="h3">
+        Review
+      </Text>
       <CardsContainer>
         {reviews && reviews.map((review) => <Review review={review} />)}
       </CardsContainer>

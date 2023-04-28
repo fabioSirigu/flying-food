@@ -3,6 +3,8 @@ import { CurrencyRatesDto, OrderDto, ProductDto, ReviewDto, TagDto } from './typ
 
 export const getProducts = () => apiClient.get<ProductDto[]>('products')
 
+export const getProductsRandom = () => apiClient.get<ProductDto[]>('products/random')
+
 export const getTags = () => apiClient.get<TagDto[]>('tags')
 
 export const getProductById = (id: string) => apiClient.get<ProductDto>(`products/${id}`)

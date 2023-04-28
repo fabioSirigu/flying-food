@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 import { FontVariant, ThemeColor } from '../../style/theme'
-import { Text } from '../Text'
+
 import { StyledPrice, PriceProps } from './styled'
 
 type Props = {
@@ -20,7 +20,7 @@ export const Price = ({
   ...rest
 }: Props) => {
   return (
-    <StyledPrice color={colorText} variant="h3">
+    <StyledPrice color={colorText} variant={font}>
       {`${value || '$'}${title}`}
     </StyledPrice>
   )

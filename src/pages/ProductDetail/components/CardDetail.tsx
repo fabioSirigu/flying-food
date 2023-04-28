@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getProductById } from '../../components/api'
-import { ProductDto } from '../../components/api/types'
-import { Counter } from '../../components/Counter'
-import { Image } from '../../components/Image'
-import { Price } from '../../components/Price'
-import { Text } from '../../components/Text'
+import { getProductById } from '../../../components/api'
+import { ProductDto } from '../../../components/api/types'
+import { Counter } from '../../../components/Counter'
+import { Image } from '../../../components/Image'
+import { Price } from '../../../components/Price'
+import { Text } from '../../../components/Text'
 import {
   StyledButton,
   DetailCard,
   ImageWrapper,
   PriceWrapper,
   TextWrapper
-} from './styled'
+} from '../styled'
 
 export const CardDetail = () => {
   const params = useParams()
@@ -30,7 +30,7 @@ export const CardDetail = () => {
         <Text color="text" variant="h1">
           {singleProducts?.name}
         </Text>
-        <Text color="text" variant="h6">
+        <Text color="text" variant="h5">
           Rating
         </Text>
         <Text color="textLight" variant="p">
@@ -40,7 +40,7 @@ export const CardDetail = () => {
           Ingredients
         </Text>
         <PriceWrapper>
-          <Price title={singleProducts?.price.value} />
+          <Price title={singleProducts?.price.value} font="h2" />
           <Counter />
         </PriceWrapper>
         <StyledButton
