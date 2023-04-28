@@ -32,12 +32,12 @@ export const Raccomanded = () => {
                 <Image url={random.imageUrl} />
               </LeftCard>
               <RightCard>
-                <Text color="text" variant="h5">
+                <Text color="text" variant="h3">
                   {random.name}
                 </Text>
                 <MainText>
                   <Text variant="h6" color="textLight">
-                    {random.description.slice(0, 15)}...
+                    {random.description.slice(0, 50)}...
                   </Text>
                 </MainText>
                 <FooterCard

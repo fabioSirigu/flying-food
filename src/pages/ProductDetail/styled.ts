@@ -50,20 +50,24 @@ export const ReviewCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 300px;
+  width: 380px;
   padding: 1rem 1.4rem;
   background: ${({ theme }) => theme.colors.backgroundLight};
   border-radius: ${({ theme }) => theme.radii[2]}rem;
 `
 export const RaccomandedWrapper = styled.div`
   margin-top: 1rem;
+  width: 80%;
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 1.2rem;
 `
-export const LeftCard = styled.div``
+export const LeftCard = styled.div`
+  width: 60%;
+`
 
 export const RightCard = styled.div`
-  width: 70%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -76,7 +80,8 @@ export const MainText = styled.div`
 export const RaccomandedCard = styled.div`
   display: flex;
   gap: 1rem;
-  width: 260px;
+  width: 340px;
+  height: 220px;
   padding: 1rem;
 `
 
