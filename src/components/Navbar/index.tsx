@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 import { IconButton } from '../Button'
+import { CurrencySelect } from '../CurrencySelect'
 import { SearchBox } from '../SearchBox'
 // import { Text } from '../Text'
 import { StyledNavbar, NavbarProps, IconWrapper } from './styled'
@@ -22,6 +23,7 @@ export const Navbar = ({
       />
 
       <IconWrapper>
+        <CurrencySelect />
         <IconButton
           rounded
           padding="md"
