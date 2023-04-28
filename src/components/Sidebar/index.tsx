@@ -34,12 +34,7 @@ export const Sidebar = ({
         </Text>
       </TopSidebar>
       <MainSidebar>
-        <Sidelink iconTitle="home" text="Home" />
-        <Sidelink iconTitle="search" text="Catalog" />
-        <Sidelink iconTitle="check" text="Category" />
-        <Sidelink iconTitle="map" text="Map" />
-        <Sidelink iconTitle="truck" text="Delivery" />
-        <Sidelink iconTitle="settings" text="Settings" />
+        <Sidelink />
       </MainSidebar>
       <FooterSidebar>
         <Image url="https://images.vexels.com/media/users/3/199964/isolated/preview/ae782cab8ae7e722febb5869c09574cc-happy-delivery-boy-character.png" />

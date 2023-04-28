@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { NameIcon } from '../../Icon/config'
 
 import { DefaultLink, IconLink, SidelinkProps, SidelinkWrapper } from './styled'
 
@@ -14,19 +15,37 @@ export const Sidelink = ({
   ...rest
 }: Props) => {
   const navigate = useNavigate()
-  const urlPage = [{ url: '/' }, { url: '/catalog' }]
+  type NavLink = {
+    name: string
+    url: string
+    icon: NameIcon
+  }
+  const navLinks: NavLink[] = [
+    { name: 'Home', url: '/', icon: 'home' },
+    { name: 'Catalog', url: '/catalog', icon: 'search' },
+    { name: 'Category', url: '/category', icon: 'check' },
+    { name: 'Map', url: '/map', icon: 'map' },
+    { name: 'Delivery', url: '/delivery', icon: 'truck' },
+    { name: 'Settings', url: '/settings', icon: 'settings' }
+  ]
 
-  console.log(urlPage)
   return (
-    <SidelinkWrapper backgroundIcon={backgroundIcon} onClick={() => navigate('/')}>
-      <IconLink rounded padding="lg" color="backgroundLight" iconName={iconTitle} />
-      <DefaultLink
-        outline
-        padding="lg"
-        colorText="text"
-        font="h4"
-        title={text || 'title'}
-      />
-    </SidelinkWrapper>
+    <>
+      {navLinks.map((link) => (
+        <SidelinkWrapper
+          backgroundIcon={backgroundIcon}
+          onClick={() => navigate(`${link.url}`)}
+        >
+          <IconLink rounded padding="lg" color="backgroundLight" iconName={link.icon} />
+          <DefaultLink
+            outline
+            padding="lg"
+            colorText="text"
+            font="h4"
+            title={link.name}
+          />
+        </SidelinkWrapper>
+      ))}
+    </>
   )
 }
