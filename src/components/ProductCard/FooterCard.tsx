@@ -1,16 +1,18 @@
 // import { ValueType } from '../api/types'
+import { ValueType } from '../api/types'
 import { IconButton } from '../Button'
 import { Price } from '../Price'
 import { Tag } from '../Tag'
 import { FooterCardWrapper, FooterRightWrapper } from './styled'
 
 type Props = {
-  price: number
+  price: ValueType
   quantity: number
   unity: string
 }
 
 export const FooterCard = ({ price, unity, quantity }: Props) => {
+  console.log('🚀 ~ file: FooterCard.tsx:15 ~ FooterCard ~ price:', price)
   return (
     <FooterCardWrapper>
       <Price title={price} font="p" />

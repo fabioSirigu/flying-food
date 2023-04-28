@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getProductById } from '../../../components/api'
-import { ProductDto } from '../../../components/api/types'
+import { ProductDto, ValueType } from '../../../components/api/types'
 import { Counter } from '../../../components/Counter'
 import { Image } from '../../../components/Image'
 import { Price } from '../../../components/Price'
@@ -25,6 +25,7 @@ export const CardDetail = () => {
   useEffect(() => {
     getProductById(id).then((data) => setSingleProducts(data))
   }, [id])
+  if (!singleProducts) return <>Loading</> // todo aggiungere loader
   return (
     <DetailCard>
       <TextWrapper>
@@ -39,7 +40,7 @@ export const CardDetail = () => {
           Ingredients
         </Text>
         <PriceWrapper>
-          <Price title={singleProducts?.price.value} font="h2" />
+          <Price title={singleProducts?.price as ValueType} font="h2" />
           <Counter />
         </PriceWrapper>
         <StyledButton

@@ -1,12 +1,14 @@
 import React, { PropsWithChildren } from 'react'
+import { useCurrency } from '../../hooks'
 import { FontVariant, ThemeColor } from '../../style/theme'
+import { ValueType } from '../api/types'
 
 import { StyledPrice, PriceProps } from './styled'
 
 type Props = {
   font?: FontVariant
   background?: ThemeColor
-  title?: number
+  title: ValueType
   value?: string
 } & PropsWithChildren<Partial<PriceProps>>
 
@@ -19,9 +21,11 @@ export const Price = ({
 
   ...rest
 }: Props) => {
+  const priceRate = useCurrency()
+  console.log('🚀 ~ file: index.tsx:32 ~ priceRate(title):', priceRate(title))
   return (
     <StyledPrice color={colorText} variant={font}>
-      {`${value || '$'}${title}`}
+      {priceRate(title)}
     </StyledPrice>
   )
 }

@@ -43,7 +43,7 @@ export const ProductCard = ({
           </TextWrapper>
         </LinkWrapper>
         <FooterCard
-          price={product.price.value}
+          price={product.price}
           unity={product.size.type}
           quantity={product.size.value}
         />

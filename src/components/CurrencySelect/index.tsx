@@ -6,6 +6,8 @@ import { StyledCurrency } from './styled'
 const options: CurrencySymbol[] = ['EUR', 'USD', 'JPY', 'GBP']
 export const CurrencySelect = () => {
   const { currency, setCurrency } = useContext(currencyContext)
+  console.log('🚀 ~ file: index.tsx:9 ~ CurrencySelect ~ setCurrency:', setCurrency)
+  console.log('🚀 ~ file: index.tsx:9 ~ CurrencySelect ~ currency:', currency)
   return (
     <StyledCurrency
       value={currency}
@@ -15,7 +17,7 @@ export const CurrencySelect = () => {
       }}
     >
       {options.map((item, index) => (
-        <option value={index}>{item}</option>
+        <option value={item}>{item}</option>
       ))}
     </StyledCurrency>
   )

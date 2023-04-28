@@ -41,7 +41,7 @@ export const Raccomanded = () => {
                   </Text>
                 </MainText>
                 <FooterCard
-                  price={random.price.value}
+                  price={random.price}
                   unity={random.size.type}
                   quantity={random.size.value}
                 />

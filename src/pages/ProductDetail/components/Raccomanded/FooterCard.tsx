@@ -1,11 +1,12 @@
 // import { ValueType } from '../api/types'
+import { ValueType } from '../../../../components/api/types'
 import { IconButton } from '../../../../components/Button'
 import { Price } from '../../../../components/Price'
 import { Tag } from '../../../../components/Tag'
 import { FooterCardWrapper, FooterRightWrapper } from '../../styled'
 
 type Props = {
-  price: number
+  price: ValueType
   quantity: number
   unity: string
 }

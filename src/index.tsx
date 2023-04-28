@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import App from './App'
+import { CurrencyProvider } from './components/CurrrencyProvider'
 import reportWebVitals from './reportWebVitals'
 import { GlobalStyle } from './style/global'
 import { theme } from './style/theme'
@@ -14,7 +15,9 @@ root.render(
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <BrowserRouter>
-        <App />
+        <CurrencyProvider>
+          <App />
+        </CurrencyProvider>
       </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>
