@@ -1,3 +1,4 @@
+import { faStar as emptyStar } from '@fortawesome/free-regular-svg-icons'
 import {
   faCheck,
   faPlus,
@@ -12,7 +13,9 @@ import {
   faTruckFast,
   faSliders,
   faBars,
-  faBorderAll
+  faBorderAll,
+  faStar,
+  faStarHalfStroke
 } from '@fortawesome/free-solid-svg-icons'
 
 export const icons = {
@@ -29,6 +32,9 @@ export const icons = {
   truck: faTruckFast,
   settings: faSliders,
   bars: faBars,
-  grid: faBorderAll
+  grid: faBorderAll,
+  fullStar: faStar,
+  emptyStar: emptyStar,
+  halfStar: faStarHalfStroke
 }
 export type NameIcon = keyof typeof icons

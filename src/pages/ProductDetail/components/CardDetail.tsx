@@ -13,6 +13,7 @@ import {
   PriceWrapper,
   TextWrapper
 } from '../styled'
+import { Rating } from './Rating'
 
 export const CardDetail = () => {
   const params = useParams()
@@ -30,9 +31,7 @@ export const CardDetail = () => {
         <Text color="text" variant="h1">
           {singleProducts?.name}
         </Text>
-        <Text color="text" variant="h5">
-          Rating
-        </Text>
+        <Rating rating={singleProducts?.rating || 0} />
         <Text color="textLight" variant="p">
           {singleProducts?.description}
         </Text>
