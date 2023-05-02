@@ -22,7 +22,7 @@ export const CardDetail = () => {
     if (productDetail && productDetail.stock < 1) {
       return Math.min(productDetail.stock)
     }
-    return 0
+    return 1
   }
 
   const [counter, setCounter] = useState(initialState)
