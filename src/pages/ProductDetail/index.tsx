@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Button } from '../../components/Button'
+import { Modal } from '../../components/Modal/Modal'
 
 import { CardDetail } from './components/CardDetail'
 
@@ -21,6 +22,7 @@ export const ProductDetail = (props: any) => {
   }
   return (
     <>
+      <Modal opened={showModal} />
       <StyledDetails>
         <RowButton>
           <Button

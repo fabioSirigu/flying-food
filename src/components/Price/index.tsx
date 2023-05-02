@@ -22,7 +22,6 @@ export const Price = ({
   ...rest
 }: Props) => {
   const priceRate = useCurrency()
-  console.log('🚀 ~ file: index.tsx:32 ~ priceRate(title):', priceRate(title))
   return (
     <StyledPrice color={colorText} variant={font}>
       {priceRate(title)}

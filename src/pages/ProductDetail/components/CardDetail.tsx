@@ -18,7 +18,6 @@ import {
 export const CardDetail = () => {
   const params = useParams()
   const id = params.id!
-  console.log(id)
 
   const [singleProducts, setSingleProducts] = useState<ProductDto>()
 

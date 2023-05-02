@@ -3,7 +3,9 @@ import { Icon } from '../Icon'
 import { ButtonProps, IconWrapper, StyledButton } from './styled'
 
 type Props = PropsWithChildren<Partial<ButtonProps>>
-
+type IconProps = {
+  onClick?: () => void
+}
 export const IconButton = ({
   color,
   iconColor,
@@ -12,9 +14,10 @@ export const IconButton = ({
   rounded,
   outline,
   children,
+  onClick,
 
   ...rest
-}: Props) => {
+}: Props & IconProps) => {
   return (
     <StyledButton
       color={color!}

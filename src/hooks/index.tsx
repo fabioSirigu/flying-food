@@ -14,7 +14,6 @@ export const formatPrice = ({ type, value }: ValueType) => {
 export const useCurrency = () => {
   const { currency, rates } = useContext(currencyContext)
   const format = ({ value, type }: ValueType) => {
-    console.log(value, type)
     if (!rates) return '...'
     if (type === currency) return formatPrice({ type, value })
     const currentRate = rates[type] // 0.91

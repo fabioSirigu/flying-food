@@ -12,6 +12,7 @@ export const Recommended = () => {
   useEffect(() => {
     getProductsRandom().then((data) => setRandoms(data))
   }, [])
+
   return (
     <>
       <Text color="text" variant="h3">
