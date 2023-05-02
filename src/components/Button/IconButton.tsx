@@ -26,6 +26,7 @@ export const IconButton = ({
       padding={padding}
       rounded={rounded}
       outline={outline}
+      onClick={onClick}
       {...rest}
     >
       <IconWrapper>

@@ -6,9 +6,11 @@ import { ModalBackground, ModalWrapper, TopWrapper } from './styled'
 
 type Props = {
   opened: boolean
+  onClose: () => void
 }
-export const Modal = ({ opened }: Props) => {
+export const Modal = ({ opened, onClose }: Props) => {
   if (!opened) return null
+
   return (
     <Paper>
       <ModalBackground>
@@ -22,7 +24,7 @@ export const Modal = ({ opened }: Props) => {
               iconName="close"
               rounded
               iconColor="textLight"
-              onClick={() => console.log('cliccato')}
+              onClick={onClose}
             />
           </TopWrapper>
         </ModalWrapper>
