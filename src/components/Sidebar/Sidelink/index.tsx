@@ -33,6 +33,7 @@ export const Sidelink = ({
     <>
       {navLinks.map((link) => (
         <SidelinkWrapper
+          key={link.name}
           backgroundIcon={backgroundIcon}
           onClick={() => navigate(`${link.url}`)}
         >

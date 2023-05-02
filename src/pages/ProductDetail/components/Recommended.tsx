@@ -7,10 +7,10 @@ import { Text } from '../../../components/Text'
 import { RaccomandedWrapper } from '../styled'
 
 export const Recommended = () => {
-  const [randoms, setRandoms] = useState<ProductDto[]>([])
+  const [raccomandeds, setRaccomandeds] = useState<ProductDto[]>([])
 
   useEffect(() => {
-    getProductsRandom().then((data) => setRandoms(data))
+    getProductsRandom().then((data) => setRaccomandeds(data))
   }, [])
 
   return (
@@ -19,15 +19,15 @@ export const Recommended = () => {
         Raccomanded
       </Text>
       <RaccomandedWrapper>
-        {randoms.map((random) => (
-          <Paper>
+        {raccomandeds.map((raccomanded) => (
+          <Paper key={raccomanded.id}>
             <ProductCardVariant
-              imageUrl={random.imageUrl}
-              productName={random.name}
-              productDescription={random.description}
-              price={random.price}
-              unity={random.size.type}
-              quantity={random.size.value}
+              imageUrl={raccomanded.imageUrl}
+              productName={raccomanded.name}
+              productDescription={raccomanded.description}
+              price={raccomanded.price}
+              unity={raccomanded.size.type}
+              quantity={raccomanded.size.value}
             />
           </Paper>
         ))}

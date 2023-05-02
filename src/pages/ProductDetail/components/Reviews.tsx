@@ -24,7 +24,12 @@ export const Reviews = ({ productId, onClick }: Props) => {
       <CardsContainer>
         {reviews &&
           reviews.map((review) => (
-            <Review author={review.author} date={review.date} body={review.text} />
+            <Review
+              key={review.productId}
+              author={review.author}
+              date={review.date}
+              body={review.text}
+            />
           ))}
       </CardsContainer>
     </StyledReview>
