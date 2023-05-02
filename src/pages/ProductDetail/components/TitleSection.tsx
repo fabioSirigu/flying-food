@@ -1,6 +1,6 @@
-import { Button } from '../../../../components/Button'
-import { Text } from '../../../../components/Text'
-import { TitleWrapper } from '../../styled'
+import { Button } from '../../../components/Button'
+import { Text } from '../../../components/Text'
+import { TitleWrapper } from '../styled'
 
 type Props = {
   onClick: () => void

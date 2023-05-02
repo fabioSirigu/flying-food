@@ -1,4 +1,6 @@
+// import { IconButton } from '../Button'
 import { Paper } from '../Paper'
+// import { Text } from '../Text'
 
 type Props = {
   opened: boolean

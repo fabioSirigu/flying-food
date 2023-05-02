@@ -4,8 +4,8 @@ import { Button } from '../../components/Button'
 
 import { CardDetail } from './components/CardDetail'
 
-import { ReviewsContainer } from './components/Review/ReviewsContainer'
-import { Recommended } from './Recommended'
+import { Recommended } from './components/Recommended'
+import { Reviews } from './components/Reviews'
 
 import { RowButton, StyledDetails } from './styled'
 
@@ -36,7 +36,7 @@ export const ProductDetail = (props: any) => {
           />
         </RowButton>
         <CardDetail />
-        <ReviewsContainer onClick={openModal} productId={id} />
+        <Reviews onClick={openModal} productId={id} />
         <Recommended />
       </StyledDetails>
     </>

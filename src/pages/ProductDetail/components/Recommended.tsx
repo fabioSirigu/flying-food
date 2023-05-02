@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import { getProductsRandom } from '../../components/api'
-import { ProductDto } from '../../components/api/types'
-import { Paper } from '../../components/Paper'
-import { ProductCardVariant } from '../../components/ProductCard/Variant/ProductCardVariant'
-import { Text } from '../../components/Text'
-import { RaccomandedWrapper } from './styled'
+import { getProductsRandom } from '../../../components/api'
+import { ProductDto } from '../../../components/api/types'
+import { Paper } from '../../../components/Paper'
+import { ProductCardVariant } from '../../../components/ProductCard/Variant/ProductCardVariant'
+import { Text } from '../../../components/Text'
+import { RaccomandedWrapper } from '../styled'
 
 export const Recommended = () => {
   const [randoms, setRandoms] = useState<ProductDto[]>([])
