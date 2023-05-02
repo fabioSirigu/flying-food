@@ -8,9 +8,10 @@ import { TitleSection } from './TitleSection'
 
 type Props = {
   productId?: string
+  onClick: () => void
 }
 
-export const ReviewsContainer = ({ productId }: Props) => {
+export const ReviewsContainer = ({ productId, onClick }: Props) => {
   const [reviews, setReviews] = useState<ReviewDto[]>()
 
   useEffect(() => {
@@ -19,7 +20,7 @@ export const ReviewsContainer = ({ productId }: Props) => {
 
   return (
     <StyledReview>
-      <TitleSection />
+      <TitleSection onClick={onClick} />
       <CardsContainer>
         {reviews && reviews.map((review) => <Review review={review} />)}
       </CardsContainer>

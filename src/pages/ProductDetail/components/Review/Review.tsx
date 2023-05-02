@@ -8,7 +8,7 @@ type Props = {
 export const Review = ({ review }: Props) => {
   const str = review?.date
   const date = new Date(str!)
-  console.log(date)
+
   return (
     <ReviewCard>
       <Text color="text"> {review?.author}</Text>

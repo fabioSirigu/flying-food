@@ -12,7 +12,6 @@ type Props = {
 }
 
 export const FooterCard = ({ price, unity, quantity }: Props) => {
-  console.log('🚀 ~ file: FooterCard.tsx:15 ~ FooterCard ~ price:', price)
   return (
     <FooterCardWrapper>
       <Price title={price} font="p" />

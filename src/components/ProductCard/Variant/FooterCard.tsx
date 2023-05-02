@@ -1,9 +1,12 @@
 // import { ValueType } from '../api/types'
-import { ValueType } from '../../../../components/api/types'
-import { IconButton } from '../../../../components/Button'
-import { Price } from '../../../../components/Price'
-import { Tag } from '../../../../components/Tag'
-import { FooterCardWrapper, FooterRightWrapper } from '../../styled'
+import {
+  FooterCardWrapper,
+  FooterRightWrapper
+} from '../../../pages/ProductDetail/styled'
+import { ValueType } from '../../api/types'
+import { IconButton } from '../../Button'
+import { Price } from '../../Price'
+import { Tag } from '../../Tag'
 
 type Props = {
   price: ValueType

@@ -2,7 +2,10 @@ import { Button } from '../../../../components/Button'
 import { Text } from '../../../../components/Text'
 import { TitleWrapper } from '../../styled'
 
-export const TitleSection = () => {
+type Props = {
+  onClick: () => void
+}
+export const TitleSection = ({ onClick }: Props) => {
   return (
     <TitleWrapper>
       <Text color="text" variant="h3">
@@ -18,6 +21,7 @@ export const TitleSection = () => {
         border="1"
         iconName="right"
         iconBackground="secondary"
+        onClick={onClick}
       />
     </TitleWrapper>
   )

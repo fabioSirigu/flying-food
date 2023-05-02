@@ -3,6 +3,9 @@ import { IconButton } from '../Button'
 import { Text } from '../Text'
 import { StyledCounter } from './styled'
 
+// Comunicare all'esterno il valore di counter
+// e cambiamenti di counter
+// Prevedere un limite minimo e massimo
 export const Counter = () => {
   const [counter, setCounter] = useState(0)
   function handleClickPlus() {
