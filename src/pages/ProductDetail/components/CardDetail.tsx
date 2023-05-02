@@ -16,31 +16,61 @@ import {
 } from '../styled'
 
 export const CardDetail = () => {
-  const params = useParams()
-  const id = params.id!
+  const { id } = useParams()
+  const [productDetail, setProductDetail] = useState<ProductDto>()
+  const initialState = () => {
+    if (productDetail && productDetail.stock < 1) {
+      return Math.min(productDetail.stock)
+    }
+    return 0
+  }
 
-  const [singleProducts, setSingleProducts] = useState<ProductDto>()
+  const [counter, setCounter] = useState(initialState)
 
   useEffect(() => {
-    getProductById(id).then((data) => setSingleProducts(data))
+    if (id) {
+      getProductById(id).then((data) => setProductDetail(data))
+    }
   }, [id])
-  if (!singleProducts) return <>Loading</> // todo aggiungere loader
+
+  const handleClickPlus = () => {
+    if (productDetail && counter < productDetail.stock) {
+      setCounter(counter + 1)
+    }
+  }
+
+  const handleClickMinus = () => {
+    if (counter > 0) {
+      setCounter(counter - 1)
+    }
+  }
+
+  if (!productDetail) return <>Loading</> // todo aggiungere loader
+
   return (
     <DetailCard>
       <TextWrapper>
         <Text color="text" variant="h1">
-          {singleProducts?.name}
+          {productDetail?.name}
         </Text>
-        <Rating rating={singleProducts?.rating || 0} />
+        <Rating rating={productDetail?.rating || 0} />
         <Text color="textLight" variant="p">
-          {singleProducts?.description}
+          {productDetail?.description}
         </Text>
         <Text variant="h5" color="textLight">
           Ingredients
         </Text>
         <PriceWrapper>
-          <Price title={singleProducts?.price as ValueType} font="h2" />
-          <Counter />
+          <Price title={productDetail?.price as ValueType} font="h2" />
+          {productDetail.stock > 0 ? (
+            <Counter
+              onClickPlus={handleClickPlus}
+              onClickMinus={handleClickMinus}
+              counter={counter}
+            />
+          ) : (
+            <Text variant="h2">Out Of Stock</Text>
+          )}
         </PriceWrapper>
         <StyledButton
           colorText="text"
@@ -51,7 +81,7 @@ export const CardDetail = () => {
         />
       </TextWrapper>
       <ImageWrapper>
-        <Image url={singleProducts?.imageUrl} />
+        <Image url={productDetail?.imageUrl} />
       </ImageWrapper>
     </DetailCard>
   )

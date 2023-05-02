@@ -28,6 +28,7 @@ export const ImageWrapper = styled.div`
 `
 export const PriceWrapper = styled.div`
   display: flex;
+  align-items: center;
   gap: 0.8rem;
 `
 

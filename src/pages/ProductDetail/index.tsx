@@ -17,12 +17,12 @@ export const ProductDetail = (props: any) => {
 
   const [showModal, setShowModal] = useState(false)
 
-  const openModal = () => {
+  const toggleModal = () => {
     setShowModal(!showModal)
   }
   return (
     <>
-      <Modal opened={showModal} />
+      <Modal opened={showModal} onClose={toggleModal} />
       <StyledDetails>
         <RowButton>
           <Button
@@ -38,7 +38,7 @@ export const ProductDetail = (props: any) => {
           />
         </RowButton>
         <CardDetail />
-        <Reviews onClick={openModal} productId={id} />
+        <Reviews onClick={toggleModal} productId={id} />
         <Recommended />
       </StyledDetails>
     </>
