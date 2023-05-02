@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { getProductsRandom } from '../../../components/api'
 import { ProductDto } from '../../../components/api/types'
 import { Paper } from '../../../components/Paper'
-import { ProductCardVariant } from '../../../components/ProductCard/Variant/ProductCardVariant'
+import { ProductCardVariant } from '../../../components/ProductCard/Variant'
 import { Text } from '../../../components/Text'
 import { RaccomandedWrapper } from '../styled'
 

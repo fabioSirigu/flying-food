@@ -1,12 +1,9 @@
 // import { ValueType } from '../api/types'
-import {
-  FooterCardWrapper,
-  FooterRightWrapper
-} from '../../../pages/ProductDetail/styled'
 import { ValueType } from '../../api/types'
 import { IconButton } from '../../Button'
 import { Price } from '../../Price'
 import { Tag } from '../../Tag'
+import { FooterVariant, FooterVariantRight } from '../styled'
 
 type Props = {
   price: ValueType
@@ -16,12 +13,12 @@ type Props = {
 
 export const FooterCard = ({ price, unity, quantity }: Props) => {
   return (
-    <FooterCardWrapper>
+    <FooterVariant>
       <Tag quantity={quantity} value={unity} font="h6" />
-      <FooterRightWrapper>
+      <FooterVariantRight>
         <Price title={price} font="h4" />
         <IconButton rounded iconName="plus" padding="md" color="secondary" />
-      </FooterRightWrapper>
-    </FooterCardWrapper>
+      </FooterVariantRight>
+    </FooterVariant>
   )
 }

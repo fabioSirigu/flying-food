@@ -44,3 +44,25 @@ export const FooterRightWrapper = styled.div`
   display: flex;
   gap: 0.2rem;
 `
+export const StyledVariant = styled.div`
+  display: flex;
+  gap: 1rem;
+  width: 340px;
+  height: 220px;
+  padding: 1rem;
+`
+
+export const FooterVariant = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: left;
+  justify-content: space-between;
+`
+
+export const FooterVariantRight = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+`

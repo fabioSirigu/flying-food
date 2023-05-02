@@ -1,6 +1,6 @@
-import { ReviewCard } from '../../pages/ProductDetail/styled'
 import { ReviewDto } from '../api/types'
 import { Text } from '../Text'
+import { ReviewCard } from './styled'
 
 type Props = {
   review?: ReviewDto

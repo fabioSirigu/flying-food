@@ -1,12 +1,8 @@
-import {
-  RaccomandedCard,
-  LeftCard,
-  RightCard,
-  MainText
-} from '../../../pages/ProductDetail/styled'
+import { LeftCard, RightCard, MainText } from '../../../pages/ProductDetail/styled'
 import { ValueType } from '../../api/types'
 import { Image } from '../../Image'
 import { Text } from '../../Text'
+import { StyledVariant } from '../styled'
 import { FooterCard } from './FooterCard'
 
 type Props = {
@@ -27,7 +23,7 @@ export const ProductCardVariant = ({
 }: Props) => {
   return (
     <>
-      <RaccomandedCard>
+      <StyledVariant>
         <LeftCard>
           <Image url={imageUrl} />
         </LeftCard>
@@ -42,7 +38,7 @@ export const ProductCardVariant = ({
           </MainText>
           <FooterCard price={price} unity={unity} quantity={quantity} />
         </RightCard>
-      </RaccomandedCard>
+      </StyledVariant>
     </>
   )
 }

@@ -5,6 +5,7 @@ import { ProductDto, ValueType } from '../../../components/api/types'
 import { Counter } from '../../../components/Counter'
 import { Image } from '../../../components/Image'
 import { Price } from '../../../components/Price'
+import { Rating } from '../../../components/Rating'
 import { Text } from '../../../components/Text'
 import {
   StyledButton,
@@ -13,7 +14,6 @@ import {
   PriceWrapper,
   TextWrapper
 } from '../styled'
-import { Rating } from './Rating'
 
 export const CardDetail = () => {
   const params = useParams()

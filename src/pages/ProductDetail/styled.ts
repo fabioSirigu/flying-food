@@ -22,16 +22,7 @@ export const TextWrapper = styled.div`
   flex-direction: column;
   gap: 1rem;
 `
-export const StyledRating = styled.div`
-  display: flex;
-  gap: 1rem;
-`
 
-export const IconRating = styled.div`
-  display: flex;
-  gap: 0.75rem;
-  //color: ${({ theme }) => theme.colors.text};
-`
 export const ImageWrapper = styled.div`
   width: 400px;
 `
@@ -60,15 +51,7 @@ export const TitleWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 `
-export const ReviewCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 380px;
-  padding: 1rem 1.4rem;
-  background: ${({ theme }) => theme.colors.backgroundLight};
-  border-radius: ${({ theme }) => theme.radii[2]}rem;
-`
+
 export const RaccomandedWrapper = styled.div`
   margin-top: 1rem;
   width: 80%;
@@ -91,28 +74,6 @@ export const MainText = styled.div`
   flex-grow: 1;
 `
 
-export const RaccomandedCard = styled.div`
-  display: flex;
-  gap: 1rem;
-  width: 340px;
-  height: 220px;
-  padding: 1rem;
-`
-
-export const FooterCardWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: left;
-  justify-content: space-between;
-`
-
-export const FooterRightWrapper = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: space-between;
-`
 export const ModalBackground = styled.div`
   background: rgba(0, 0, 0, 0.2);
   position: absolute;

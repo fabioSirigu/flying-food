@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { getReviewsByProductId } from '../../../components/api'
 import { ReviewDto } from '../../../components/api/types'
 
-import { Review } from '../../../components/Review/Review'
+import { Review } from '../../../components/Review'
 import { StyledReview, CardsContainer } from '../styled'
 import { TitleSection } from './TitleSection'
 

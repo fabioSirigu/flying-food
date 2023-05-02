@@ -1,8 +1,8 @@
 // import { Icon } from '../../../components/Icon'
-import { Icon } from '../../../components/Icon'
-import { Text } from '../../../components/Text'
-import { ThemeColor } from '../../../style/theme'
-import { IconRating, StyledRating } from '../styled'
+import { ThemeColor } from '../../style/theme'
+import { Icon } from '../Icon'
+import { Text } from '../Text'
+import { IconRating, StyledRating } from './styled'
 
 type Props = {
   rating: number
