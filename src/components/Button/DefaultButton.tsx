@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react'
 import { Icon } from '../Icon'
 import { Text } from '../Text'
-import { ButtonProps, IconWrapper, StyledButton } from './styled'
+import { ButtonProps, IconWrapper, StyledButton, TextWrapper } from './styled'
 
 type Props = PropsWithChildren<Partial<ButtonProps>>
 
@@ -17,6 +17,7 @@ export const DefaultButton = ({
   outline,
   children,
   iconName,
+  paddingRight,
 
   ...rest
 }: Props) => {
@@ -32,9 +33,11 @@ export const DefaultButton = ({
       {...rest}
     >
       {title && (
-        <Text color={colorText} variant={font}>
-          {title}
-        </Text>
+        <TextWrapper paddingRight={paddingRight}>
+          <Text color={colorText} variant={font}>
+            {title}
+          </Text>
+        </TextWrapper>
       )}
       {iconName && (
         <IconWrapper background={iconBackground}>

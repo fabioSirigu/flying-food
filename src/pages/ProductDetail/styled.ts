@@ -54,7 +54,12 @@ export const CardsContainer = styled.div`
   display: flex;
   gap: 1rem;
 `
-
+export const TitleWrapper = styled.div`
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
 export const ReviewCard = styled.div`
   display: flex;
   flex-direction: column;
@@ -105,4 +110,6 @@ export const FooterCardWrapper = styled.div`
 export const FooterRightWrapper = styled.div`
   display: flex;
   gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
 `

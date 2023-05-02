@@ -20,6 +20,7 @@ export const ProductDetail = (props: any) => {
           outline
           padding="lg"
           title="Return To Catalog"
+          paddingRight
           iconName="right"
           colorText="text"
           onClick={() => navigate('/catalog')}

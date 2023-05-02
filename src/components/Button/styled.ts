@@ -18,11 +18,14 @@ export type ButtonProps = {
   rounded?: boolean
   outline?: boolean
   title?: string
+  paddingRight?: boolean
 }
 
 export type WrapperProps = {
   background?: ThemeColor
   iconColor?: ThemeColor
+
+  paddingRight?: boolean
 }
 export const StyledButton = styled.button<ButtonProps>`
   display: flex;
@@ -47,7 +50,9 @@ export const StyledButton = styled.button<ButtonProps>`
   position: relative;
   cursor: pointer;
 `
-
+export const TextWrapper = styled.div<WrapperProps>`
+  padding-right: ${({ paddingRight }) => (paddingRight ? '1rem' : null)};
+`
 export const IconWrapper = styled.div<WrapperProps>`
   height: 100%;
   color: ${({ theme }) => theme.colors['text']};

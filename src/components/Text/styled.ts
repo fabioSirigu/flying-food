@@ -4,6 +4,7 @@ import { ThemeColor, FontVariant } from '../../style/theme'
 type Props = {
   as: FontVariant
   color: ThemeColor
+  paddingRight?: boolean
 }
 
 export const StyledText = styled.span<Props>`
@@ -12,4 +13,5 @@ export const StyledText = styled.span<Props>`
     return theme.fontSizes[textSize]
   }}rem;
   color: ${({ theme, color }) => theme.colors[color]};
+  padding-right: ${({ paddingRight }) => (paddingRight ? '1rem' : null)};
 `
