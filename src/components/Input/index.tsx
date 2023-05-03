@@ -7,8 +7,16 @@ export const Input = ({
   background,
   colorText,
   placeholder,
+  onChange,
 
   ...rest
 }: Props) => {
-  return <StyledInput {...rest} placeholder={placeholder} colorText={colorText} />
+  return (
+    <StyledInput
+      onChange={onChange}
+      {...rest}
+      placeholder={placeholder}
+      colorText={colorText}
+    />
+  )
 }

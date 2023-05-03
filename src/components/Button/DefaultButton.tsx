@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React, { MouseEventHandler, PropsWithChildren } from 'react'
 import { Icon } from '../Icon'
 import { Text } from '../Text'
 import { ButtonProps, IconWrapper, StyledButton, TextWrapper } from './styled'
@@ -18,11 +18,13 @@ export const DefaultButton = ({
   children,
   iconName,
   paddingRight,
+  onClick,
 
   ...rest
 }: Props) => {
   return (
     <StyledButton
+      onClick={onClick}
       color={color!}
       iconBackground={iconBackground}
       colorText={colorText}

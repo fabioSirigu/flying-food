@@ -51,3 +51,5 @@ export type OrderDto = {
   items: [OrderItem]
   userId: string
 }
+
+export type AnyCallbackFunction = (...args: any[]) => any

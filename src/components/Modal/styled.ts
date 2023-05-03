@@ -15,7 +15,6 @@ export const ModalBackground = styled.div`
 
 export const ModalWrapper = styled.div`
   width: 500px;
-  height: 250px;
   background: ${({ theme }) => theme.colors.backgroundLight};
   padding: 1rem;
   position: relative;
@@ -27,4 +26,16 @@ export const TopWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`
+export const MainWrapper = styled.div`
+  border-radius: 10px;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background: ${({ theme }) => theme.colors.background};
+`
+
+export const FooterWrapper = styled.div`
+  display: flex;
+  justify-content: right;
+  padding: 0.5rem;
 `

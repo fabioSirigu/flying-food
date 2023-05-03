@@ -25,6 +25,7 @@ export const Navbar = ({
       <IconWrapper>
         <CurrencySelect />
         <IconButton
+          onClick={() => console.log('notice')}
           rounded
           padding="md"
           radius={1}
@@ -32,13 +33,21 @@ export const Navbar = ({
           iconName="notice"
         />
         <IconButton
+          onClick={() => console.log('bag')}
           rounded
           padding="md"
           radius={1}
           color="backgroundLight"
           iconName="bag"
         />
-        <IconButton rounded padding="md" radius={1} color="primary" iconName="logout" />
+        <IconButton
+          onClick={() => console.log('logout')}
+          rounded
+          padding="md"
+          radius={1}
+          color="primary"
+          iconName="logout"
+        />
       </IconWrapper>
     </StyledNavbar>
   )

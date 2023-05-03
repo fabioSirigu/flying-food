@@ -1,14 +1,15 @@
-// import { IconButton } from '../Button'
+import React, { PropsWithChildren } from 'react'
 import { IconButton } from '../Button'
 import { Paper } from '../Paper'
 import { Text } from '../Text'
-import { ModalBackground, ModalWrapper, TopWrapper } from './styled'
+import { MainWrapper, ModalBackground, ModalWrapper, TopWrapper } from './styled'
 
-type Props = {
+type Props = PropsWithChildren<{
   opened: boolean
   onClose: () => void
-}
-export const Modal = ({ opened, onClose }: Props) => {
+}>
+
+export const Modal = ({ opened, onClose, children }: Props) => {
   if (!opened) return null
 
   return (
@@ -27,6 +28,7 @@ export const Modal = ({ opened, onClose }: Props) => {
               onClick={onClose}
             />
           </TopWrapper>
+          <MainWrapper>{children}</MainWrapper>
         </ModalWrapper>
       </ModalBackground>
     </Paper>

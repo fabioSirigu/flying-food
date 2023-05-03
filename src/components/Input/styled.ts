@@ -1,7 +1,6 @@
-// import { Icon } from '@fortawesome/fontawesome-svg-core'
-
 import styled from 'styled-components'
 import { ThemeColor, ThemeWidth } from '../../style/theme'
+import { AnyCallbackFunction } from '../api/types'
 
 export type InputProps = {
   background?: ThemeColor
@@ -10,6 +9,8 @@ export type InputProps = {
   placeholder?: string
   radius?: number
   border?: string
+  onChange?: AnyCallbackFunction
+  value?: string
 }
 
 export const StyledInput = styled.input<InputProps>`

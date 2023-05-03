@@ -37,7 +37,13 @@ export const Sidelink = ({
           backgroundIcon={backgroundIcon}
           onClick={() => navigate(`${link.url}`)}
         >
-          <IconLink rounded padding="lg" color="backgroundLight" iconName={link.icon} />
+          <IconLink
+            onClick={() => console.log('link')}
+            rounded
+            padding="lg"
+            color="backgroundLight"
+            iconName={link.icon}
+          />
           <DefaultLink
             outline
             padding="lg"

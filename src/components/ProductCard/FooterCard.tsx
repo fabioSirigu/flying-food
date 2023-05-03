@@ -17,7 +17,13 @@ export const FooterCard = ({ price, unity, quantity }: Props) => {
       <Price title={price} font="h3" />
       <FooterRightWrapper>
         <Tag quantity={quantity} value={unity} font="h6" />
-        <IconButton rounded iconName="plus" padding="lg" color="secondary" />
+        <IconButton
+          onClick={() => console.log('add')}
+          rounded
+          iconName="plus"
+          padding="lg"
+          color="secondary"
+        />
       </FooterRightWrapper>
     </FooterCardWrapper>
   )

@@ -19,8 +19,18 @@ export const TitleSection = () => {
           <Select />
         </SelectWrapper>
         <IconWrapper>
-          <IconButton rounded iconName="bars" color="background" />
-          <IconButton rounded iconName="grid" color="primary" />
+          <IconButton
+            rounded
+            iconName="bars"
+            color="background"
+            onClick={() => console.log('clicked')}
+          />
+          <IconButton
+            rounded
+            iconName="grid"
+            color="primary"
+            onClick={() => console.log('clicked')}
+          />
         </IconWrapper>
       </SelectIconWrapper>
     </>
