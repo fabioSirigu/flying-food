@@ -31,5 +31,4 @@ export const TextWrapper = styled.div`
 export const SelectedCategory = styled.div`
   height: 5px;
   width: 60px;
-  border-bottom: 1px solid red;
 `
