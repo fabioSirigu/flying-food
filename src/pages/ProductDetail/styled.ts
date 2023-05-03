@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import { Button } from '../../components/Button'
 
+export type StyledPropsButton = {
+  stock: number
+  disabled: boolean
+}
 export const StyledDetails = styled.div`
   padding: 2rem;
   position: relative;
@@ -32,9 +36,10 @@ export const PriceWrapper = styled.div`
   gap: 0.8rem;
 `
 
-export const StyledButton = styled(Button)`
+export const StyledButton = styled(Button)<StyledPropsButton>`
   width: 200px;
   padding: 1rem;
+  opacity: ${({ stock }) => (stock === 0 ? 0.5 : 1)};
 `
 
 export const StyledReview = styled.div`
@@ -79,4 +84,7 @@ export const Title = styled(TitleWrapper)`
   width: 500px;
   gap: 1rem;
   padding: 1rem 1.2rem;
+`
+export const OutOfStock = styled.div`
+  font-style: underline;
 `

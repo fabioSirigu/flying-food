@@ -20,6 +20,7 @@ export const ProductDetail = (props: any) => {
   const toggleModal = () => {
     setShowModal(!showModal)
   }
+
   return (
     <>
       <Modal opened={showModal} onClose={toggleModal} />

@@ -12,20 +12,14 @@ import {
   DetailCard,
   ImageWrapper,
   PriceWrapper,
-  TextWrapper
+  TextWrapper,
+  OutOfStock
 } from '../styled'
 
 export const CardDetail = () => {
   const { id } = useParams()
   const [productDetail, setProductDetail] = useState<ProductDto>()
-  const initialState = () => {
-    if (productDetail && productDetail.stock < 1) {
-      return Math.min(productDetail.stock)
-    }
-    return 1
-  }
-
-  const [counter, setCounter] = useState(initialState)
+  const [counter, setCounter] = useState(Math.min(productDetail?.stock || 0, 1))
 
   useEffect(() => {
     if (id) {
@@ -62,17 +56,20 @@ export const CardDetail = () => {
         </Text>
         <PriceWrapper>
           <Price title={productDetail?.price as ValueType} font="h2" />
-          {productDetail.stock > 0 ? (
-            <Counter
-              onClickPlus={handleClickPlus}
-              onClickMinus={handleClickMinus}
-              counter={counter}
-            />
-          ) : (
-            <Text variant="h2">Out Of Stock</Text>
-          )}
+          <Counter
+            onClickPlus={handleClickPlus}
+            onClickMinus={handleClickMinus}
+            counter={counter}
+          />
         </PriceWrapper>
+        {productDetail.stock === 0 && (
+          <OutOfStock>
+            <Text variant="h2">Out Of Stock</Text>
+          </OutOfStock>
+        )}
         <StyledButton
+          stock={productDetail.stock}
+          disabled={false}
           colorText="text"
           color="secondary"
           title="Order Now"
