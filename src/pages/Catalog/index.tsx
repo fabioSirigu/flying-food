@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import React from 'react'
 import { getProducts } from '../../components/api'
 import { ProductDto } from '../../components/api/types'
+import { Loader } from '../../components/Loader'
 import { ProductCard } from '../../components/ProductCard'
 import { CategorySection } from './CategorySection'
 import { RowWrapper, SliderWrapper, ProductWrapper } from './styled'
@@ -13,6 +14,8 @@ export function Catalog() {
   useEffect(() => {
     getProducts().then((data) => setProducts(data))
   }, [])
+
+  if (!products.length) return <Loader />
 
   return (
     <div className="App">
