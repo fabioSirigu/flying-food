@@ -4,6 +4,7 @@ import { getProductById } from '../../../components/api'
 import { ProductDto, ValueType } from '../../../components/api/types'
 import { Counter } from '../../../components/Counter'
 import { Image } from '../../../components/Image'
+import { Loader } from '../../../components/Loader'
 import { Price } from '../../../components/Price'
 import { Rating } from '../../../components/Rating'
 import { Text } from '../../../components/Text'
@@ -39,7 +40,7 @@ export const CardDetail = () => {
     }
   }
 
-  if (!productDetail) return <>Loading</> // todo aggiungere loader
+  if (!productDetail) return <Loader /> // todo aggiungere loader
 
   return (
     <DetailCard>
