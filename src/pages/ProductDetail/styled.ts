@@ -65,20 +65,6 @@ export const RaccomandedWrapper = styled.div`
   flex-wrap: wrap;
   gap: 1.2rem;
 `
-export const LeftCard = styled.div`
-  width: 60%;
-`
-
-export const RightCard = styled.div`
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-`
-
-export const MainText = styled.div`
-  flex-grow: 1;
-`
 
 export const Title = styled(TitleWrapper)`
   width: 500px;

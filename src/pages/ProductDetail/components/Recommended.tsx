@@ -22,6 +22,7 @@ export const Recommended = () => {
         {recommended.map((recommended) => (
           <Paper key={recommended.id}>
             <ProductCardVariant
+              id={recommended.id}
               imageUrl={recommended.imageUrl}
               productName={recommended.name}
               productDescription={recommended.description}

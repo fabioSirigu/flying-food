@@ -14,7 +14,7 @@ type Props = {
 export const FooterCard = ({ price, unity, quantity }: Props) => {
   return (
     <FooterCardWrapper>
-      <Price title={price} font="p" />
+      <Price title={price} font="h3" />
       <FooterRightWrapper>
         <Tag quantity={quantity} value={unity} font="h6" />
         <IconButton rounded iconName="plus" padding="lg" color="secondary" />

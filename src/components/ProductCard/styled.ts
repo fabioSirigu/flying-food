@@ -8,8 +8,7 @@ export type ProductCardProps = {
 }
 export const StyledCard = styled.div`
   border-radius: ${({ theme }) => theme.radii[3]}rem;
-  height: 380px;
-
+  height: 320px;
   position: relative;
   padding: 2rem 0.8rem;
   display: flex;
@@ -50,7 +49,21 @@ export const StyledVariant = styled.div`
   height: 220px;
   padding: 1rem;
 `
+export const LeftCard = styled.div`
+  width: 60%;
+  cursor: pointer;
+`
 
+export const RightCard = styled.div`
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`
+
+export const MainText = styled.div`
+  flex-grow: 1;
+`
 export const FooterVariant = styled.div`
   display: flex;
   flex-direction: column;

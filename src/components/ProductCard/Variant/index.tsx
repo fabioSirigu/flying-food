@@ -1,7 +1,8 @@
-import { LeftCard, RightCard, MainText } from '../../../pages/ProductDetail/styled'
+import { useNavigate } from 'react-router-dom'
 import { ValueType } from '../../api/types'
 import { Image } from '../../Image'
 import { Text } from '../../Text'
+import { LeftCard, RightCard, MainText } from '../styled'
 import { StyledVariant } from '../styled'
 import { FooterCard } from './FooterCard'
 
@@ -12,6 +13,7 @@ type Props = {
   price: ValueType
   quantity: number
   unity: string
+  id: string
 }
 export const ProductCardVariant = ({
   imageUrl,
@@ -19,11 +21,13 @@ export const ProductCardVariant = ({
   productDescription,
   price,
   unity,
-  quantity
+  quantity,
+  id
 }: Props) => {
+  const navigate = useNavigate()
   return (
     <>
-      <StyledVariant>
+      <StyledVariant onClick={() => navigate(`/catalog/${id}`)}>
         <LeftCard>
           <Image url={imageUrl} />
         </LeftCard>
