@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { getReviewsByProductId } from '../../../components/api'
 import { ReviewDto } from '../../../components/api/types'
-
 import { Review } from '../../../components/Review'
+import { Text } from '../../../components/Text'
 import { StyledReview, CardsContainer } from '../styled'
 import { TitleSection } from './TitleSection'
 
@@ -22,7 +22,9 @@ export const Reviews = ({ productId, onClick }: Props) => {
     <StyledReview>
       <TitleSection onClick={onClick} />
       <CardsContainer>
-        {reviews &&
+        {!reviews?.length ? (
+          <Text variant="h2">No Reviews..</Text>
+        ) : (
           reviews.map((review) => (
             <Review
               key={review.productId}
@@ -30,7 +32,8 @@ export const Reviews = ({ productId, onClick }: Props) => {
               date={review.date}
               body={review.text}
             />
-          ))}
+          ))
+        )}
       </CardsContainer>
     </StyledReview>
   )
