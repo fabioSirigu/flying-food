@@ -24,7 +24,7 @@ export const DefaultButton = ({
 }: Props) => {
   return (
     <StyledButton
-      onClick={() => onClick}
+      onClick={onClick}
       color={color!}
       iconBackground={iconBackground}
       colorText={colorText}

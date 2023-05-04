@@ -1,9 +1,10 @@
+import { MouseEventHandler } from 'react'
 import styled, { css } from 'styled-components'
 import { FontVariant, ThemeColor, ThemeSpacing } from '../../style/theme'
 import { NameIcon } from '../Icon/config'
 
 export type ButtonProps = {
-  onClick: () => void
+  onClick?: () => void
   color: ThemeColor
   colorText?: ThemeColor
   iconColor?: ThemeColor

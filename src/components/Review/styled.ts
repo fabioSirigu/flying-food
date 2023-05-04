@@ -4,6 +4,7 @@ export const ReviewCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  min-width: 380px;
   width: 380px;
   padding: 1rem 1.4rem;
   background: ${({ theme }) => theme.colors.backgroundLight};

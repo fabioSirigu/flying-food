@@ -4,6 +4,7 @@ export const StyledRightContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  width: calc(100% - 250px);
 `
 
 export const StyledBody = styled.div`
@@ -19,5 +20,6 @@ export const StyledMain = styled.main`
   height: 100%;
   flex: 1;
   overflow-y: scroll;
+  overflow-x: hidden;
   background: ${({ theme }) => theme.colors.backgroundDark};
 `

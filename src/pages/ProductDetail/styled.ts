@@ -51,6 +51,10 @@ export const CardsContainer = styled.div`
   margin: 1rem 0;
   display: flex;
   gap: 1rem;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 export const TitleWrapper = styled.div`
   width: 800px;
