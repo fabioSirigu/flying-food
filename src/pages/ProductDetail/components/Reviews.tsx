@@ -25,9 +25,9 @@ export const Reviews = ({ productId, onClick }: Props) => {
         {!reviews?.length ? (
           <Text variant="h2">No Reviews..</Text>
         ) : (
-          reviews.map((review) => (
+          reviews.map((review, index) => (
             <Review
-              key={review.productId}
+              key={index}
               author={review.author}
               date={review.date}
               body={review.text}

@@ -43,7 +43,7 @@ export const ProductDetail = () => {
           />
         </RowButton>
         <CardDetail />
-        <Reviews onClick={toggleModal} productId={id} />
+        <Reviews onClick={() => console.log('click')} productId={id} />
         <Recommended />
       </StyledDetails>
     </>

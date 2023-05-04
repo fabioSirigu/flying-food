@@ -11,6 +11,7 @@ export const StyledDetails = styled.div`
 `
 
 export const RowButton = styled.div`
+  width: 800px;
   display: flex;
   justify-content: end;
 `
@@ -52,7 +53,7 @@ export const CardsContainer = styled.div`
   gap: 1rem;
 `
 export const TitleWrapper = styled.div`
-  width: 60%;
+  width: 800px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,7 +61,7 @@ export const TitleWrapper = styled.div`
 
 export const RaccomandedWrapper = styled.div`
   margin-top: 1rem;
-  width: 80%;
+  width: 800px;
   display: flex;
   flex-wrap: wrap;
   gap: 1.2rem;

@@ -1,12 +1,9 @@
-// import { Icon } from '@fortawesome/fontawesome-svg-core'
-
-import { MouseEventHandler } from 'react'
 import styled, { css } from 'styled-components'
 import { FontVariant, ThemeColor, ThemeSpacing } from '../../style/theme'
 import { NameIcon } from '../Icon/config'
 
 export type ButtonProps = {
-  onClick: (e: MouseEvent) => void
+  onClick: () => void
   color: ThemeColor
   colorText?: ThemeColor
   iconColor?: ThemeColor

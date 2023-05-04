@@ -14,7 +14,9 @@ export const CategorySection = () => {
     <>
       <CategoryWrapper>
         {categories.length &&
-          categories.map((category) => <CategoryCard category={category} />)}
+          categories.map((category) => (
+            <CategoryCard key={category.id} category={category} />
+          ))}
       </CategoryWrapper>
     </>
   )

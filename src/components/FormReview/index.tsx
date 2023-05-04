@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEventHandler, useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { addReviewOnProduct } from '../api'
 import { ReviewDto } from '../api/types'
 import { Button } from '../Button'
@@ -46,11 +46,7 @@ export const FormReview = ({ id }: Props) => {
           title="Send"
           color="secondary"
           colorText="text"
-          onClick={(e: MouseEvent) => {
-            console.log(e)
-            e.preventDefault()
-            createReview(author, body)
-          }}
+          onClick={createReview(author, body)!}
         />
       </FooterWrapper>
     </StyledForm>

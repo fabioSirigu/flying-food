@@ -27,7 +27,8 @@ export function Catalog() {
         <TitleSection />
       </RowWrapper>
       <ProductWrapper>
-        {products.length && products.map((product) => <ProductCard product={product} />)}
+        {products.length &&
+          products.map((product) => <ProductCard key={product.id} product={product} />)}
       </ProductWrapper>
     </div>
   )

@@ -21,7 +21,7 @@ export const TitleSection = ({ onClick }: Props) => {
         border="1"
         iconName="right"
         iconBackground="secondary"
-        onClick={onClick}
+        onClick={() => onClick}
       />
     </TitleWrapper>
   )
