@@ -13,7 +13,7 @@ export const ProductList = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    getProducts().then((res) => dispatch(productActions.addProduct(res)))
+    getProducts().then((res) => dispatch(productActions.fetchProductsSuccess(res)))
   }, [dispatch])
 
   if (!stateProduct.length) return <Loader />
