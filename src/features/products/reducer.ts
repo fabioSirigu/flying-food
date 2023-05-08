@@ -12,6 +12,9 @@ const productsSlice = createSlice({
   reducers: {
     fetchProductsSuccess: (state, { payload }: PayloadAction<ProductDto[]>) => {
       state.products = payload
+    },
+    fetchProductByIdSuccess: (state, { payload }: PayloadAction<ProductDto>) => {
+      state.productDetail = payload
     }
   }
 })

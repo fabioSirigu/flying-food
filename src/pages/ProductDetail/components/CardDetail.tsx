@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getProductById } from '../../../components/api'
-import { ProductDto, ValueType } from '../../../components/api/types'
+import { ValueType } from '../../../components/api/types'
 import { Counter } from '../../../components/Counter'
 import { Image } from '../../../components/Image'
 import { Loader } from '../../../components/Loader'
 import { Price } from '../../../components/Price'
 import { Rating } from '../../../components/Rating'
 import { Text } from '../../../components/Text'
+import { productActions } from '../../../features/products/reducer'
+import { selectProductDetail } from '../../../features/products/selectors'
 import {
   StyledButton,
   DetailCard,
@@ -19,14 +22,18 @@ import {
 
 export const CardDetail = () => {
   const { id } = useParams()
-  const [productDetail, setProductDetail] = useState<ProductDto>()
+  const productDetail = useSelector(selectProductDetail)
+
   const [counter, setCounter] = useState(Math.min(productDetail?.stock || 0, 1))
 
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    if (id) {
-      getProductById(id).then((data) => setProductDetail(data))
-    }
-  }, [id])
+    if (id)
+      getProductById(id).then((res) =>
+        dispatch(productActions.fetchProductByIdSuccess(res))
+      )
+  }, [id, dispatch])
 
   const handleClickPlus = () => {
     if (productDetail && counter < productDetail.stock) {
@@ -46,17 +53,17 @@ export const CardDetail = () => {
     <DetailCard>
       <TextWrapper>
         <Text color="text" variant="h1">
-          {productDetail?.name}
+          {productDetail.name}
         </Text>
-        <Rating rating={productDetail?.rating || 0} />
+        <Rating rating={productDetail.rating || 0} />
         <Text color="textLight" variant="p">
-          {productDetail?.description}
+          {productDetail.description}
         </Text>
         <Text variant="h5" color="textLight">
           Ingredients
         </Text>
         <PriceWrapper>
-          <Price title={productDetail?.price as ValueType} font="h2" />
+          <Price title={productDetail.price as ValueType} font="h2" />
           <Counter
             onClickPlus={handleClickPlus}
             onClickMinus={handleClickMinus}
@@ -79,7 +86,7 @@ export const CardDetail = () => {
         />
       </TextWrapper>
       <ImageWrapper>
-        <Image url={productDetail?.imageUrl} />
+        <Image url={productDetail.imageUrl} />
       </ImageWrapper>
     </DetailCard>
   )
