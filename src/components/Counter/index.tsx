@@ -7,9 +7,7 @@ type Props = {
   onClickMinus: () => void
   counter: number
 }
-// Comunicare all'esterno il valore di counter
-// e cambiamenti di counter
-// Prevedere un limite minimo e massimo
+
 export const Counter = ({ onClickPlus, onClickMinus, counter }: Props) => {
   return (
     <StyledCounter>
