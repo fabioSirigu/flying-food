@@ -24,7 +24,7 @@ export const CardDetail = () => {
   const { id } = useParams()
   const productDetail = useSelector(selectProductDetail)
 
-  const [counter, setCounter] = useState(Math.min(productDetail?.stock || 0, 1))
+  let counter = Math.min(productDetail?.stock || 0, 1)
 
   const dispatch = useDispatch()
 
@@ -37,13 +37,13 @@ export const CardDetail = () => {
 
   const handleClickPlus = () => {
     if (productDetail && counter < productDetail.stock) {
-      setCounter(counter + 1)
+      counter += 1
     }
   }
 
   const handleClickMinus = () => {
     if (counter > 0) {
-      setCounter(counter - 1)
+      counter -= 1
     }
   }
 

@@ -4,4 +4,5 @@ export type ProductsState = {
   products: ProductDto[]
   productDetail?: ProductDto
   reviews: ReviewDto[]
+  recommendeds: ProductDto[]
 }

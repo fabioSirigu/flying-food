@@ -5,3 +5,4 @@ export const selectAllProducts = (state: RootState) => state.products.products
 export const selectProductDetail = (state: RootState) => state.products.productDetail
 
 export const selectAllReviews = (state: RootState) => state.products.reviews
+export const selectAllRecommendeds = (state: RootState) => state.products.recommendeds

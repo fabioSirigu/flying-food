@@ -1,17 +1,24 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { getProductsRandom } from '../../../components/api'
-import { ProductDto } from '../../../components/api/types'
+
 import { Paper } from '../../../components/Paper'
 import { ProductCardVariant } from '../../../components/ProductCard/Variant'
 import { Text } from '../../../components/Text'
+import { productActions } from '../../../features/products/reducer'
+import { selectAllRecommendeds } from '../../../features/products/selectors'
 import { RaccomandedWrapper } from '../styled'
 
 export const Recommended = () => {
-  const [recommended, setRecommended] = useState<ProductDto[]>([])
+  const recommendeds = useSelector(selectAllRecommendeds)
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    getProductsRandom().then((data) => setRecommended(data))
-  }, [])
+    getProductsRandom().then((data) =>
+      dispatch(productActions.fetchRandomProductsSuccess(data))
+    )
+  }, [dispatch])
 
   return (
     <>
@@ -19,7 +26,7 @@ export const Recommended = () => {
         Raccomanded
       </Text>
       <RaccomandedWrapper>
-        {recommended.map((recommended) => (
+        {recommendeds.map((recommended) => (
           <Paper key={recommended.id}>
             <ProductCardVariant
               id={recommended.id}

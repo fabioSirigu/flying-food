@@ -4,7 +4,8 @@ import { ProductsState } from './model'
 
 const initialState: ProductsState = {
   products: [],
-  reviews: []
+  reviews: [],
+  recommendeds: []
 }
 
 const productsSlice = createSlice({
@@ -19,6 +20,9 @@ const productsSlice = createSlice({
     },
     fetchReviewsSuccess: (state, { payload }: PayloadAction<ReviewDto[]>) => {
       state.reviews = payload
+    },
+    fetchRandomProductsSuccess: (state, { payload }: PayloadAction<ProductDto[]>) => {
+      state.recommendeds = payload
     }
   }
 })
