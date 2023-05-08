@@ -34,7 +34,7 @@ export const StyledButton = styled.button<ButtonProps>`
   color: ${({ theme, color, outline }) => (outline ? 'black' : theme.colors[color])};
   padding: ${({ theme, padding, rounded }) =>
     rounded
-      ? `${theme.spacings[padding] * 2}rem`
+      ? `${theme.spacings[padding] * 1.2}rem`
       : `${theme.spacings[padding] / 2}rem ${theme.spacings[padding] * 2}rem`};
   border-radius: ${({ theme, radius, rounded }) =>
     rounded ? `${50}%` : `${theme.radii[radius || 2]}rem`};
