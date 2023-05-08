@@ -3,7 +3,12 @@ import { CartCard } from '../../components/CartCard'
 
 import { Text } from '../../components/Text'
 import { selectCart } from '../../features/cart/selectors'
-import { FormCheckoutWrapper, ListCartWrapper, MainWrapper } from './styled'
+import {
+  FooterWrapper,
+  FormCheckoutWrapper,
+  ListCartWrapper,
+  MainWrapper
+} from './styled'
 
 export const Cart = () => {
   const productInCart = useSelector(selectCart)
@@ -20,6 +25,7 @@ export const Cart = () => {
         </ListCartWrapper>
         <FormCheckoutWrapper />
       </MainWrapper>
+      <FooterWrapper />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getProductById } from '../../../components/api'
@@ -27,7 +27,7 @@ export const CardDetail = () => {
   const { id } = useParams()
   const productDetail = useSelector(selectProductDetail)
 
-  const counter = useSelector(counterNumber)
+  const [counter, setCounter] = useState(0)
 
   const dispatch = useDispatch()
 
@@ -40,13 +40,13 @@ export const CardDetail = () => {
 
   const handleClickPlus = () => {
     if (productDetail && counter < productDetail.stock) {
-      dispatch(productActions.incrementCounter(1))
+      setCounter(counter + 1)
     }
   }
 
   const handleClickMinus = () => {
     if (counter > 0) {
-      dispatch(productActions.decrementCounter(1))
+      setCounter(counter - 1)
     }
   }
 
