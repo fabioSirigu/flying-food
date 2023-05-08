@@ -1,15 +1,23 @@
 import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { getTags } from '../../components/api'
 import { TagDto } from '../../components/api/types'
 import { CategoryCard } from '../../components/CategoryCard'
+import { productActions } from '../../features/products/reducer'
+import { selectTags } from '../../features/products/selectors'
 import { CategoryWrapper } from './styled'
 
 export const CategorySection = () => {
-  const [categories, setCategories] = useState<TagDto[]>([])
+  const categories = useSelector(selectTags)
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    getTags().then((data) => setCategories(data.filter(({ hidden }) => !hidden)))
-  }, [])
+    getTags().then((data) =>
+      dispatch(productActions.fetchTagsProducts(data.filter(({ hidden }) => !hidden)))
+    )
+  }, [dispatch])
+
   return (
     <>
       <CategoryWrapper>

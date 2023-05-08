@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ProductDto, ReviewDto } from '../../components/api/types'
+import { ProductDto, ReviewDto, TagDto } from '../../components/api/types'
 import { ProductsState } from './model'
 
 const initialState: ProductsState = {
   products: [],
   reviews: [],
-  recommendeds: []
+  recommendeds: [],
+  tags: []
 }
 
 const productsSlice = createSlice({
@@ -23,6 +24,9 @@ const productsSlice = createSlice({
     },
     fetchRandomProductsSuccess: (state, { payload }: PayloadAction<ProductDto[]>) => {
       state.recommendeds = payload
+    },
+    fetchTagsProducts: (state, { payload }: PayloadAction<TagDto[]>) => {
+      state.tags = payload
     }
   }
 })
