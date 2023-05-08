@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getTags } from '../../components/api'
-import { TagDto } from '../../components/api/types'
+
 import { CategoryCard } from '../../components/CategoryCard'
 import { productActions } from '../../features/products/reducer'
 import { selectTags } from '../../features/products/selectors'

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getProductById } from '../../../components/api'
@@ -10,7 +10,7 @@ import { Price } from '../../../components/Price'
 import { Rating } from '../../../components/Rating'
 import { Text } from '../../../components/Text'
 import { productActions } from '../../../features/products/reducer'
-import { selectProductDetail } from '../../../features/products/selectors'
+import { counterNumber, selectProductDetail } from '../../../features/products/selectors'
 import {
   StyledButton,
   DetailCard,
@@ -24,7 +24,7 @@ export const CardDetail = () => {
   const { id } = useParams()
   const productDetail = useSelector(selectProductDetail)
 
-  let counter = Math.min(productDetail?.stock || 0, 1)
+  const counter = useSelector(counterNumber)
 
   const dispatch = useDispatch()
 
@@ -37,17 +37,17 @@ export const CardDetail = () => {
 
   const handleClickPlus = () => {
     if (productDetail && counter < productDetail.stock) {
-      counter += 1
+      dispatch(productActions.incrementCounter(1))
     }
   }
 
   const handleClickMinus = () => {
     if (counter > 0) {
-      counter -= 1
+      dispatch(productActions.decrementCounter(1))
     }
   }
 
-  if (!productDetail) return <Loader /> // todo aggiungere loader
+  if (!productDetail) return <Loader />
 
   return (
     <DetailCard>
