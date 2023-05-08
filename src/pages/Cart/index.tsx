@@ -1,9 +1,13 @@
+import { useSelector } from 'react-redux'
 import { CartCard } from '../../components/CartCard'
 
 import { Text } from '../../components/Text'
+import { selectCart } from '../../features/cart/selectors'
 import { FormCheckoutWrapper, ListCartWrapper, MainWrapper } from './styled'
 
 export const Cart = () => {
+  const productInCart = useSelector(selectCart)
+
   return (
     <div className="App">
       <Text variant="h1" color="text">
@@ -11,7 +15,8 @@ export const Cart = () => {
       </Text>
       <MainWrapper>
         <ListCartWrapper>
-          <CartCard />
+          {productInCart &&
+            productInCart.map((product) => <CartCard product={product} />)}
         </ListCartWrapper>
         <FormCheckoutWrapper />
       </MainWrapper>

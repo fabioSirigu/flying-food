@@ -9,6 +9,9 @@ import { Loader } from '../../../components/Loader'
 import { Price } from '../../../components/Price'
 import { Rating } from '../../../components/Rating'
 import { Text } from '../../../components/Text'
+import { ItemInCart } from '../../../features/cart/model'
+import { cartActions } from '../../../features/cart/reducer'
+import { selectCart } from '../../../features/cart/selectors'
 import { productActions } from '../../../features/products/reducer'
 import { counterNumber, selectProductDetail } from '../../../features/products/selectors'
 import {
@@ -49,6 +52,16 @@ export const CardDetail = () => {
 
   if (!productDetail) return <Loader />
 
+  const productInCart: ItemInCart = {
+    id: productDetail.id,
+    title: productDetail.name,
+    image: productDetail.imageUrl,
+    price: productDetail.price,
+    sizeUnity: productDetail.size.type,
+    sizeQuantity: productDetail.size.value,
+    stock: productDetail.stock,
+    quantity: counter
+  }
   return (
     <DetailCard>
       <TextWrapper>
@@ -76,6 +89,7 @@ export const CardDetail = () => {
           </OutOfStock>
         )}
         <StyledButton
+          onClick={() => dispatch(cartActions.addToCart(productInCart))}
           stock={productDetail.stock}
           disabled={false}
           colorText="text"

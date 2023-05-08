@@ -35,6 +35,7 @@ export type ReviewDto = {
 }
 
 export type CurrencyRatesDto = { rates: Record<string, number> }
+
 export type OrderItem = {
   delivery: string
   id: string
