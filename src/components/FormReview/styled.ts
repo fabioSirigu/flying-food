@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StyledForm = styled.form`
+export const StyledForm = styled.div`
   color: ${({ theme }) => theme.colors.text};
   display: flex;
   flex-direction: column;

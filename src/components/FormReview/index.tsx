@@ -24,7 +24,7 @@ export const FormReview = ({ id }: Props) => {
     setBody(target.value)
   }
 
-  const createReview = (author: string, body: string) => {
+  const createReview = () => {
     const review: ReviewDto = {
       date: new Date().toDateString(),
       author: author,
@@ -46,7 +46,7 @@ export const FormReview = ({ id }: Props) => {
           title="Send"
           color="secondary"
           colorText="text"
-          onClick={createReview(author, body)!}
+          onClick={createReview}
         />
       </FooterWrapper>
     </StyledForm>
