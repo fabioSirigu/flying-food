@@ -1,4 +1,3 @@
-import { MouseEventHandler } from 'react'
 import styled, { css } from 'styled-components'
 import { FontVariant, ThemeColor, ThemeSpacing } from '../../style/theme'
 import { NameIcon } from '../Icon/config'
@@ -35,7 +34,7 @@ export const StyledButton = styled.button<ButtonProps>`
   color: ${({ theme, color, outline }) => (outline ? 'black' : theme.colors[color])};
   padding: ${({ theme, padding, rounded }) =>
     rounded
-      ? `${theme.spacings[padding]}rem`
+      ? `${theme.spacings[padding] * 2}rem`
       : `${theme.spacings[padding] / 2}rem ${theme.spacings[padding] * 2}rem`};
   border-radius: ${({ theme, radius, rounded }) =>
     rounded ? `${50}%` : `${theme.radii[radius || 2]}rem`};

@@ -1,4 +1,5 @@
 import React, { PropsWithChildren } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { IconButton } from '../Button'
 import { CurrencySelect } from '../CurrencySelect'
 import { SearchBox } from '../SearchBox'
@@ -14,6 +15,7 @@ export const Navbar = ({
 
   ...rest
 }: Props) => {
+  const navigate = useNavigate()
   return (
     <StyledNavbar>
       <SearchBox
@@ -33,7 +35,7 @@ export const Navbar = ({
           iconName="notice"
         />
         <IconButton
-          onClick={() => console.log('bag')}
+          onClick={() => navigate('/cart')}
           rounded
           padding="md"
           radius={1}
