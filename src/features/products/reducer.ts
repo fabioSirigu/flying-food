@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ProductDto } from '../../components/api/types'
+import { ProductDto, ReviewDto } from '../../components/api/types'
 import { ProductsState } from './model'
 
 const initialState: ProductsState = {
-  products: []
+  products: [],
+  reviews: []
 }
 
 const productsSlice = createSlice({
@@ -15,6 +16,9 @@ const productsSlice = createSlice({
     },
     fetchProductByIdSuccess: (state, { payload }: PayloadAction<ProductDto>) => {
       state.productDetail = payload
+    },
+    fetchReviewsSuccess: (state, { payload }: PayloadAction<ReviewDto[]>) => {
+      state.reviews = payload
     }
   }
 })

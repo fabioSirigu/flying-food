@@ -1,31 +1,36 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { getReviewsByProductId } from '../../../components/api'
-import { ReviewDto } from '../../../components/api/types'
 import { Review } from '../../../components/Review'
 import { Text } from '../../../components/Text'
+import { productActions } from '../../../features/products/reducer'
+import { selectAllReviews } from '../../../features/products/selectors'
 import { StyledReview, CardsContainer } from '../styled'
 import { TitleSection } from './TitleSection'
 
 type Props = {
-  productId?: string
+  productId: string
   onClick: () => void
 }
 
 export const Reviews = ({ productId, onClick }: Props) => {
-  const [reviews, setReviews] = useState<ReviewDto[]>()
+  const allReviews = useSelector(selectAllReviews)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    getReviewsByProductId(productId!).then(setReviews)
-  }, [productId])
+    getReviewsByProductId(productId).then((res) =>
+      dispatch(productActions.fetchReviewsSuccess(res))
+    )
+  }, [productId, dispatch])
 
   return (
     <StyledReview>
       <TitleSection onClick={onClick} />
       <CardsContainer>
-        {!reviews?.length ? (
+        {!allReviews?.length ? (
           <Text variant="h2">No Reviews..</Text>
         ) : (
-          reviews.map((review, index) => (
+          allReviews.map((review, index) => (
             <Review
               key={index}
               author={review.author}
