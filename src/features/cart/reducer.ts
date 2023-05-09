@@ -20,6 +20,16 @@ const cartSlice = createSlice({
       state.cart = state.cart.filter((item) => item.id !== payload)
 
       console.log('remove', payload)
+    },
+    incrementQuantity: (state, { payload }: PayloadAction<string>) => {
+      const index = state.cart.findIndex((item) => item.id === payload)
+
+      state.cart[index].quantity++
+    },
+    decrementQuantity: (state, { payload }: PayloadAction<string>) => {
+      const index = state.cart.findIndex((item) => item.id === payload)
+
+      state.cart[index].quantity--
     }
   }
 })

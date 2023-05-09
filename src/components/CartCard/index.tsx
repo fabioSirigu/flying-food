@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { ItemInCart } from '../../features/cart/model'
 import { cartActions } from '../../features/cart/reducer'
@@ -20,13 +19,13 @@ export const CartCard = ({ product }: Props) => {
 
   const handleClickPlus = () => {
     if (product.quantity < product.stock) {
-      return product.quantity + 1
+      dispatch(cartActions.incrementQuantity(product.id))
     }
   }
 
   const handleClickMinus = () => {
     if (product.quantity > 1) {
-      return product.quantity - 1
+      dispatch(cartActions.decrementQuantity(product.id))
     }
   }
   if (!product) return null
@@ -43,8 +42,8 @@ export const CartCard = ({ product }: Props) => {
         </TextWrapper>
         <Counter
           counter={product.quantity}
-          onClickMinus={() => handleClickMinus}
-          onClickPlus={() => handleClickPlus}
+          onClickMinus={() => handleClickMinus()}
+          onClickPlus={() => handleClickPlus()}
         />
         <Price title={product.price} />
         <IconButton
