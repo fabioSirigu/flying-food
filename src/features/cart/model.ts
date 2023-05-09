@@ -1,4 +1,4 @@
-import { TagDto, ValueType } from '../../components/api/types'
+import { ValueType } from '../../components/api/types'
 
 export type CartState = {
   cart: ItemInCart[]

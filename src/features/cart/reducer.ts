@@ -16,8 +16,10 @@ const cartSlice = createSlice({
         ? state.cart.push(payload)
         : (state.cart[index].quantity += payload.quantity)
     },
-    removeToCart: (state, { payload }: PayloadAction<number>) => {
-      console.log('remove')
+    removeToCart: (state, { payload }: PayloadAction<string>) => {
+      state.cart = state.cart.filter((item) => item.id !== payload)
+
+      console.log('remove', payload)
     }
   }
 })

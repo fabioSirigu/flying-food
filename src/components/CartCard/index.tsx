@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { ItemInCart } from '../../features/cart/model'
 import { cartActions } from '../../features/cart/reducer'
@@ -11,12 +12,25 @@ import { Text } from '../Text'
 import { CardWrapper, ImageWrapper, TextWrapper } from './styled'
 
 type Props = {
-  product?: ItemInCart
+  product: ItemInCart
 }
 
 export const CartCard = ({ product }: Props) => {
   const dispatch = useDispatch()
+
+  const handleClickPlus = () => {
+    if (product.quantity < product.stock) {
+      return product.quantity + 1
+    }
+  }
+
+  const handleClickMinus = () => {
+    if (product.quantity > 1) {
+      return product.quantity - 1
+    }
+  }
   if (!product) return null
+
   return (
     <Paper>
       <CardWrapper>
@@ -29,8 +43,8 @@ export const CartCard = ({ product }: Props) => {
         </TextWrapper>
         <Counter
           counter={product.quantity}
-          onClickMinus={() => console.log()}
-          onClickPlus={() => console.log()}
+          onClickMinus={() => handleClickMinus}
+          onClickPlus={() => handleClickPlus}
         />
         <Price title={product.price} />
         <IconButton
@@ -38,7 +52,7 @@ export const CartCard = ({ product }: Props) => {
           color="primary"
           iconColor="text"
           iconName="close"
-          onClick={() => dispatch(cartActions.removeToCart(3))}
+          onClick={() => dispatch(cartActions.removeToCart(product.id))}
         />
       </CardWrapper>
     </Paper>
