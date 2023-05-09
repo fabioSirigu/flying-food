@@ -7,25 +7,31 @@ import {
   FooterWrapper,
   FormCheckoutWrapper,
   ListCartWrapper,
-  MainWrapper
+  MainWrapper,
+  WrapperCart
 } from './styled'
+import { TotalPrice } from './totalPrice'
 
 export const Cart = () => {
   const productInCart = useSelector(selectCart)
 
   return (
-    <div className="App">
+    <WrapperCart className="App">
       <Text variant="h1" color="text">
         Shopping Cart
       </Text>
       <MainWrapper>
         <ListCartWrapper>
           {productInCart &&
-            productInCart.map((product) => <CartCard product={product} />)}
+            productInCart.map((product) => (
+              <CartCard key={product.product.id} product={product} />
+            ))}
         </ListCartWrapper>
         <FormCheckoutWrapper />
       </MainWrapper>
-      <FooterWrapper />
-    </div>
+      <FooterWrapper>
+        <TotalPrice />
+      </FooterWrapper>
+    </WrapperCart>
   )
 }

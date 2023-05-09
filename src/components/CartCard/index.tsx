@@ -18,45 +18,46 @@ export const CartCard = ({ product }: Props) => {
   const dispatch = useDispatch()
 
   const handleClickPlus = () => {
-    if (product.quantity < product.stock) {
-      dispatch(cartActions.incrementQuantity(product.id))
+    if (product.quantity < product.product.stock) {
+      dispatch(cartActions.incrementQuantity(product.product.id))
+      dispatch(cartActions.updateTotalPrice())
     }
   }
 
   const handleClickMinus = () => {
     if (product.quantity > 1) {
-      dispatch(cartActions.decrementQuantity(product.id))
+      dispatch(cartActions.decrementQuantity(product.product.id))
+      dispatch(cartActions.updateTotalPrice())
     }
   }
-
-  const realQuantity = () => {
-    return product.quantity > product.stock ? product.stock : product.quantity
+  const removeItem = () => {
+    dispatch(cartActions.removeToCart(product.product.id))
+    dispatch(cartActions.updateTotalPrice())
   }
-
   if (!product) return null
 
   return (
     <Paper>
       <CardWrapper>
         <ImageWrapper>
-          <Image rounded url={product.image} />
+          <Image rounded url={product.product.imageUrl} />
         </ImageWrapper>
         <TextWrapper>
-          <Text color="text">{product.title}</Text>
-          <Tag quantity={product.sizeQuantity} value={product.sizeUnity} />
+          <Text color="text">{product.product.name}</Text>
+          <Tag quantity={product.product.size.value} value={product.product.size.type} />
         </TextWrapper>
         <Counter
-          counter={realQuantity()}
+          counter={product.quantity}
           onClickMinus={() => handleClickMinus()}
           onClickPlus={() => handleClickPlus()}
         />
-        <Price title={product.price} />
+        <Price title={product.product.price} />
         <IconButton
           rounded
           color="primary"
           iconColor="text"
           iconName="close"
-          onClick={() => dispatch(cartActions.removeToCart(product.id))}
+          onClick={() => removeItem()}
         />
       </CardWrapper>
     </Paper>

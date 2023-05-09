@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const CardWrapper = styled.div`
+  width: 600px;
   margin-top: 1rem;
   display: flex;
   gap: 1rem;

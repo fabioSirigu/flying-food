@@ -11,9 +11,9 @@ import { Rating } from '../../../components/Rating'
 import { Text } from '../../../components/Text'
 import { ItemInCart } from '../../../features/cart/model'
 import { cartActions } from '../../../features/cart/reducer'
-import { selectCart } from '../../../features/cart/selectors'
+import { makeSelectQtyById } from '../../../features/cart/selectors'
 import { productActions } from '../../../features/products/reducer'
-import { counterNumber, selectProductDetail } from '../../../features/products/selectors'
+import { selectProductDetail } from '../../../features/products/selectors'
 import {
   StyledButton,
   DetailCard,
@@ -26,8 +26,11 @@ import {
 export const CardDetail = () => {
   const { id } = useParams()
   const productDetail = useSelector(selectProductDetail)
-
   const [counter, setCounter] = useState(0)
+  const productQty = useSelector(makeSelectQtyById(id!))
+
+  const maximumItems =
+    productDetail && productQty ? productDetail.stock - productQty : productDetail?.stock
 
   const dispatch = useDispatch()
 
@@ -38,29 +41,35 @@ export const CardDetail = () => {
       )
   }, [id, dispatch])
 
+  const handleSubmit = (product: ItemInCart) => {
+    if (counter < 1) {
+      return null
+    }
+    dispatch(cartActions.addToCart(product))
+    dispatch(cartActions.updateTotalPrice())
+    setCounter(0)
+  }
+
   const handleClickPlus = () => {
-    if (productDetail && counter < productDetail.stock) {
+    if (productDetail && counter < maximumItems!) {
       setCounter(counter + 1)
+      dispatch(cartActions.updateTotalPrice())
     }
   }
 
   const handleClickMinus = () => {
     if (counter > 0) {
       setCounter(counter - 1)
+      dispatch(cartActions.updateTotalPrice())
     }
   }
   if (!productDetail) return <Loader />
 
   const productInCart: ItemInCart = {
-    id: productDetail.id,
-    title: productDetail.name,
-    image: productDetail.imageUrl,
-    price: productDetail.price,
-    sizeUnity: productDetail.size.type,
-    sizeQuantity: productDetail.size.value,
-    stock: productDetail.stock,
+    product: productDetail,
     quantity: counter
   }
+
   return (
     <DetailCard>
       <TextWrapper>
@@ -77,8 +86,8 @@ export const CardDetail = () => {
         <PriceWrapper>
           <Price title={productDetail.price as ValueType} font="h2" />
           <Counter
-            onClickPlus={handleClickPlus}
-            onClickMinus={handleClickMinus}
+            onClickPlus={() => handleClickPlus()}
+            onClickMinus={() => handleClickMinus()}
             counter={counter}
           />
         </PriceWrapper>
@@ -88,7 +97,7 @@ export const CardDetail = () => {
           </OutOfStock>
         )}
         <StyledButton
-          onClick={() => dispatch(cartActions.addToCart(productInCart))}
+          onClick={() => handleSubmit(productInCart)}
           stock={productDetail.stock}
           disabled={false}
           colorText="text"

@@ -14,8 +14,9 @@ export const StyledNavbar = styled.div<NavbarProps>`
   background-color: ${({ theme, background }) =>
     theme.colors[background || 'background']};
   width: 100%;
+  height: 50px;
   padding: ${({ theme, padding }) =>
-    `${theme.spacings[padding || 'md']}rem ${theme.spacings[padding || 'md'] * 2}rem`};
+    `${theme.spacings[padding || 'md']}rem ${theme.spacings[padding || 'md'] * 3}rem`};
   //border-radius: ${({ theme, radius }) => theme.radii[radius || 3]}rem;
   color: ${({ theme, colorText }) => theme.colors[colorText || 'text']};
   display: flex;

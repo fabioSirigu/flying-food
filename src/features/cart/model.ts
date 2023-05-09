@@ -1,16 +1,11 @@
-import { ValueType } from '../../components/api/types'
+import { ProductDto, ValueType } from '../../components/api/types'
 
 export type CartState = {
   cart: ItemInCart[]
+  totalPrice: ValueType
 }
 
 export type ItemInCart = {
-  id: string
-  image: string
-  sizeUnity: string
-  sizeQuantity: number
-  stock: number
-  price: ValueType
+  product: ProductDto
   quantity: number
-  title: string
 }
