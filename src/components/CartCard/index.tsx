@@ -28,6 +28,11 @@ export const CartCard = ({ product }: Props) => {
       dispatch(cartActions.decrementQuantity(product.id))
     }
   }
+
+  const realQuantity = () => {
+    return product.quantity > product.stock ? product.stock : product.quantity
+  }
+
   if (!product) return null
 
   return (
@@ -41,7 +46,7 @@ export const CartCard = ({ product }: Props) => {
           <Tag quantity={product.sizeQuantity} value={product.sizeUnity} />
         </TextWrapper>
         <Counter
-          counter={product.quantity}
+          counter={realQuantity()}
           onClickMinus={() => handleClickMinus()}
           onClickPlus={() => handleClickPlus()}
         />

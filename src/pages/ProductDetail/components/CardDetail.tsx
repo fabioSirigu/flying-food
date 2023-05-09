@@ -49,7 +49,6 @@ export const CardDetail = () => {
       setCounter(counter - 1)
     }
   }
-
   if (!productDetail) return <Loader />
 
   const productInCart: ItemInCart = {
