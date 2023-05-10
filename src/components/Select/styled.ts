@@ -10,6 +10,7 @@ export const StyledSelect = styled.select<SelectProps>`
   padding: ${({ theme }) =>
     `${theme.spacings['md'] / 2}rem ${theme.spacings['md'] * 2}rem`};
   border-radius: ${({ theme }) => theme.radii[3]}rem;
+
   &::after {
     grid-area: select;
   }

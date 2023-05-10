@@ -34,7 +34,7 @@ export const IconWrapper = styled.div`
   gap: 0.4rem;
 `
 export const ProductWrapper = styled.div`
-  margin-top: 2rem;
+  margin-top: 4rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 50px;

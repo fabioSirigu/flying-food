@@ -46,7 +46,11 @@ export const StyledButton = styled.button<ButtonProps>`
       : 'none'};
   aspect-ratio: ${({ rounded }) => (rounded ? `${1}` : 'none')};
   position: relative;
+  transition: 0.4s;
   cursor: pointer;
+  :hover {
+    scale: 1.1;
+  }
 `
 export const TextWrapper = styled.div<WrapperProps>`
   padding-right: ${({ paddingRight }) => (paddingRight ? '1rem' : null)};

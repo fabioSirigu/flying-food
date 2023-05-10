@@ -14,6 +14,11 @@ export const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: end;
+  transition: 0.5s;
+  :hover {
+    box-shadow: 0px 0px 15px 2px #ffffff;
+    cursor: pointer;
+  }
 `
 export const LinkWrapper = styled.div`
   cursor: pointer;
@@ -22,7 +27,7 @@ export const LinkWrapper = styled.div`
 export const ImageWrapper = styled.div`
   position: absolute;
   width: 120px;
-  top: -2.5rem;
+  top: -3rem;
   left: 50%;
   transform: translateX(-50%);
 `
