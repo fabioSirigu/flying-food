@@ -12,7 +12,7 @@ import {
   NoProductWrapper,
   WrapperCart
 } from './styled'
-import { TotalPrice } from './TotalPrice'
+import { TotalPrice } from './totalPrice'
 
 export const Cart = () => {
   const productInCart = useSelector(selectCart)
@@ -39,8 +39,8 @@ export const Cart = () => {
               />
             </NoProductWrapper>
           ) : (
-            productInCart.map((product) => (
-              <CartCard key={product.product.id} product={product} />
+            productInCart.map((cartItem) => (
+              <CartCard key={cartItem.product.id} cartItem={cartItem} />
             ))
           )}
         </ListCartWrapper>

@@ -11,27 +11,31 @@ import { Text } from '../Text'
 import { CardWrapper, ImageWrapper, TextWrapper } from './styled'
 
 type Props = {
-  product: ItemInCart
+  cartItem: ItemInCart
 }
 
-export const CartCard = ({ product }: Props) => {
+export const CartCard = ({ cartItem }: Props) => {
   const dispatch = useDispatch()
+  const { product, quantity } = cartItem
 
+  const realQuantity = () => {
+    return quantity > product.stock ? quantity - quantity + product.stock : quantity
+  }
   const handleClickPlus = () => {
-    if (product.quantity < product.product.stock) {
-      dispatch(cartActions.incrementQuantity(product.product.id))
+    if (quantity < product.stock) {
+      dispatch(cartActions.incrementQuantity(product.id))
       // dispatch(cartActions.updateTotalPrice())
     }
   }
 
   const handleClickMinus = () => {
-    if (product.quantity > 1) {
-      dispatch(cartActions.decrementQuantity(product.product.id))
+    if (quantity > 1) {
+      dispatch(cartActions.decrementQuantity(product.id))
       // dispatch(cartActions.updateTotalPrice())
     }
   }
   const removeItem = () => {
-    dispatch(cartActions.removeToCart(product.product.id))
+    dispatch(cartActions.removeToCart(product.id))
     // dispatch(cartActions.updateTotalPrice())
   }
   if (!product) return null
@@ -40,18 +44,18 @@ export const CartCard = ({ product }: Props) => {
     <Paper>
       <CardWrapper>
         <ImageWrapper>
-          <Image rounded url={product.product.imageUrl} />
+          <Image rounded url={product.imageUrl} />
         </ImageWrapper>
         <TextWrapper>
-          <Text color="text">{product.product.name}</Text>
-          <Tag quantity={product.product.size.value} value={product.product.size.type} />
+          <Text color="text">{product.name}</Text>
+          <Tag quantity={product.size.value} value={product.size.type} />
         </TextWrapper>
         <Counter
-          counter={product.quantity}
+          counter={quantity}
           onClickMinus={() => handleClickMinus()}
           onClickPlus={() => handleClickPlus()}
         />
-        <Price title={product.product.price} />
+        <Price title={product.price} />
         <IconButton
           rounded
           color="primary"
