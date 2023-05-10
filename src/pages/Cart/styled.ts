@@ -19,3 +19,8 @@ export const FooterWrapper = styled.div`
   position: absolute;
   bottom: 1rem;
 `
+
+export const NoProductWrapper = styled.div`
+  display: flex;
+  gap: 1rem;
+`

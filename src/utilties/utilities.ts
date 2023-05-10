@@ -5,10 +5,10 @@ export const getTotalPrice = (
   total: ValueType[]
 ) => {
   const prices = total.map((price) => priceRate(price))
-  const type = prices[0].substring(0, 1)
+  const type = prices[0]?.substring(0, 1)
   const totalPrice = prices.reduce((acc, price) => {
-    acc += Number(price.substring(1))
+    acc += Number(price?.substring(1))
     return acc
   }, 0)
-  return `${type} ${totalPrice}`
+  return `${type || ''} ${totalPrice === 0 ? '' : totalPrice}`
 }

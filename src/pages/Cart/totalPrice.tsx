@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { Price } from '../../components/Price'
+
 import { Text } from '../../components/Text'
 import { selectCartItemsPrice } from '../../features/cart/selectors'
 import { useCurrency } from '../../hooks'
@@ -11,7 +11,9 @@ export const TotalPrice = () => {
 
   const totalPrice = getTotalPrice(priceRate, total)
 
-  //   const price = total.reduce((acc, {value, type})=> acc +=, 0)
-
-  return <Text>{totalPrice}</Text>
+  return (
+    <Text variant="h2" color="text">
+      {totalPrice}
+    </Text>
+  )
 }

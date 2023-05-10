@@ -2,8 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { CartState, ItemInCart } from './model'
 
 const initialState: CartState = {
-  cart: [],
-  totalPrice: { value: 0, type: 'EUR' }
+  cart: []
 }
 
 const cartSlice = createSlice({
@@ -33,14 +32,6 @@ const cartSlice = createSlice({
 
       state.cart[index].quantity--
     }
-    /* updateTotalPrice: (state) => {
-      const totalPrice = state.cart.reduce(
-        (total, element) => (total += element.quantity * element.product.price.value),
-        0
-      )
-      state.totalPrice.value = totalPrice
-      console.log(state.totalPrice.)
-    } */
   }
 })
 
