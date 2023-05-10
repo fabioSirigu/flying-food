@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getReviewsByProductId } from '../../../components/api'
 import { Review } from '../../../components/Review'
 import { Text } from '../../../components/Text'
 import { productActions } from '../../../features/products/reducer'
@@ -14,13 +13,11 @@ type Props = {
 }
 
 export const Reviews = ({ productId, onClick }: Props) => {
-  const allReviews = useSelector(selectAllReviews)
   const dispatch = useDispatch()
+  const allReviews = useSelector(selectAllReviews)
 
   useEffect(() => {
-    getReviewsByProductId(productId).then((res) =>
-      dispatch(productActions.fetchReviewsSuccess(res))
-    )
+    dispatch(productActions.fetchReviewsByProductId(productId))
   }, [productId, dispatch])
 
   return (

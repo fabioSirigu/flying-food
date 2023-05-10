@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux'
-
 import { Text } from '../../components/Text'
 import { selectCartItemsPrice } from '../../features/cart/selectors'
 import { useCurrency } from '../../hooks'

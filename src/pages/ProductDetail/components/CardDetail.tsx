@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { getProductById } from '../../../components/api'
 import { ValueType } from '../../../components/api/types'
 import { Counter } from '../../../components/Counter'
 import { Image } from '../../../components/Image'
@@ -35,10 +34,7 @@ export const CardDetail = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (id)
-      getProductById(id).then((res) =>
-        dispatch(productActions.fetchProductByIdSuccess(res))
-      )
+    if (id) dispatch(productActions.fetchProductById(id))
   }, [id, dispatch])
 
   const handleSubmit = (product: ItemInCart) => {
