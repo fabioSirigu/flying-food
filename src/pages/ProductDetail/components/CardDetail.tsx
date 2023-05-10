@@ -46,21 +46,21 @@ export const CardDetail = () => {
       return null
     }
     dispatch(cartActions.addToCart(product))
-    dispatch(cartActions.updateTotalPrice())
+    // dispatch(cartActions.updateTotalPrice())
     setCounter(0)
   }
 
   const handleClickPlus = () => {
     if (productDetail && counter < maximumItems!) {
       setCounter(counter + 1)
-      dispatch(cartActions.updateTotalPrice())
+      // dispatch(cartActions.updateTotalPrice())
     }
   }
 
   const handleClickMinus = () => {
     if (counter > 0) {
       setCounter(counter - 1)
-      dispatch(cartActions.updateTotalPrice())
+      // dispatch(cartActions.updateTotalPrice())
     }
   }
   if (!productDetail) return <Loader />

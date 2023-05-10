@@ -20,19 +20,19 @@ export const CartCard = ({ product }: Props) => {
   const handleClickPlus = () => {
     if (product.quantity < product.product.stock) {
       dispatch(cartActions.incrementQuantity(product.product.id))
-      dispatch(cartActions.updateTotalPrice())
+      // dispatch(cartActions.updateTotalPrice())
     }
   }
 
   const handleClickMinus = () => {
     if (product.quantity > 1) {
       dispatch(cartActions.decrementQuantity(product.product.id))
-      dispatch(cartActions.updateTotalPrice())
+      // dispatch(cartActions.updateTotalPrice())
     }
   }
   const removeItem = () => {
     dispatch(cartActions.removeToCart(product.product.id))
-    dispatch(cartActions.updateTotalPrice())
+    // dispatch(cartActions.updateTotalPrice())
   }
   if (!product) return null
 

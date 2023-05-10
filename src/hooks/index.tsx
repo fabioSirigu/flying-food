@@ -13,6 +13,7 @@ export const formatPrice = ({ type, value }: ValueType) => {
 }
 export const useCurrency = () => {
   const { currency, rates } = useContext(currencyContext)
+
   const format = ({ value, type }: ValueType) => {
     if (!rates) return '...'
     if (type === currency) return formatPrice({ type, value })
@@ -22,5 +23,6 @@ export const useCurrency = () => {
     const newVal = currency === 'USD' ? valToUSD : valToUSD * currencyRate
     return formatPrice({ type: currency, value: newVal })
   }
+
   return format
 }

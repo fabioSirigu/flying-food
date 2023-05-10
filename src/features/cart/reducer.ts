@@ -32,15 +32,15 @@ const cartSlice = createSlice({
       const index = state.cart.findIndex((item) => item.product.id === payload)
 
       state.cart[index].quantity--
-    },
-    updateTotalPrice: (state) => {
+    }
+    /* updateTotalPrice: (state) => {
       const totalPrice = state.cart.reduce(
         (total, element) => (total += element.quantity * element.product.price.value),
         0
       )
       state.totalPrice.value = totalPrice
-      console.log(state.totalPrice)
-    }
+      console.log(state.totalPrice.)
+    } */
   }
 })
 
