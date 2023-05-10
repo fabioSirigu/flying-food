@@ -12,7 +12,7 @@ import {
   NoProductWrapper,
   WrapperCart
 } from './styled'
-import { TotalPrice } from './totalPrice'
+import { TotalPrice } from './TotalPrice'
 
 export const Cart = () => {
   const productInCart = useSelector(selectCart)
@@ -28,7 +28,7 @@ export const Cart = () => {
           {!productInCart.length ? (
             <NoProductWrapper>
               <Text variant="h1" color="primary">
-                Aggiungi qualcosa al carrello!
+                Add something!
               </Text>
               <Button
                 color="secondary"

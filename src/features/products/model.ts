@@ -6,5 +6,4 @@ export type ProductsState = {
   reviews: ReviewDto[]
   recommendeds: ProductDto[]
   tags: TagDto[]
-  counterNumber: number
 }

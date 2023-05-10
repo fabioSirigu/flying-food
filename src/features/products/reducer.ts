@@ -6,8 +6,7 @@ const initialState: ProductsState = {
   products: [],
   reviews: [],
   recommendeds: [],
-  tags: [],
-  counterNumber: 0
+  tags: []
 }
 
 const productsSlice = createSlice({
@@ -28,12 +27,6 @@ const productsSlice = createSlice({
     },
     fetchTagsProducts: (state, { payload }: PayloadAction<TagDto[]>) => {
       state.tags = payload
-    },
-    incrementCounter: (state, { payload }: PayloadAction<number>) => {
-      state.counterNumber += payload
-    },
-    decrementCounter: (state, { payload }: PayloadAction<number>) => {
-      state.counterNumber -= payload
     }
   }
 })

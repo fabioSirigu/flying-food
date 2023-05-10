@@ -1,4 +1,4 @@
-import { ProductDto, ValueType } from '../../components/api/types'
+import { ProductDto } from '../../components/api/types'
 
 export type CartState = {
   cart: ItemInCart[]
