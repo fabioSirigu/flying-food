@@ -15,9 +15,7 @@ export const Recommended = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    getProductsRandom().then((data) =>
-      dispatch(productActions.fetchRandomProductsSuccess(data))
-    )
+    dispatch(productActions.fetchRandomProducts())
   }, [dispatch])
 
   return (

@@ -19,7 +19,6 @@ export const StyledMain = styled.main`
   width: 100%;
   height: 100%;
   flex: 1;
-  overflow-y: scroll;
   overflow-x: hidden;
   background: ${({ theme }) => theme.colors.backgroundDark};
 `
