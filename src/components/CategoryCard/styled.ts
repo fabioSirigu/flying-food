@@ -23,7 +23,6 @@ export const StyledCategoryCard = styled.div<CategoryCardProps>`
 
 export const TextWrapper = styled.div`
   text-align: center;
-
   padding-bottom: 1rem;
   margin: auto;
 `

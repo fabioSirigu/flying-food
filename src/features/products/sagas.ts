@@ -3,9 +3,10 @@ import {
   getProductById,
   getProducts,
   getProductsRandom,
-  getReviewsByProductId
+  getReviewsByProductId,
+  getTags
 } from '../../components/api'
-import { ProductDto, ReviewDto } from '../../components/api/types'
+import { ProductDto, ReviewDto, TagDto } from '../../components/api/types'
 import { productActions as a } from './reducer'
 
 function* fetchProductsSaga() {
@@ -50,9 +51,20 @@ function* fetchProductRandomSaga() {
   }
 }
 
+function* fetchTagsSaga() {
+  try {
+    const tagsProduct: TagDto[] = yield call(getTags)
+
+    yield put(a.fetchTagsProducts(tagsProduct))
+  } catch (error) {
+    console.log((error as Error).message)
+  }
+}
+
 export function* productsSaga() {
   yield takeLatest(a.fetchProducts.toString(), fetchProductsSaga)
   yield takeLatest(a.fetchProductById.toString(), fetchProductByIdSaga)
   yield takeLatest(a.fetchReviewsByProductId.toString(), fetchProductReviewsSaga)
   yield takeLatest(a.fetchRandomProducts.toString(), fetchProductRandomSaga)
+  yield takeLatest(a.fetchTagsProducts.toString(), fetchTagsSaga)
 }

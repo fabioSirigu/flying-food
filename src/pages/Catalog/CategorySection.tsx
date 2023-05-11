@@ -9,20 +9,18 @@ import { CategoryWrapper } from './styled'
 
 export const CategorySection = () => {
   const categories = useSelector(selectTags)
-
+  const categoryFiltered = categories.filter(({ hidden }) => !hidden)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    getTags().then((data) =>
-      dispatch(productActions.fetchTagsProducts(data.filter(({ hidden }) => !hidden)))
-    )
-  }, [dispatch])
+    dispatch(productActions.fetchTagsProducts(categories))
+  }, [dispatch, categories])
 
   return (
     <>
       <CategoryWrapper>
-        {categories.length &&
-          categories.map((category) => (
+        {categoryFiltered.length &&
+          categoryFiltered.map((category) => (
             <CategoryCard key={category.id} category={category} />
           ))}
       </CategoryWrapper>

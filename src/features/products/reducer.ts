@@ -36,7 +36,8 @@ export const productActions = {
   fetchProducts: createAction('products/fetchProducts'),
   fetchProductById: createAction<string>('products/fetchProductById'),
   fetchReviewsByProductId: createAction<string>('products/fetchReviewsByProductId'),
-  fetchRandomProducts: createAction('products/fetchRandomProducts')
+  fetchRandomProducts: createAction('products/fetchRandomProducts'),
+  fetchTags: createAction('products/fetchTags')
 }
 
 export default productsSlice.reducer
