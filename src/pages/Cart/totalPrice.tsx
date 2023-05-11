@@ -13,8 +13,11 @@ export const TotalPrice = () => {
 
   return (
     <StyledTotal>
-      <Text variant="h2" color="secondary">
-        To pay: {totalPrice}
+      <Text variant="h3" color="text">
+        To Pay:
+      </Text>
+      <Text variant="h3" color="secondary">
+        {totalPrice}
       </Text>
     </StyledTotal>
   )

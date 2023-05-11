@@ -62,6 +62,11 @@ export const theme = {
     sm: 24,
     md: 32,
     lg: 40
+  },
+  fontWeight: {
+    bold: 700,
+    mediumBold: 500,
+    thin: 300
   }
 } as const
 
@@ -71,3 +76,4 @@ export type ThemeSize = keyof Theme['fontSizes']
 export type ThemeSpacing = keyof Theme['spacings']
 export type FontVariant = keyof Theme['fonts']
 export type ThemeWidth = keyof Theme['sizes']
+export type FontWeight = keyof Theme['fontWeight']

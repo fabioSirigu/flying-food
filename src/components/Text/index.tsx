@@ -1,15 +1,21 @@
 import React, { PropsWithChildren } from 'react'
-import { ThemeColor, FontVariant } from '../../style/theme'
+import { ThemeColor, FontVariant, FontWeight } from '../../style/theme'
 import { StyledText } from './styled'
 
 type Props = PropsWithChildren<{
   variant?: FontVariant
   color?: ThemeColor
+  weight?: FontWeight
 }>
 
-export const Text = ({ variant = 'span', color = 'primaryDark', children }: Props) => {
+export const Text = ({
+  variant = 'span',
+  color = 'primaryDark',
+  weight = 'mediumBold',
+  children
+}: Props) => {
   return (
-    <StyledText as={variant} color={color}>
+    <StyledText weight={weight} as={variant} color={color}>
       {children}
     </StyledText>
   )

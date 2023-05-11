@@ -1,10 +1,11 @@
 import styled from 'styled-components'
-import { ThemeColor, FontVariant } from '../../style/theme'
+import { ThemeColor, FontVariant, FontWeight } from '../../style/theme'
 
 type Props = {
   as: FontVariant
   color: ThemeColor
   paddingRight?: boolean
+  weight?: FontWeight
 }
 
 export const StyledText = styled.span<Props>`
@@ -14,4 +15,5 @@ export const StyledText = styled.span<Props>`
   }}rem;
   color: ${({ theme, color }) => theme.colors[color]};
   padding-right: ${({ paddingRight }) => (paddingRight ? '1rem' : null)};
+  font-weight: ${({ theme, weight }) => (weight ? theme.fontWeight[weight] : null)};
 `

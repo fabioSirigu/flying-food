@@ -1,9 +1,9 @@
+import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
-import { Select } from '../../components/Select'
 import { Text } from '../../components/Text'
 import { ExpirationForm } from './ExpirationForm'
 import { PaymentCard } from './PaymentCard'
-import { FooterFormWrapper, StyledCvv } from './styled'
+import { FooterFormWrapper, StyledCheckoutButton, StyledCvv } from './styled'
 
 export const CheckoutForm = () => {
   return (
@@ -25,7 +25,6 @@ export const CheckoutForm = () => {
       <Input placeholder="XXXX-XXXX-XXXX-XXXX" />
       <FooterFormWrapper>
         <ExpirationForm />
-
         <StyledCvv>
           <Text variant="h6" color="textLight">
             CVV
@@ -33,6 +32,9 @@ export const CheckoutForm = () => {
           <Input placeholder="XXX" />
         </StyledCvv>
       </FooterFormWrapper>
+      <StyledCheckoutButton>
+        <Button padding="lg" color="secondary" colorText="text" title="Checkout" />
+      </StyledCheckoutButton>
     </>
   )
 }

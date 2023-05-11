@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-// import { ThemeColor, FontVariant, ThemeSpacing } from '../../style/theme'
+
 export type PropsImage = {
   rounded?: boolean
 }
@@ -12,7 +12,6 @@ export const StyledImage = styled.img<PropsImage>`
     rounded
       ? css`
           border-radius: 50%;
-          object-fit: cover;
         `
       : null}
 `
