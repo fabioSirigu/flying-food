@@ -66,5 +66,5 @@ export function* productsSaga() {
   yield takeLatest(a.fetchProductById.toString(), fetchProductByIdSaga)
   yield takeLatest(a.fetchReviewsByProductId.toString(), fetchProductReviewsSaga)
   yield takeLatest(a.fetchRandomProducts.toString(), fetchProductRandomSaga)
-  yield takeLatest(a.fetchTagsProducts.toString(), fetchTagsSaga)
+  yield takeLatest(a.fetchTags.toString(), fetchTagsSaga)
 }
