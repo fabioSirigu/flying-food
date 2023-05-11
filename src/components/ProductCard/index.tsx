@@ -42,11 +42,7 @@ export const ProductCard = ({
             </Text>
           </TextWrapper>
         </LinkWrapper>
-        <FooterCard
-          price={product.price}
-          unity={product.size.type}
-          quantity={product.size.value}
-        />
+        <FooterCard product={product} />
       </StyledCard>
     </Paper>
   )

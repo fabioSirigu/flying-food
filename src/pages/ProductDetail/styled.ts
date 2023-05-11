@@ -11,7 +11,7 @@ export const StyledDetails = styled.div`
 `
 
 export const RowButton = styled.div`
-  width: 800px;
+  width: 80%;
   display: flex;
   justify-content: end;
 `
@@ -57,7 +57,7 @@ export const CardsContainer = styled.div`
   }
 `
 export const TitleWrapper = styled.div`
-  width: 800px;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   align-items: center;

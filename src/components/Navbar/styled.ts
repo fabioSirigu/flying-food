@@ -26,3 +26,17 @@ export const IconWrapper = styled.div`
   display: flex;
   gap: 5px;
 `
+
+export const CartQty = styled.div`
+  background: ${({ theme }) => theme.colors.primary};
+  border-radius: 50%;
+  font-size: 0.6rem;
+  display: flex;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 5.7rem;
+  top: 1.6rem;
+  justify-content: center;
+  align-items: center;
+`

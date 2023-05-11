@@ -57,6 +57,9 @@ export const TextWrapper = styled.div<WrapperProps>`
 `
 export const IconWrapper = styled.div<WrapperProps>`
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: ${({ theme }) => theme.colors['text']};
 
   ${({ background }) =>
@@ -72,8 +75,4 @@ export const IconWrapper = styled.div<WrapperProps>`
           border-radius: 50%;
         `
       : 'none'}
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `
