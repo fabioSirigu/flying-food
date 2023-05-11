@@ -13,6 +13,7 @@ export type CategoryCardProps = {
 }
 
 export const StyledCategoryCard = styled.div<CategoryCardProps>`
+  padding: 0 0.5rem;
   width: 120px;
   background: ${({ theme, background }) => theme.colors[background || 'backgroundLight']};
   border-radius: ${({ theme }) => theme.radii[3]}rem;
