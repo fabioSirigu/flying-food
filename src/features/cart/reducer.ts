@@ -18,8 +18,6 @@ const cartSlice = createSlice({
     },
     removeToCart: (state, { payload }: PayloadAction<string>) => {
       state.cart = state.cart.filter((item) => item.product.id !== payload)
-
-      console.log('remove', payload)
     },
     incrementQuantity: (state, { payload }: PayloadAction<string>) => {
       const index = state.cart.findIndex((item) => item.product.id === payload)

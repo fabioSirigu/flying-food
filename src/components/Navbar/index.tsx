@@ -20,8 +20,6 @@ export const Navbar = ({
 
   const cartQty = useSelector(selectCart).length
 
-  console.log(cartQty)
-
   return (
     <StyledNavbar>
       <SearchBox

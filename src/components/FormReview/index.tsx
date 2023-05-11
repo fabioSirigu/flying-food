@@ -36,10 +36,14 @@ export const FormReview = ({ id }: Props) => {
   }
   return (
     <StyledForm>
-      <Text>Name</Text>
-      <Input onChange={handleUser} />
-      <Text>Body</Text>
-      <TextAerea onChange={handleBody} />
+      <Text variant="h3" color="text">
+        Name
+      </Text>
+      <Input placeholder="Your name..." onChange={handleUser} />
+      <Text variant="h3" color="text">
+        Body
+      </Text>
+      <TextAerea placeholder="Write a review..." onChange={handleBody} />
       <FooterWrapper>
         <Button
           padding="md"

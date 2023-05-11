@@ -14,14 +14,13 @@ type Props = {
 }
 
 export const FooterCard = ({ product }: Props) => {
-  const productDetail = useSelector(selectProductDetail)
   const dispatch = useDispatch()
   const handleSubmit = (product: ItemInCart) => {
     dispatch(cartActions.addToCart(product))
   }
 
   const productInCart: ItemInCart = {
-    product: productDetail!,
+    product: product!,
     quantity: 1
   }
 

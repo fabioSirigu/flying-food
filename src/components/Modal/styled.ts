@@ -31,7 +31,7 @@ export const MainWrapper = styled.div`
   border-radius: 10px;
   margin: 0.5rem;
   padding: 0.5rem;
-  background: ${({ theme }) => theme.colors.background};
+  //background: ${({ theme }) => theme.colors.background};
 `
 
 export const FooterWrapper = styled.div`
