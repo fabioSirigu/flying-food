@@ -1,14 +1,14 @@
 // import { PropsWithChildren } from 'react'
 // import { PropsWithChildren } from 'react'
 // import { ChangeEvent } from 'react'
+import { OptionsType } from '../api/types'
 import { StyledSelect } from './styled'
 
-const options = [
-  { value: 'sushi', label: 'Sushi' },
-  { value: 'burger', label: 'Burger' },
-  { value: 'pizza', label: 'Pizza' }
-]
-export const Select = () => {
+type Props = {
+  options: OptionsType[]
+}
+
+export const Select = ({ options }: Props) => {
   return (
     <StyledSelect>
       {options.map((item, index) => (

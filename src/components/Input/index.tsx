@@ -1,3 +1,4 @@
+import { type } from 'os'
 import React, { PropsWithChildren } from 'react'
 import { InputProps, StyledInput } from './styled'
 
@@ -8,6 +9,7 @@ export const Input = ({
   colorText,
   placeholder,
   onChange,
+  type,
 
   ...rest
 }: Props) => {
@@ -17,6 +19,7 @@ export const Input = ({
       {...rest}
       placeholder={placeholder}
       colorText={colorText}
+      type={type}
     />
   )
 }

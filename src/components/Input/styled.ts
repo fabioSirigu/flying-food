@@ -11,6 +11,7 @@ export type InputProps = {
   border?: string
   onChange?: AnyCallbackFunction
   value?: string
+  type?: string
 }
 
 export const StyledInput = styled.input<InputProps>`

@@ -5,6 +5,11 @@ import { Text } from '../../components/Text'
 import { TextWrapper, SelectIconWrapper, SelectWrapper, IconWrapper } from './styled'
 
 export const TitleSection = () => {
+  const options = [
+    { value: 'sushi', label: 'Sushi' },
+    { value: 'burger', label: 'Burger' },
+    { value: 'pizza', label: 'Pizza' }
+  ]
   return (
     <>
       <TextWrapper>
@@ -14,9 +19,9 @@ export const TitleSection = () => {
       </TextWrapper>
       <SelectIconWrapper>
         <SelectWrapper>
-          <Select />
-          <Select />
-          <Select />
+          <Select options={options} />
+          <Select options={options} />
+          <Select options={options} />
         </SelectWrapper>
         <IconWrapper>
           <IconButton

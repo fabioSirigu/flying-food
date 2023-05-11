@@ -3,6 +3,11 @@ export type ValueType = {
   value: number
 }
 
+export type OptionsType = {
+  label: string
+  value: string | number
+}
+
 export type ProductDto = {
   id: string
   name: string
