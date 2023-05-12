@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React, { memo, PropsWithChildren } from 'react'
 import { IconButton } from '../Button'
 import { Paper } from '../Paper'
 import { Text } from '../Text'
@@ -9,7 +9,7 @@ type Props = PropsWithChildren<{
   onClose: () => void
 }>
 
-export const Modal = ({ opened, onClose, children }: Props) => {
+export const Modal = memo(({ opened, onClose, children }: Props) => {
   if (!opened) return null
 
   return (
@@ -33,4 +33,4 @@ export const Modal = ({ opened, onClose, children }: Props) => {
       </ModalBackground>
     </Paper>
   )
-}
+})

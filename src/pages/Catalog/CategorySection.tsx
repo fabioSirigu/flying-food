@@ -1,11 +1,11 @@
-import { useEffect } from 'react'
+import { memo, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CategoryCard } from '../../components/CategoryCard'
 import { productActions } from '../../features/products/reducer'
 import { selectTags } from '../../features/products/selectors'
 import { CategoryWrapper } from './styled'
 
-export const CategorySection = () => {
+export const CategorySection = memo(() => {
   const categories = useSelector(selectTags)
   const dispatch = useDispatch()
   const categoryFiltered = categories.filter(({ hidden }) => !hidden)
@@ -24,4 +24,4 @@ export const CategorySection = () => {
       </CategoryWrapper>
     </>
   )
-}
+})

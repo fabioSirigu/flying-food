@@ -6,8 +6,6 @@ type Props = {
   url?: string
 }
 
-const ImageComponent = ({ url, rounded }: Props & PropsImage) => {
+export const Image = memo(({ url, rounded }: Props & PropsImage) => {
   return <StyledImage rounded={rounded} src={url} />
-}
-
-export const Image = memo(ImageComponent)
+})

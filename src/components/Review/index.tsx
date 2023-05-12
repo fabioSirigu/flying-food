@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { ReviewDto } from '../api/types'
 import { Text } from '../Text'
 import { ReviewCard } from './styled'
@@ -8,7 +9,7 @@ type Props = {
   date: string
   body: string
 }
-export const Review = ({ date, author, body }: Props) => {
+export const Review = memo(({ date, author, body }: Props) => {
   const str = date
   const newDate = new Date(str!)
 
@@ -27,4 +28,4 @@ export const Review = ({ date, author, body }: Props) => {
       </Text>
     </ReviewCard>
   )
-}
+})

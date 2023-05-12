@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React, { memo, PropsWithChildren } from 'react'
 import { useCurrency } from '../../hooks'
 import { FontVariant, ThemeColor } from '../../style/theme'
 import { ValueType } from '../api/types'
@@ -12,19 +12,21 @@ type Props = {
   value?: string
 } & PropsWithChildren<Partial<PriceProps>>
 
-export const Price = ({
-  background,
-  colorText = 'text',
-  font,
-  title,
-  value,
+export const Price = memo(
+  ({
+    background,
+    colorText = 'text',
+    font,
+    title,
+    value,
 
-  ...rest
-}: Props) => {
-  const priceRate = useCurrency()
-  return (
-    <StyledPrice color={colorText} variant={font}>
-      {priceRate(title)}
-    </StyledPrice>
-  )
-}
+    ...rest
+  }: Props) => {
+    const priceRate = useCurrency()
+    return (
+      <StyledPrice color={colorText} variant={font}>
+        {priceRate(title)}
+      </StyledPrice>
+    )
+  }
+)

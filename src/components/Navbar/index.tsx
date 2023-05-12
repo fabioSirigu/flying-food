@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React, { PropsWithChildren, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { selectCart } from '../../features/cart/selectors'
@@ -17,6 +17,8 @@ export const Navbar = ({
   ...rest
 }: Props) => {
   const navigate = useNavigate()
+
+  const handleNavigate = useCallback(() => navigate('/cart'), [navigate])
 
   const cartQty = useSelector(selectCart).length
 
@@ -39,7 +41,7 @@ export const Navbar = ({
           iconName="notice"
         />
         <IconButton
-          onClick={() => navigate('/cart')}
+          onClick={handleNavigate}
           rounded
           padding="md"
           radius={1}

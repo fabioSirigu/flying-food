@@ -3,7 +3,7 @@ import { ProductDto, ReviewDto, TagDto } from '../../components/api/types'
 export type ProductsState = {
   products: ProductDto[]
   productDetail: ProductDto | null
-  reviews: ReviewDto[]
-  recommendeds: ProductDto[]
+  reviews: ReviewDto[] | null
+  recommendeds: ProductDto[] | null
   tags: TagDto[]
 }

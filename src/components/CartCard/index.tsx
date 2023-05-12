@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import { ItemInCart } from '../../features/cart/model'
 import { cartActions } from '../../features/cart/reducer'
@@ -15,24 +15,26 @@ type Props = {
   cartItem: ItemInCart
 }
 
-const CartCardComponent = ({ cartItem }: Props) => {
+export const CartCard = memo(({ cartItem }: Props) => {
   const dispatch = useDispatch()
   const { product, quantity } = cartItem
 
-  const handleClickPlus = () => {
+  const handleClickPlus = useCallback(() => {
     if (quantity < product.stock) {
       dispatch(cartActions.incrementQuantity(product.id))
     }
-  }
+  }, [dispatch, quantity, product])
 
-  const handleClickMinus = () => {
+  const handleClickMinus = useCallback(() => {
     if (quantity > 1) {
       dispatch(cartActions.decrementQuantity(product.id))
     }
-  }
-  const removeItem = () => {
+  }, [dispatch, quantity, product])
+
+  const removeItem = useCallback(() => {
     dispatch(cartActions.removeToCart(product.id))
-  }
+  }, [dispatch, product])
+
   if (!product) return null
 
   return (
@@ -47,8 +49,8 @@ const CartCardComponent = ({ cartItem }: Props) => {
         </TextWrapper>
         <Counter
           counter={quantity}
-          onClickMinus={() => handleClickMinus()}
-          onClickPlus={() => handleClickPlus()}
+          onClickMinus={handleClickMinus}
+          onClickPlus={handleClickPlus}
         />
         <Price title={product.price} />
         <IconButton
@@ -56,11 +58,9 @@ const CartCardComponent = ({ cartItem }: Props) => {
           color="primary"
           iconColor="text"
           iconName="close"
-          onClick={() => removeItem()}
+          onClick={removeItem}
         />
       </CardWrapper>
     </Paper>
   )
-}
-
-export const CartCard = memo(CartCardComponent)
+})

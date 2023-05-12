@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { CategorySection } from './CategorySection'
 import { ProductList } from './ProductList'
 import { RowWrapper } from './styled'
 import { TitleSection } from './TitleSection'
 
-export function Catalog() {
+export const Catalog = memo(() => {
   return (
     <div className="App">
       <CategorySection />
@@ -14,4 +14,4 @@ export function Catalog() {
       <ProductList />
     </div>
   )
-}
+})

@@ -10,5 +10,5 @@ export const getTotalPrice = (
     acc += Number(price?.substring(1))
     return acc
   }, 0)
-  return `${type || ''} ${totalPrice === 0 ? '' : totalPrice}`
+  return `${type || ''} ${totalPrice === 0 ? 0 : totalPrice}`
 }

@@ -1,10 +1,14 @@
+import { memo, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { DefaultButton } from '../../components/Button/DefaultButton'
 import { Text } from '../../components/Text'
 import { StyledText } from './styled'
 
-export const NotFound = () => {
+export const NotFound = memo(() => {
   const navigate = useNavigate()
+
+  const handleNavigate = useCallback(() => navigate('/catalog'), [navigate])
+
   return (
     <div className="App notFound">
       <StyledText>
@@ -16,9 +20,9 @@ export const NotFound = () => {
           color="secondary"
           colorText="text"
           title="Back Catalog"
-          onClick={() => navigate('/catalog')}
+          onClick={handleNavigate}
         />
       </StyledText>
     </div>
   )
-}
+})

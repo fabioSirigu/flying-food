@@ -8,17 +8,17 @@ type Props = PropsWithChildren<{
   weight?: FontWeight
 }>
 
-const TextComponent = ({
-  variant = 'span',
-  color = 'primaryDark',
-  weight = 'mediumBold',
-  children
-}: Props) => {
-  return (
-    <StyledText weight={weight} as={variant} color={color}>
-      {children}
-    </StyledText>
-  )
-}
-
-export const Text = memo(TextComponent)
+export const Text = memo(
+  ({
+    variant = 'span',
+    color = 'primaryDark',
+    weight = 'mediumBold',
+    children
+  }: Props) => {
+    return (
+      <StyledText weight={weight} as={variant} color={color}>
+        {children}
+      </StyledText>
+    )
+  }
+)

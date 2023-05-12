@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Button } from '../../../components/Button'
 import { Text } from '../../../components/Text'
 import { TitleWrapper } from '../styled'
@@ -5,7 +6,7 @@ import { TitleWrapper } from '../styled'
 type Props = {
   onClick: () => void
 }
-export const TitleSection = ({ onClick }: Props) => {
+export const TitleSection = memo(({ onClick }: Props) => {
   return (
     <TitleWrapper>
       <Text color="text" variant="h3">
@@ -25,4 +26,4 @@ export const TitleSection = ({ onClick }: Props) => {
       />
     </TitleWrapper>
   )
-}
+})

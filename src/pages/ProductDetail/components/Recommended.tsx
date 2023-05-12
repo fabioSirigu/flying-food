@@ -1,6 +1,5 @@
-import { useEffect } from 'react'
+import { memo, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProductsRandom } from '../../../components/api'
 
 import { Paper } from '../../../components/Paper'
 import { ProductCardVariant } from '../../../components/ProductCard/Variant'
@@ -9,13 +8,16 @@ import { productActions } from '../../../features/products/reducer'
 import { selectAllRecommendeds } from '../../../features/products/selectors'
 import { RaccomandedWrapper } from '../styled'
 
-export const Recommended = () => {
-  const recommendeds = useSelector(selectAllRecommendeds)
-
+export const Recommended = memo(() => {
   const dispatch = useDispatch()
+  const recommendeds = useSelector(selectAllRecommendeds)
 
   useEffect(() => {
     dispatch(productActions.fetchRandomProducts())
+
+    return () => {
+      dispatch(productActions.clearRecommended())
+    }
   }, [dispatch])
 
   return (
@@ -24,20 +26,21 @@ export const Recommended = () => {
         Raccomanded
       </Text>
       <RaccomandedWrapper>
-        {recommendeds.map((recommended) => (
-          <Paper key={recommended.id}>
-            <ProductCardVariant
-              id={recommended.id}
-              imageUrl={recommended.imageUrl}
-              productName={recommended.name}
-              productDescription={recommended.description}
-              price={recommended.price}
-              unity={recommended.size.type}
-              quantity={recommended.size.value}
-            />
-          </Paper>
-        ))}
+        {recommendeds &&
+          recommendeds.map((recommended) => (
+            <Paper key={recommended.id}>
+              <ProductCardVariant
+                id={recommended.id}
+                imageUrl={recommended.imageUrl}
+                productName={recommended.name}
+                productDescription={recommended.description}
+                price={recommended.price}
+                unity={recommended.size.type}
+                quantity={recommended.size.value}
+              />
+            </Paper>
+          ))}
       </RaccomandedWrapper>
     </>
   )
-}
+})

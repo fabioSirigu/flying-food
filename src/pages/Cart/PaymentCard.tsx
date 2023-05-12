@@ -1,8 +1,9 @@
+import { memo } from 'react'
 import { Image } from '../../components/Image'
 import { Input } from '../../components/Input'
 import { PaymentCards, SingleCardCheckbox } from './styled'
 
-export const PaymentCard = () => {
+export const PaymentCard = memo(() => {
   return (
     <PaymentCards>
       <SingleCardCheckbox>
@@ -15,4 +16,4 @@ export const PaymentCard = () => {
       </SingleCardCheckbox>
     </PaymentCards>
   )
-}
+})

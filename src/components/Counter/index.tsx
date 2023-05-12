@@ -9,7 +9,7 @@ type Props = {
   counter: number
 }
 
-const CounterComponent = ({ onClickPlus, onClickMinus, counter }: Props) => {
+export const Counter = memo(({ onClickPlus, onClickMinus, counter }: Props) => {
   return (
     <StyledCounter>
       <IconButton rounded color="backgroundLight" iconName="plus" onClick={onClickPlus} />
@@ -24,6 +24,4 @@ const CounterComponent = ({ onClickPlus, onClickMinus, counter }: Props) => {
       />
     </StyledCounter>
   )
-}
-
-export const Counter = memo(CounterComponent)
+})

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import { FormReview } from '../../components/FormReview'
@@ -11,7 +11,7 @@ import { Reviews } from './components/Reviews'
 
 import { RowButton, StyledDetails } from './styled'
 
-export const ProductDetail = () => {
+export const ProductDetail = memo(() => {
   const { id } = useParams()
   const navigate = useNavigate()
   const [showModal, setShowModal] = useState(false)
@@ -49,4 +49,4 @@ export const ProductDetail = () => {
       </StyledDetails>
     </>
   )
-}
+})

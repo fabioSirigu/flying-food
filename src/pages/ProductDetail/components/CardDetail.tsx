@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { ValueType } from '../../../components/api/types'
@@ -8,7 +8,6 @@ import { Loader } from '../../../components/Loader'
 import { Price } from '../../../components/Price'
 import { Rating } from '../../../components/Rating'
 import { Text } from '../../../components/Text'
-import { ItemInCart } from '../../../features/cart/model'
 import { cartActions } from '../../../features/cart/reducer'
 import { makeSelectQtyById } from '../../../features/cart/selectors'
 import { productActions } from '../../../features/products/reducer'
@@ -22,7 +21,7 @@ import {
   OutOfStock
 } from '../styled'
 
-export const CardDetail = () => {
+export const CardDetail = memo(() => {
   const { id } = useParams()
   const dispatch = useDispatch()
   const [counter, setCounter] = useState(0)
@@ -117,4 +116,4 @@ export const CardDetail = () => {
       {productImage}
     </DetailCard>
   )
-}
+})

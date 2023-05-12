@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { memo, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Review } from '../../../components/Review'
 import { Text } from '../../../components/Text'
@@ -12,12 +12,16 @@ type Props = {
   onClick: () => void
 }
 
-export const Reviews = ({ productId, onClick }: Props) => {
+export const Reviews = memo(({ productId, onClick }: Props) => {
   const dispatch = useDispatch()
   const allReviews = useSelector(selectAllReviews)
 
   useEffect(() => {
     dispatch(productActions.fetchReviewsByProductId(productId))
+
+    return () => {
+      dispatch(productActions.clearReview())
+    }
   }, [productId, dispatch])
 
   return (
@@ -39,4 +43,4 @@ export const Reviews = ({ productId, onClick }: Props) => {
       </CardsContainer>
     </StyledReview>
   )
-}
+})

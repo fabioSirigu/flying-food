@@ -11,7 +11,7 @@ import {
 
 type Props = PropsWithChildren<Partial<CategoryCardProps>>
 
-const CategoryCardComponent = ({ category }: Props) => {
+export const CategoryCard = memo(({ category }: Props) => {
   return (
     <Paper>
       <StyledCategoryCard category={category}>
@@ -25,6 +25,4 @@ const CategoryCardComponent = ({ category }: Props) => {
       </StyledCategoryCard>
     </Paper>
   )
-}
-
-export const CategoryCard = memo(CategoryCardComponent)
+})

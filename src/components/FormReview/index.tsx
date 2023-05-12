@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, memo, useState } from 'react'
 import { addReviewOnProduct } from '../api'
 import { ReviewDto } from '../api/types'
 import { Button } from '../Button'
@@ -10,7 +10,7 @@ import { StyledForm, TextAerea } from './styled'
 type Props = {
   id: string
 }
-export const FormReview = ({ id }: Props) => {
+export const FormReview = memo(({ id }: Props) => {
   const [author, setAuthor] = useState('')
   const [body, setBody] = useState('')
 
@@ -55,4 +55,4 @@ export const FormReview = ({ id }: Props) => {
       </FooterWrapper>
     </StyledForm>
   )
-}
+})

@@ -1,11 +1,11 @@
-import { ChangeEvent, useContext } from 'react'
+import { ChangeEvent, memo, useContext } from 'react'
 import { currencyContext } from '../../context/currency'
 import { CurrencySymbol } from '../../context/currency'
 import { StyledCurrency } from './styled'
 
 const options: CurrencySymbol[] = ['EUR', 'USD', 'JPY', 'GBP']
 
-export const CurrencySelect = () => {
+export const CurrencySelect = memo(() => {
   const { currency, setCurrency } = useContext(currencyContext)
 
   return (
@@ -23,4 +23,4 @@ export const CurrencySelect = () => {
       ))}
     </StyledCurrency>
   )
-}
+})

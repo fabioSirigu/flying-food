@@ -11,8 +11,6 @@ type Props = {
   iconName: NameIcon
   color?: ThemeColor
 }
-const IconComponent = ({ iconName, color = 'text' }: Props) => {
+export const Icon = memo(({ iconName, color = 'text' }: Props) => {
   return <FontAwesomeIcon icon={icons[iconName]} color={theme.colors[color]} />
-}
-
-export const Icon = memo(IconComponent)
+})

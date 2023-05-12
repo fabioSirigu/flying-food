@@ -31,6 +31,12 @@ const productsSlice = createSlice({
     },
     clearDetail: (state) => {
       state.productDetail = null
+    },
+    clearRecommended: (state) => {
+      state.recommendeds = null
+    },
+    clearReview: (state) => {
+      state.reviews = null
     }
   }
 })

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { IconButton } from '../../components/Button'
 import { Select } from '../../components/Select'
 import { Text } from '../../components/Text'
@@ -10,7 +10,7 @@ const options = [
   { value: 'pizza', label: 'Pizza' }
 ]
 
-export const TitleSection = () => {
+export const TitleSection = memo(() => {
   return (
     <>
       <TextWrapper>
@@ -41,4 +41,4 @@ export const TitleSection = () => {
       </SelectIconWrapper>
     </>
   )
-}
+})
