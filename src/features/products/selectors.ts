@@ -8,14 +8,28 @@ export const selectAllProducts = createSelector(
   (productState) => productState.products
 )
 
-export const selectProductDetail = (state: RootState) => state.products.productDetail
+export const selectProductDetail = createSelector(
+  selectProductState,
+  (productState) => productState.productDetail
+)
 
-export const selectAllReviews = (state: RootState) => state.products.reviews
+export const selectAllReviews = createSelector(
+  selectProductState,
+  (productState) => productState.reviews
+)
 
-export const selectAllRecommendeds = (state: RootState) => state.products.recommendeds
+export const selectAllRecommendeds = createSelector(
+  selectProductState,
+  (productState) => productState.recommendeds
+)
 
-export const selectTags = (state: RootState) => state.products.tags
+export const selectTags = createSelector(
+  selectProductState,
+  (productState) => productState.tags
+)
 
 // selettore pronto per filtrare i prodotti
-/* export const makeSelectProductFilteredByTag = (tag: string) => (state: RootState) =>
-  state.products.products.filter((product) => product.tags.some((t) => t === tag)) */
+export const makeSelectProductFilteredByTag = (tag: string) =>
+  createSelector(selectAllProducts, (allProducts) =>
+    allProducts.filter((product) => product.tags.some((t) => t === tag))
+  )
