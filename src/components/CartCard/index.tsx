@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { useDispatch } from 'react-redux'
 import { ItemInCart } from '../../features/cart/model'
 import { cartActions } from '../../features/cart/reducer'
@@ -14,29 +15,23 @@ type Props = {
   cartItem: ItemInCart
 }
 
-export const CartCard = ({ cartItem }: Props) => {
+const CartCardComponent = ({ cartItem }: Props) => {
   const dispatch = useDispatch()
   const { product, quantity } = cartItem
 
-  const realQuantity = () => {
-    return quantity > product.stock ? quantity - quantity + product.stock : quantity
-  }
   const handleClickPlus = () => {
     if (quantity < product.stock) {
       dispatch(cartActions.incrementQuantity(product.id))
-      // dispatch(cartActions.updateTotalPrice())
     }
   }
 
   const handleClickMinus = () => {
     if (quantity > 1) {
       dispatch(cartActions.decrementQuantity(product.id))
-      // dispatch(cartActions.updateTotalPrice())
     }
   }
   const removeItem = () => {
     dispatch(cartActions.removeToCart(product.id))
-    // dispatch(cartActions.updateTotalPrice())
   }
   if (!product) return null
 
@@ -67,3 +62,5 @@ export const CartCard = ({ cartItem }: Props) => {
     </Paper>
   )
 }
+
+export const CartCard = memo(CartCardComponent)

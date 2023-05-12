@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { ValueType } from '../../../components/api/types'
@@ -24,47 +24,58 @@ import {
 
 export const CardDetail = () => {
   const { id } = useParams()
-  const productDetail = useSelector(selectProductDetail)
+  const dispatch = useDispatch()
   const [counter, setCounter] = useState(0)
+  const productDetail = useSelector(selectProductDetail)
   const productQty = useSelector(makeSelectQtyById(id!))
 
   const maximumItems =
     productDetail && productQty ? productDetail.stock - productQty : productDetail?.stock
 
-  const dispatch = useDispatch()
-
   useEffect(() => {
     if (id) dispatch(productActions.fetchProductById(id))
+
+    // Il return di una function viene eseguito all'unmount del componente
+    // Può essere vista come un'azione di clear
+    return () => {
+      dispatch(productActions.clearDetail())
+    }
   }, [id, dispatch])
 
-  const handleSubmit = (product: ItemInCart) => {
-    if (counter < 1) {
-      return null
+  const handleSubmit = useCallback(() => {
+    if (counter < 1 || !productDetail) {
+      return
     }
-    dispatch(cartActions.addToCart(product))
-    // dispatch(cartActions.updateTotalPrice())
+    dispatch(
+      cartActions.addToCart({
+        product: productDetail,
+        quantity: counter
+      })
+    )
     setCounter(0)
-  }
+  }, [dispatch, counter, productDetail])
 
-  const handleClickPlus = () => {
+  const handleClickPlus = useCallback(() => {
     if (productDetail && counter < maximumItems!) {
       setCounter(counter + 1)
-      // dispatch(cartActions.updateTotalPrice())
     }
-  }
+  }, [productDetail, counter, maximumItems])
 
-  const handleClickMinus = () => {
+  const handleClickMinus = useCallback(() => {
     if (counter > 0) {
       setCounter(counter - 1)
-      // dispatch(cartActions.updateTotalPrice())
     }
-  }
-  if (!productDetail) return <Loader />
+  }, [counter])
 
-  const productInCart: ItemInCart = {
-    product: productDetail,
-    quantity: counter
-  }
+  const productImage = useMemo(() => {
+    return (
+      <ImageWrapper>
+        <Image url={productDetail?.imageUrl} />
+      </ImageWrapper>
+    )
+  }, [productDetail])
+
+  if (!productDetail) return <Loader />
 
   return (
     <DetailCard>
@@ -82,8 +93,8 @@ export const CardDetail = () => {
         <PriceWrapper>
           <Price title={productDetail.price as ValueType} font="h2" />
           <Counter
-            onClickPlus={() => handleClickPlus()}
-            onClickMinus={() => handleClickMinus()}
+            onClickPlus={handleClickPlus}
+            onClickMinus={handleClickMinus}
             counter={counter}
           />
         </PriceWrapper>
@@ -93,7 +104,7 @@ export const CardDetail = () => {
           </OutOfStock>
         )}
         <StyledButton
-          onClick={() => handleSubmit(productInCart)}
+          onClick={handleSubmit}
           stock={productDetail.stock}
           disabled={false}
           colorText="text"
@@ -103,9 +114,7 @@ export const CardDetail = () => {
           radius={3}
         />
       </TextWrapper>
-      <ImageWrapper>
-        <Image url={productDetail.imageUrl} />
-      </ImageWrapper>
+      {productImage}
     </DetailCard>
   )
 }

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React, { PropsWithChildren, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ProductDto } from '../api/types'
 import { Image } from '../Image'
@@ -13,32 +13,34 @@ import {
   LinkWrapper
 } from './styled'
 
-type Props = PropsWithChildren<Partial<ProductCardProps>>
-type Product = {
-  product: ProductDto
-}
-export const ProductCard = ({
-  product,
-  background,
-  children,
-  ...rest
-}: Props & Product) => {
+type Props = PropsWithChildren<
+  {
+    product: ProductDto
+  } & Partial<ProductCardProps>
+>
+
+export const ProductCard = ({ product }: Props) => {
   const navigate = useNavigate()
+
+  const { imageUrl, description, name, id } = product
+
+  const handleNavigate = useCallback(() => {
+    navigate(`/catalog/${id}`)
+  }, [navigate, id])
+
   return (
     <Paper>
       <StyledCard>
-        <LinkWrapper onClick={() => navigate(`/catalog/${product.id}`)}>
+        <LinkWrapper onClick={handleNavigate}>
           <ImageWrapper>
-            <Image url={product.imageUrl} />
+            <Image url={imageUrl} />
           </ImageWrapper>
           <TextWrapper>
             <Text variant="h3" color="text">
-              {product.name}
+              {name}
             </Text>
             <Text variant="p" color="textLight">
-              {product.description.length > 140
-                ? `${product.description.slice(0, 140)}...`
-                : product.description}
+              {description.length > 140 ? `${description.slice(0, 140)}...` : description}
             </Text>
           </TextWrapper>
         </LinkWrapper>

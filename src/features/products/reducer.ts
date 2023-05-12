@@ -6,7 +6,8 @@ const initialState: ProductsState = {
   products: [],
   reviews: [],
   recommendeds: [],
-  tags: []
+  tags: [],
+  productDetail: null
 }
 
 const productsSlice = createSlice({
@@ -27,6 +28,9 @@ const productsSlice = createSlice({
     },
     fetchTagsProducts: (state, { payload }: PayloadAction<TagDto[]>) => {
       state.tags = payload
+    },
+    clearDetail: (state) => {
+      state.productDetail = null
     }
   }
 })

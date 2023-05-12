@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React, { memo, PropsWithChildren } from 'react'
 import { Image } from '../Image'
 import { Paper } from '../Paper'
 import { Text } from '../Text'
@@ -11,13 +11,7 @@ import {
 
 type Props = PropsWithChildren<Partial<CategoryCardProps>>
 
-export const CategoryCard = ({
-  background,
-  category,
-  children,
-  imageUrl,
-  ...rest
-}: Props) => {
+const CategoryCardComponent = ({ category }: Props) => {
   return (
     <Paper>
       <StyledCategoryCard category={category}>
@@ -32,3 +26,5 @@ export const CategoryCard = ({
     </Paper>
   )
 }
+
+export const CategoryCard = memo(CategoryCardComponent)

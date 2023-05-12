@@ -8,20 +8,20 @@ import { selectAllProducts } from '../../features/products/selectors'
 import { ProductWrapper } from './styled'
 
 export const ProductList = () => {
-  const stateProduct = useSelector(selectAllProducts)
-
   const dispatch = useDispatch()
+  const products = useSelector(selectAllProducts)
 
   useEffect(() => {
     dispatch(productActions.fetchProducts())
   }, [dispatch])
 
-  if (!stateProduct.length) return <Loader />
+  if (!products.length) return <Loader />
 
   return (
     <ProductWrapper>
-      {stateProduct &&
-        stateProduct.map((product) => <ProductCard key={product.id} product={product} />)}
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
     </ProductWrapper>
   )
 }

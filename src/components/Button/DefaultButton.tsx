@@ -1,11 +1,11 @@
-import React, { PropsWithChildren } from 'react'
+import React, { memo, PropsWithChildren } from 'react'
 import { Icon } from '../Icon'
 import { Text } from '../Text'
 import { ButtonProps, IconWrapper, StyledButton, TextWrapper } from './styled'
 
 type Props = PropsWithChildren<Partial<ButtonProps>>
 
-export const DefaultButton = ({
+const DefaultButtonComponent = ({
   color,
   colorText,
   font,
@@ -49,3 +49,5 @@ export const DefaultButton = ({
     </StyledButton>
   )
 }
+
+export const DefaultButton = memo(DefaultButtonComponent)

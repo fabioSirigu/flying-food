@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { IconButton } from '../Button'
 import { Text } from '../Text'
 import { StyledCounter } from './styled'
@@ -8,7 +9,7 @@ type Props = {
   counter: number
 }
 
-export const Counter = ({ onClickPlus, onClickMinus, counter }: Props) => {
+const CounterComponent = ({ onClickPlus, onClickMinus, counter }: Props) => {
   return (
     <StyledCounter>
       <IconButton rounded color="backgroundLight" iconName="plus" onClick={onClickPlus} />
@@ -24,3 +25,5 @@ export const Counter = ({ onClickPlus, onClickMinus, counter }: Props) => {
     </StyledCounter>
   )
 }
+
+export const Counter = memo(CounterComponent)

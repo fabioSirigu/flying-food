@@ -1,6 +1,5 @@
-// import { ValueType } from '../api/types'
+import { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
-import { ItemInCart } from '../../features/cart/model'
 import { cartActions } from '../../features/cart/reducer'
 import { ProductDto } from '../api/types'
 import { IconButton } from '../Button'
@@ -14,14 +13,15 @@ type Props = {
 
 export const FooterCard = ({ product }: Props) => {
   const dispatch = useDispatch()
-  const handleSubmit = (product: ItemInCart) => {
-    dispatch(cartActions.addToCart(product))
-  }
 
-  const productInCart: ItemInCart = {
-    product: product!,
-    quantity: 1
-  }
+  const handleSubmit = useCallback(() => {
+    dispatch(
+      cartActions.addToCart({
+        product,
+        quantity: 1
+      })
+    )
+  }, [dispatch, product])
 
   return (
     <FooterCardWrapper>
@@ -29,7 +29,7 @@ export const FooterCard = ({ product }: Props) => {
       <FooterRightWrapper>
         <Tag quantity={product.size.value} value={product.size.type} font="h6" />
         <IconButton
-          onClick={() => handleSubmit(productInCart)}
+          onClick={handleSubmit}
           rounded
           iconName="plus"
           padding="lg"

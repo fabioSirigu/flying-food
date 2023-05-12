@@ -4,12 +4,13 @@ import { Select } from '../../components/Select'
 import { Text } from '../../components/Text'
 import { TextWrapper, SelectIconWrapper, SelectWrapper, IconWrapper } from './styled'
 
+const options = [
+  { value: 'sushi', label: 'Sushi' },
+  { value: 'burger', label: 'Burger' },
+  { value: 'pizza', label: 'Pizza' }
+]
+
 export const TitleSection = () => {
-  const options = [
-    { value: 'sushi', label: 'Sushi' },
-    { value: 'burger', label: 'Burger' },
-    { value: 'pizza', label: 'Pizza' }
-  ]
   return (
     <>
       <TextWrapper>

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React, { memo, PropsWithChildren } from 'react'
 import { ThemeColor, FontVariant, FontWeight } from '../../style/theme'
 import { StyledText } from './styled'
 
@@ -8,7 +8,7 @@ type Props = PropsWithChildren<{
   weight?: FontWeight
 }>
 
-export const Text = ({
+const TextComponent = ({
   variant = 'span',
   color = 'primaryDark',
   weight = 'mediumBold',
@@ -20,3 +20,5 @@ export const Text = ({
     </StyledText>
   )
 }
+
+export const Text = memo(TextComponent)

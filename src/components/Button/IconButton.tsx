@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React, { memo, PropsWithChildren } from 'react'
 import { Icon } from '../Icon'
 import { ButtonProps, IconWrapper, StyledButton } from './styled'
 
@@ -6,7 +6,7 @@ type Props = PropsWithChildren<Partial<ButtonProps>>
 type IconProps = {
   onClick: () => void
 }
-export const IconButton = ({
+const IconButtonComponent = ({
   color,
   iconColor,
   iconName = 'check',
@@ -35,3 +35,5 @@ export const IconButton = ({
     </StyledButton>
   )
 }
+
+export const IconButton = memo(IconButtonComponent)

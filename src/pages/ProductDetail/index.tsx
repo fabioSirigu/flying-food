@@ -1,7 +1,6 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Button } from '../../components/Button'
-// import { Input } from '../../components/Input'
 import { FormReview } from '../../components/FormReview'
 import { Modal } from '../../components/Modal/Modal'
 
@@ -13,20 +12,22 @@ import { Reviews } from './components/Reviews'
 import { RowButton, StyledDetails } from './styled'
 
 export const ProductDetail = () => {
-  const params = useParams()
-  const id = params.id!
+  const { id } = useParams()
   const navigate = useNavigate()
-
   const [showModal, setShowModal] = useState(false)
 
-  const toggleModal = () => {
-    setShowModal(!showModal)
-  }
+  const toggleModal = useCallback(() => {
+    setShowModal((state) => !state)
+  }, [setShowModal])
+
+  const handleNavigate = useCallback(() => {
+    navigate('/catalog')
+  }, [navigate])
 
   return (
     <>
       <Modal opened={showModal} onClose={toggleModal}>
-        <FormReview id={id} />
+        <FormReview id={id as string} />
       </Modal>
       <StyledDetails>
         <RowButton>
@@ -39,11 +40,11 @@ export const ProductDetail = () => {
             paddingRight
             iconName="right"
             colorText="text"
-            onClick={() => navigate('/catalog')}
+            onClick={handleNavigate}
           />
         </RowButton>
         <CardDetail />
-        <Reviews onClick={toggleModal} productId={id} />
+        <Reviews onClick={toggleModal} productId={id as string} />
         <Recommended />
       </StyledDetails>
     </>
