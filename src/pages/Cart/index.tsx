@@ -2,8 +2,8 @@ import { memo } from 'react'
 import { Text } from '../../components/Text'
 import { CartList } from './CartList'
 import { CheckoutForm } from './CheckoutForm'
-import { FooterWrapper, FormCheckoutWrapper, MainWrapper, WrapperCart } from './styled'
-import { TotalPrice } from './totalPrice'
+import { FooterWrapper, MainWrapper, WrapperCart } from './styled'
+import { TotalPrice } from './TotalPrice'
 
 export const Cart = memo(() => {
   return (
@@ -13,9 +13,7 @@ export const Cart = memo(() => {
       </Text>
       <MainWrapper>
         <CartList />
-        <FormCheckoutWrapper>
-          <CheckoutForm />
-        </FormCheckoutWrapper>
+        <CheckoutForm />
       </MainWrapper>
       <FooterWrapper>
         <TotalPrice />

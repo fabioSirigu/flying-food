@@ -1,5 +1,5 @@
 import React, { memo, PropsWithChildren } from 'react'
-import { useCurrency } from '../../hooks'
+import { useCurrency } from '../../hooks/useCurrency'
 import { FontVariant, ThemeColor } from '../../style/theme'
 import { ValueType } from '../api/types'
 

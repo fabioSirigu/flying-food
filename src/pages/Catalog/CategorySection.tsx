@@ -15,13 +15,11 @@ export const CategorySection = memo(() => {
   }, [dispatch])
 
   return (
-    <>
-      <CategoryWrapper>
-        {categoryFiltered.length &&
-          categoryFiltered.map((category) => (
-            <CategoryCard key={category.id} category={category} />
-          ))}
-      </CategoryWrapper>
-    </>
+    <CategoryWrapper>
+      {categoryFiltered.length &&
+        categoryFiltered.map((category) => (
+          <CategoryCard key={category.id} category={category} />
+        ))}
+    </CategoryWrapper>
   )
 })

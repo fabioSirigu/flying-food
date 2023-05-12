@@ -27,7 +27,7 @@ export const ProductDetail = memo(() => {
   return (
     <>
       <Modal opened={showModal} onClose={toggleModal}>
-        <FormReview id={id as string} />
+        <FormReview id={id!} />
       </Modal>
       <StyledDetails>
         <RowButton>
@@ -44,7 +44,7 @@ export const ProductDetail = memo(() => {
           />
         </RowButton>
         <CardDetail />
-        <Reviews onClick={toggleModal} productId={id as string} />
+        <Reviews onClick={toggleModal} productId={id!} />
         <Recommended />
       </StyledDetails>
     </>

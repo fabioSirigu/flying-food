@@ -1,6 +1,12 @@
+import { createSelector } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
 
-export const selectAllProducts = (state: RootState) => state.products.products
+export const selectProductState = (state: RootState) => state.products
+
+export const selectAllProducts = createSelector(
+  selectProductState,
+  (productState) => productState.products
+)
 
 export const selectProductDetail = (state: RootState) => state.products.productDetail
 

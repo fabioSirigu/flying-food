@@ -8,7 +8,7 @@ import { selectCart } from '../../features/cart/selectors'
 import { ListCartWrapper, NoProductWrapper } from './styled'
 
 export const CartList = memo(() => {
-  const productInCart = useSelector(selectCart)
+  const productsInCart = useSelector(selectCart)
   const navigate = useNavigate()
 
   const handleNavigate = useCallback(() => {
@@ -17,7 +17,7 @@ export const CartList = memo(() => {
 
   return (
     <ListCartWrapper>
-      {!productInCart.length ? (
+      {!productsInCart.length ? (
         <NoProductWrapper>
           <Text variant="h1" color="primary">
             Add something!
@@ -31,7 +31,7 @@ export const CartList = memo(() => {
           />
         </NoProductWrapper>
       ) : (
-        productInCart.map((cartItem) => (
+        productsInCart.map((cartItem) => (
           <CartCard key={cartItem.product.id} cartItem={cartItem} />
         ))
       )}

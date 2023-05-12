@@ -2,7 +2,13 @@ import React, { memo } from 'react'
 import { IconButton } from '../../components/Button'
 import { Select } from '../../components/Select'
 import { Text } from '../../components/Text'
-import { TextWrapper, SelectIconWrapper, SelectWrapper, IconWrapper } from './styled'
+import {
+  TextWrapper,
+  SelectIconWrapper,
+  SelectWrapper,
+  IconWrapper,
+  RowWrapper
+} from './styled'
 
 const options = [
   { value: 'sushi', label: 'Sushi' },
@@ -12,7 +18,7 @@ const options = [
 
 export const TitleSection = memo(() => {
   return (
-    <>
+    <RowWrapper>
       <TextWrapper>
         <Text variant="h2" color="text">
           Popular Dishes
@@ -39,6 +45,6 @@ export const TitleSection = memo(() => {
           />
         </IconWrapper>
       </SelectIconWrapper>
-    </>
+    </RowWrapper>
   )
 })

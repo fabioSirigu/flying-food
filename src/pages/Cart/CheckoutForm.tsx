@@ -4,11 +4,16 @@ import { Input } from '../../components/Input'
 import { Text } from '../../components/Text'
 import { ExpirationForm } from './ExpirationForm'
 import { PaymentCard } from './PaymentCard'
-import { FooterFormWrapper, StyledCheckoutButton, StyledCvv } from './styled'
+import {
+  FooterFormWrapper,
+  StyledCheckoutButton,
+  StyledCvv,
+  FormCheckoutWrapper
+} from './styled'
 
 export const CheckoutForm = memo(() => {
   return (
-    <>
+    <FormCheckoutWrapper>
       <Text variant="h3" color="text">
         Card Details
       </Text>
@@ -36,6 +41,6 @@ export const CheckoutForm = memo(() => {
       <StyledCheckoutButton>
         <Button padding="lg" color="secondary" colorText="text" title="Checkout" />
       </StyledCheckoutButton>
-    </>
+    </FormCheckoutWrapper>
   )
 })
