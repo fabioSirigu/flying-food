@@ -55,7 +55,7 @@ function* fetchTagsSaga() {
   try {
     const tagsProduct: TagDto[] = yield call(getTags)
 
-    yield put(a.fetchTagsProducts(tagsProduct))
+    yield put(a.fetchTagsProductsSuccess(tagsProduct))
   } catch (error) {
     console.log((error as Error).message)
   }

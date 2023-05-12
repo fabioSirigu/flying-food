@@ -7,7 +7,8 @@ const initialState: ProductsState = {
   reviews: [],
   recommendeds: [],
   tags: [],
-  productDetail: null
+  productDetail: null,
+  selectedTag: null
 }
 
 const productsSlice = createSlice({
@@ -26,8 +27,11 @@ const productsSlice = createSlice({
     fetchRandomProductsSuccess: (state, { payload }: PayloadAction<ProductDto[]>) => {
       state.recommendeds = payload
     },
-    fetchTagsProducts: (state, { payload }: PayloadAction<TagDto[]>) => {
+    fetchTagsProductsSuccess: (state, { payload }: PayloadAction<TagDto[]>) => {
       state.tags = payload
+    },
+    selectedTags: (state, { payload }: PayloadAction<string>) => {
+      state.selectedTag = payload
     },
     clearDetail: (state) => {
       state.productDetail = null
@@ -47,7 +51,8 @@ export const productActions = {
   fetchProductById: createAction<string>('products/fetchProductById'),
   fetchReviewsByProductId: createAction<string>('products/fetchReviewsByProductId'),
   fetchRandomProducts: createAction('products/fetchRandomProducts'),
-  fetchTags: createAction('products/fetchTags')
+  fetchTags: createAction('products/fetchTags'),
+  fetchFilteredProducts: createAction('products/fetchFilteredProducts')
 }
 
 export default productsSlice.reducer

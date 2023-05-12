@@ -6,4 +6,5 @@ export type ProductsState = {
   reviews: ReviewDto[] | null
   recommendeds: ProductDto[] | null
   tags: TagDto[]
+  selectedTag: string | null
 }

@@ -20,6 +20,7 @@ export const StyledCategoryCard = styled.div<CategoryCardProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 `
 
 export const TextWrapper = styled.div`

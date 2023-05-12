@@ -4,6 +4,7 @@ import { StyledPaper } from './styled'
 
 type Props = PropsWithChildren<{
   background?: ThemeColor
+  onClick?: () => void
 }>
 
 export const Paper = memo(({ children }: Props) => {

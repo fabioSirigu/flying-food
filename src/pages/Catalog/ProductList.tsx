@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Loader } from '../../components/Loader'
 import { ProductCard } from '../../components/ProductCard'
 import { productActions } from '../../features/products/reducer'
-import { selectAllProducts } from '../../features/products/selectors'
+import { selectProductFilteredByTag } from '../../features/products/selectors'
 import { ProductWrapper } from './styled'
 
 export const ProductList = memo(() => {
   const dispatch = useDispatch()
-  const products = useSelector(selectAllProducts)
+  const products = useSelector(selectProductFilteredByTag)
 
   useEffect(() => {
     dispatch(productActions.fetchProducts())
