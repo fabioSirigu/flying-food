@@ -8,6 +8,7 @@ export type ProductCardProps = {
 }
 export const StyledCard = styled.div`
   border-radius: ${({ theme }) => theme.radii[3]}rem;
+  width: 250px;
   height: 320px;
   position: relative;
   padding: 2rem 0.8rem;

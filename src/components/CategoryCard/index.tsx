@@ -1,9 +1,6 @@
-import React, { memo, PropsWithChildren, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { select } from 'redux-saga/effects'
-import { makeSelectQtyById } from '../../features/cart/selectors'
+import React, { memo, PropsWithChildren } from 'react'
+import { useDispatch } from 'react-redux'
 import { productActions } from '../../features/products/reducer'
-import { selectSelectedTagId, selectTags } from '../../features/products/selectors'
 import { Image } from '../Image'
 import { Paper } from '../Paper'
 import { Text } from '../Text'
@@ -22,7 +19,7 @@ export const CategoryCard = memo(({ category }: Props) => {
     <Paper>
       <StyledCategoryCard
         category={category}
-        onClick={() => category && dispatch(productActions.selectedTags(category.id))}
+        onClick={() => dispatch(productActions.selectedTags(category!.id))}
       >
         <Image url={category?.imageUrl} />
         <TextWrapper>

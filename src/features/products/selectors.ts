@@ -1,4 +1,3 @@
-import { create } from 'domain'
 import { createSelector } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
 

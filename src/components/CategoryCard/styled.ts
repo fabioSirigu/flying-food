@@ -12,6 +12,10 @@ export type CategoryCardProps = {
   imageUrl?: string
 }
 
+export type SelectedProps = {
+  selected?: boolean
+}
+
 export const StyledCategoryCard = styled.div<CategoryCardProps>`
   padding: 0 0.5rem;
   width: 120px;
@@ -21,6 +25,10 @@ export const StyledCategoryCard = styled.div<CategoryCardProps>`
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  transition: 0.2s;
+  :hover {
+    scale: 1.05;
+  }
 `
 
 export const TextWrapper = styled.div`
@@ -29,7 +37,9 @@ export const TextWrapper = styled.div`
   margin: auto;
 `
 
-export const SelectedCategory = styled.div`
+export const SelectedCategory = styled.div<SelectedProps>`
   height: 5px;
   width: 60px;
+  border-bottom: ${({ theme, selected }) =>
+    selected ? `1px solid ${theme.colors.primary}` : 'none'};
 `
