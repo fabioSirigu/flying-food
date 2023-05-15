@@ -24,7 +24,7 @@ export const Review = memo(({ date, author, body }: Props) => {
         })}
       </Text>
       <Text color="textLight" variant="p">
-        {body}
+        {body.length > 120 ? `${body.slice(0, 120)}...` : body}
       </Text>
     </ReviewCard>
   )

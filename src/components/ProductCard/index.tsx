@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useCallback } from 'react'
+import React, { memo, PropsWithChildren, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ProductDto } from '../api/types'
 import { Image } from '../Image'
@@ -19,7 +19,7 @@ type Props = PropsWithChildren<
   } & Partial<ProductCardProps>
 >
 
-export const ProductCard = ({ product }: Props) => {
+export const ProductCard = memo(({ product }: Props) => {
   const navigate = useNavigate()
 
   const { imageUrl, description, name, id } = product
@@ -48,4 +48,4 @@ export const ProductCard = ({ product }: Props) => {
       </StyledCard>
     </Paper>
   )
-}
+})
