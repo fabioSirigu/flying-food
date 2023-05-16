@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react'
+import { memo, useCallback, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartActions } from '../../features/cart/reducer'
 import { selectCart } from '../../features/cart/selectors'
@@ -12,7 +12,7 @@ type Props = {
   product: ProductDto
 }
 
-export const FooterCard = ({ product }: Props) => {
+export const FooterCard = memo(({ product }: Props) => {
   const dispatch = useDispatch()
   const cart = useSelector(selectCart)
   const handleSubmit = useCallback(() => {
@@ -61,4 +61,4 @@ export const FooterCard = ({ product }: Props) => {
       </FooterRightWrapper>
     </FooterCardWrapper>
   )
-}
+})

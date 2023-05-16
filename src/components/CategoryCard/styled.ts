@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react'
 
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { ThemeColor } from '../../style/theme'
 import { TagDto } from '../api/types'
@@ -10,9 +10,6 @@ export type CategoryCardProps = {
   children?: PropsWithChildren
   category?: TagDto
   imageUrl?: string
-}
-
-export type SelectedProps = {
   selected?: boolean
 }
 
@@ -29,17 +26,20 @@ export const StyledCategoryCard = styled.div<CategoryCardProps>`
   :hover {
     scale: 1.05;
   }
+  &::after {
+    ${({ theme, selected }) =>
+      selected
+        ? css`
+            border-bottom: 1px solid ${theme.colors.primary};
+            content: '';
+            width: 50px;
+          `
+        : 'none'};
+  }
 `
 
 export const TextWrapper = styled.div`
   text-align: center;
   padding-bottom: 1rem;
   margin: auto;
-`
-
-export const SelectedCategory = styled.div<SelectedProps>`
-  height: 5px;
-  width: 60px;
-  border-bottom: ${({ theme, selected }) =>
-    selected ? `1px solid ${theme.colors.primary}` : 'none'};
 `

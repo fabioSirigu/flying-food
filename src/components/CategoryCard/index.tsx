@@ -4,15 +4,10 @@ import { productActions } from '../../features/products/reducer'
 import { Image } from '../Image'
 import { Paper } from '../Paper'
 import { Text } from '../Text'
-import {
-  CategoryCardProps,
-  StyledCategoryCard,
-  TextWrapper,
-  SelectedCategory
-} from './styled'
+import { CategoryCardProps, StyledCategoryCard, TextWrapper } from './styled'
 
 type Props = PropsWithChildren<Partial<CategoryCardProps>>
-export const CategoryCard = memo(({ category }: Props) => {
+export const CategoryCard = memo(({ category, selected }: Props) => {
   const dispatch = useDispatch()
 
   return (
@@ -20,6 +15,7 @@ export const CategoryCard = memo(({ category }: Props) => {
       <StyledCategoryCard
         category={category}
         onClick={() => dispatch(productActions.selectedTags(category!.id))}
+        selected={selected}
       >
         <Image url={category?.imageUrl} />
         <TextWrapper>
@@ -27,7 +23,6 @@ export const CategoryCard = memo(({ category }: Props) => {
             {category?.namePlural}
           </Text>
         </TextWrapper>
-        <SelectedCategory />
       </StyledCategoryCard>
     </Paper>
   )

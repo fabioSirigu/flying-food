@@ -12,7 +12,6 @@ type Props = {
 export const Review = memo(({ date, author, body }: Props) => {
   const str = date
   const newDate = new Date(str!)
-
   return (
     <ReviewCard>
       <Text color="text"> {author}</Text>
