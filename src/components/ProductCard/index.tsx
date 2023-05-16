@@ -40,6 +40,7 @@ export const ProductCard = memo(({ product }: Props) => {
     }
     return null
   }, [product])
+
   return (
     <Paper>
       <StyledCard>

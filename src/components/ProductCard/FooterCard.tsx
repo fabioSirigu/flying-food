@@ -1,6 +1,7 @@
-import { useCallback } from 'react'
-import { useDispatch } from 'react-redux'
+import { useCallback, useMemo } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { cartActions } from '../../features/cart/reducer'
+import { selectCart } from '../../features/cart/selectors'
 import { ProductDto } from '../api/types'
 import { IconButton } from '../Button'
 import { Price } from '../Price'
@@ -13,7 +14,7 @@ type Props = {
 
 export const FooterCard = ({ product }: Props) => {
   const dispatch = useDispatch()
-
+  const cart = useSelector(selectCart)
   const handleSubmit = useCallback(() => {
     dispatch(
       cartActions.addToCart({
@@ -23,11 +24,23 @@ export const FooterCard = ({ product }: Props) => {
     )
   }, [dispatch, product])
 
-  return (
-    <FooterCardWrapper>
-      <Price title={product.price} font="h3" />
-      <FooterRightWrapper>
-        <Tag quantity={product.size.value} value={product.size.type} font="h6" />
+  const removeCart = useCallback(() => {
+    dispatch(cartActions.removeToCart(product.id))
+  }, [dispatch, product])
+
+  const isInCart = cart.findIndex((cartItem) => cartItem.product.id === product.id)
+
+  const button = useMemo(
+    () =>
+      isInCart !== -1 ? (
+        <IconButton
+          onClick={removeCart}
+          rounded
+          iconName="minus"
+          padding="lg"
+          color="primary"
+        />
+      ) : (
         <IconButton
           onClick={handleSubmit}
           rounded
@@ -35,6 +48,16 @@ export const FooterCard = ({ product }: Props) => {
           padding="lg"
           color="secondary"
         />
+      ),
+    [removeCart, handleSubmit, isInCart]
+  )
+
+  return (
+    <FooterCardWrapper>
+      <Price title={product.price} font="h3" />
+      <FooterRightWrapper>
+        <Tag quantity={product.size.value} value={product.size.type} font="h6" />
+        {button}
       </FooterRightWrapper>
     </FooterCardWrapper>
   )
