@@ -21,6 +21,18 @@ export const StyledCard = styled.div`
     cursor: pointer;
   }
 `
+
+export const StyledIconStatus = styled.div`
+  background: ${({ theme }) => theme.colors.backgroundLight};
+  border-radius: 50%;
+  width: 50px;
+  aspect-ratio: 1 / 1;
+  text-align: center;
+  position: absolute;
+  top: -60px;
+  left: 0px;
+  line-height: 50px;
+`
 export const LinkWrapper = styled.div`
   cursor: pointer;
   flex: 1;

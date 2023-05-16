@@ -1,6 +1,7 @@
-import React, { memo, PropsWithChildren, useCallback } from 'react'
+import React, { memo, PropsWithChildren, useCallback, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ProductDto } from '../api/types'
+import { Icon } from '../Icon'
 import { Image } from '../Image'
 import { Paper } from '../Paper'
 import { Text } from '../Text'
@@ -10,7 +11,8 @@ import {
   ProductCardProps,
   StyledCard,
   TextWrapper,
-  LinkWrapper
+  LinkWrapper,
+  StyledIconStatus
 } from './styled'
 
 type Props = PropsWithChildren<
@@ -28,9 +30,20 @@ export const ProductCard = memo(({ product }: Props) => {
     navigate(`/catalog/${id}`)
   }, [navigate, id])
 
+  const statusProduct = useMemo(() => {
+    if (product.new) {
+      return (
+        <StyledIconStatus>
+          <Icon iconName="fire" color="primary" />
+        </StyledIconStatus>
+      )
+    }
+    return null
+  }, [product])
   return (
     <Paper>
       <StyledCard>
+        {statusProduct}
         <LinkWrapper onClick={handleNavigate}>
           <ImageWrapper>
             <Image url={imageUrl} />

@@ -40,8 +40,8 @@ export const IconWrapper = styled.div`
   gap: 0.4rem;
 `
 export const ProductWrapper = styled.div`
-  margin-top: 4rem;
+  margin-top: 4.5rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem 2rem;
+  gap: 100px 2rem;
 `
