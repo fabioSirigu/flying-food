@@ -17,7 +17,7 @@ const navLinks: NavLink[] = [
   { name: 'Category', url: '/category', icon: 'check' },
   { name: 'Map', url: '/map', icon: 'map' },
   { name: 'Delivery', url: '/delivery', icon: 'truck' },
-  { name: 'Settings', url: '/settings', icon: 'settings' }
+  { name: 'Orders', url: '/orders', icon: 'bag' }
 ]
 
 export const Sidelink = memo(

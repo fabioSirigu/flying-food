@@ -15,5 +15,6 @@ export const getReviewsByProductId = (id: string) =>
 export const getUSDRates = () => currencyApiClient.get<CurrencyRatesDto>('USD')
 
 export const getAllOrders = () => apiClient.get<OrderDto[]>('orders')
+
 export const addReviewOnProduct = (data: ReviewDto) =>
   apiClient.post<{ message: string }>('reviews', data)

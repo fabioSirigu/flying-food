@@ -1,12 +1,12 @@
 import { memo, PropsWithChildren } from 'react'
 import { ThemeColor } from '../../style/theme'
-import { StyledPaper } from './styled'
+import { PaperProps, StyledPaper } from './styled'
 
 type Props = PropsWithChildren<{
   background?: ThemeColor
   onClick?: () => void
 }>
 
-export const Paper = memo(({ children }: Props) => {
-  return <StyledPaper>{children}</StyledPaper>
+export const Paper = memo(({ radius, children }: Props & PaperProps) => {
+  return <StyledPaper radius={radius}>{children}</StyledPaper>
 })

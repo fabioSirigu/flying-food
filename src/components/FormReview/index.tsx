@@ -1,7 +1,6 @@
 import { ChangeEvent, memo, useCallback, useMemo, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { productActions } from '../../features/products/reducer'
-import { addReviewOnProduct } from '../api'
 import { ReviewDto } from '../api/types'
 import { Button } from '../Button'
 import { Input } from '../Input'
@@ -18,12 +17,10 @@ export const FormReview = memo(({ id }: Props) => {
   const [body, setBody] = useState('')
 
   const handleUser = ({ target }: ChangeEvent<HTMLInputElement>) => {
-    // 👇 Store the input value to local state
     setAuthor(target.value)
   }
 
   const handleBody = ({ target }: ChangeEvent<HTMLTextAreaElement>) => {
-    // 👇 Store the input value to local state
     setBody(target.value)
   }
 
@@ -40,8 +37,6 @@ export const FormReview = memo(({ id }: Props) => {
   const handleClick = useCallback(() => {
     dispatch(productActions.postReview(review))
   }, [dispatch, review])
-
-  // addReviewOnProduct(review)
 
   return (
     <StyledForm>

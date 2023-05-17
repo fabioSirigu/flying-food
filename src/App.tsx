@@ -5,6 +5,7 @@ import { Cart } from './pages/Cart'
 import { Catalog } from './pages/Catalog'
 import { Home } from './pages/Home'
 import { NotFound } from './pages/NotFound'
+import { Orders } from './pages/Orders'
 import { ProductDetail } from './pages/ProductDetail'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/catalog/:id" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/orders" element={<Orders />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

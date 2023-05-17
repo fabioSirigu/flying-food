@@ -1,4 +1,4 @@
-import { ProductDto, ReviewDto, TagDto } from '../../components/api/types'
+import { OrderDto, ProductDto, ReviewDto, TagDto } from '../../components/api/types'
 
 export type ProductsState = {
   products: ProductDto[]
@@ -7,4 +7,5 @@ export type ProductsState = {
   recommendeds: ProductDto[] | null
   tags: TagDto[]
   selectedTag: string | null
+  orders: OrderDto[]
 }
