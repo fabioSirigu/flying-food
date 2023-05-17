@@ -1,4 +1,6 @@
-import { ChangeEvent, memo, useState } from 'react'
+import { ChangeEvent, memo, useCallback, useMemo, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { productActions } from '../../features/products/reducer'
 import { addReviewOnProduct } from '../api'
 import { ReviewDto } from '../api/types'
 import { Button } from '../Button'
@@ -11,6 +13,7 @@ type Props = {
   id: string
 }
 export const FormReview = memo(({ id }: Props) => {
+  const dispatch = useDispatch()
   const [author, setAuthor] = useState('')
   const [body, setBody] = useState('')
 
@@ -24,16 +27,22 @@ export const FormReview = memo(({ id }: Props) => {
     setBody(target.value)
   }
 
-  const createReview = () => {
-    const review: ReviewDto = {
+  const review: ReviewDto = useMemo(
+    () => ({
       date: new Date().toDateString(),
       author: author,
       text: body,
       productId: id
-    }
+    }),
+    [author, body, id]
+  )
 
-    addReviewOnProduct(review)
-  }
+  const handleClick = useCallback(() => {
+    dispatch(productActions.postReview(review))
+  }, [dispatch, review])
+
+  // addReviewOnProduct(review)
+
   return (
     <StyledForm>
       <Text variant="h3" color="text">
@@ -50,7 +59,7 @@ export const FormReview = memo(({ id }: Props) => {
           title="Send"
           color="secondary"
           colorText="text"
-          onClick={createReview}
+          onClick={handleClick}
         />
       </FooterWrapper>
     </StyledForm>
