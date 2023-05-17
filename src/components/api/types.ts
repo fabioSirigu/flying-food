@@ -44,17 +44,14 @@ export type CurrencyRatesDto = { rates: Record<string, number> }
 export type OrderItem = {
   delivery: string
   id: string
-  quantity: 0
-  price: {
-    value: 0
-    type: string
-  }
+  quantity: number
+  price: ValueType
 }
 
 export type OrderDto = {
   date: string
   id: string
-  items: [OrderItem]
+  items: OrderItem[]
   userId: string
 }
 

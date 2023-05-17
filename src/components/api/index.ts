@@ -1,5 +1,12 @@
 import { apiClient, currencyApiClient } from './client'
-import { CurrencyRatesDto, OrderDto, ProductDto, ReviewDto, TagDto } from './types'
+import {
+  CurrencyRatesDto,
+  OrderDto,
+  OrderItem,
+  ProductDto,
+  ReviewDto,
+  TagDto
+} from './types'
 
 export const getProducts = () => apiClient.get<ProductDto[]>('products')
 
@@ -18,3 +25,6 @@ export const getAllOrders = () => apiClient.get<OrderDto[]>('orders')
 
 export const addReviewOnProduct = (data: ReviewDto) =>
   apiClient.post<{ message: string }>('reviews', data)
+
+export const addOrder = (data: OrderDto) =>
+  apiClient.post<{ message: string }>('order', data)

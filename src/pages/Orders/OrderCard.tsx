@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { OrderDto, OrderItem } from '../../components/api/types'
+import { OrderDto } from '../../components/api/types'
 import { Paper } from '../../components/Paper'
 import { Text } from '../../components/Text'
 import { StyledOrderCard } from './styled'

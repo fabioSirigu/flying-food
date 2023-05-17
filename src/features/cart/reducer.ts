@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createAction, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { OrderDto, OrderItem } from '../../components/api/types'
 import { CartState, ItemInCart } from './model'
 
 const initialState: CartState = {
@@ -29,10 +30,16 @@ const cartSlice = createSlice({
       const index = state.cart.findIndex((item) => item.product.id === payload)
 
       state.cart[index].quantity--
+    },
+    clearCart: (state) => {
+      state.cart = []
     }
   }
 })
 
-export const cartActions = cartSlice.actions
+export const cartActions = {
+  ...cartSlice.actions,
+  postOrderItem: createAction<OrderDto>('cart/postOrderItem')
+}
 
 export default cartSlice.reducer

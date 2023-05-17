@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga'
 import { all } from 'redux-saga/effects'
 import cartReducer from './cart/reducer'
+import { cartSaga } from './cart/sagas'
 import productReducer from './products/reducer'
 import { productsSaga } from './products/sagas'
 
@@ -11,7 +12,7 @@ const rootReducer = {
 }
 
 function* rootSaga() {
-  yield all([productsSaga()])
+  yield all([productsSaga(), cartSaga()])
 }
 
 const sagaMiddleware = createSagaMiddleware()

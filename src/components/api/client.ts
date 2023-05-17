@@ -1,4 +1,4 @@
-import { ReviewDto } from './types'
+import { OrderDto, ReviewDto } from './types'
 
 type ApiClientConfig = {
   baseURL: string
@@ -18,7 +18,7 @@ const createApiClient = ({ baseURL, apiKey }: ApiClientConfig) => {
       return body as Response
     },
 
-    async post<Response>(resource: string, data: ReviewDto) {
+    async post<Response>(resource: string, data: ReviewDto | OrderDto) {
       const response = await fetch(`${baseURL}/${resource}`, {
         method: 'POST',
         headers: headers,
