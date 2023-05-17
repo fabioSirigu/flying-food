@@ -3,16 +3,19 @@ import createSagaMiddleware from 'redux-saga'
 import { all } from 'redux-saga/effects'
 import cartReducer from './cart/reducer'
 import { cartSaga } from './cart/sagas'
+import orderReducer from './orders/reducer'
+import { ordersSaga } from './orders/sagas'
 import productReducer from './products/reducer'
 import { productsSaga } from './products/sagas'
 
 const rootReducer = {
   products: productReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  orders: orderReducer
 }
 
 function* rootSaga() {
-  yield all([productsSaga(), cartSaga()])
+  yield all([productsSaga(), cartSaga(), ordersSaga()])
 }
 
 const sagaMiddleware = createSagaMiddleware()

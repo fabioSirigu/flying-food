@@ -1,5 +1,5 @@
 import { createAction, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { OrderDto, ProductDto, ReviewDto, TagDto } from '../../components/api/types'
+import { ProductDto, ReviewDto, TagDto } from '../../components/api/types'
 import { ProductsState } from './model'
 
 const initialState: ProductsState = {
@@ -8,8 +8,7 @@ const initialState: ProductsState = {
   recommendeds: [],
   tags: [],
   productDetail: null,
-  selectedTag: null,
-  orders: []
+  selectedTag: null
 }
 
 const productsSlice = createSlice({
@@ -42,9 +41,6 @@ const productsSlice = createSlice({
     },
     clearReview: (state) => {
       state.reviews = null
-    },
-    fetchOrdersSuccess: (state, { payload }: PayloadAction<OrderDto[]>) => {
-      state.orders = payload
     }
   }
 })
@@ -57,8 +53,7 @@ export const productActions = {
   fetchRandomProducts: createAction('products/fetchRandomProducts'),
   fetchTags: createAction('products/fetchTags'),
   fetchFilteredProducts: createAction('products/fetchFilteredProducts'),
-  postReview: createAction<ReviewDto>('products/postReview'),
-  fetchOrders: createAction('products/fetchOrders')
+  postReview: createAction<ReviewDto>('products/postReview')
 }
 
 export default productsSlice.reducer

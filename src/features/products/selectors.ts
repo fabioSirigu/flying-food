@@ -41,7 +41,6 @@ export const selectProductFilteredByTag = createSelector(
     tagId ? allProducts.filter((product) => product.tags.includes(tagId)) : allProducts
 )
 
-export const selectAllOrders = createSelector(
-  selectProductState,
-  (productState) => productState.orders
-)
+// export const selectAllOrders = createSelector(selectProductState, ({ orders }) => {
+//   return orders
+// })
