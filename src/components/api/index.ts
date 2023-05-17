@@ -1,12 +1,5 @@
 import { apiClient, currencyApiClient } from './client'
-import {
-  CurrencyRatesDto,
-  OrderDto,
-  OrderItem,
-  ProductDto,
-  ReviewDto,
-  TagDto
-} from './types'
+import { CurrencyRatesDto, OrderDto, ProductDto, ReviewDto, TagDto } from './types'
 
 export const getProducts = () => apiClient.get<ProductDto[]>('products')
 

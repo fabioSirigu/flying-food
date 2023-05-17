@@ -1,5 +1,5 @@
 import { nanoid } from '@reduxjs/toolkit'
-import { memo, useCallback, useMemo } from 'react'
+import { memo, useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import { OrderDto, OrderItem } from '../../components/api/types'
 import { Button } from '../../components/Button'

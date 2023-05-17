@@ -1,8 +1,6 @@
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
-import { select } from 'redux-saga/effects'
 import { Text } from '../../components/Text'
-import { cartActions } from '../../features/cart/reducer'
 import { selectCart } from '../../features/cart/selectors'
 import { CartList } from './CartList'
 import { CheckoutForm } from './CheckoutForm'

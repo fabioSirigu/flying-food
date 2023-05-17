@@ -1,5 +1,5 @@
 import { createAction, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { OrderDto, OrderItem } from '../../components/api/types'
+import { OrderDto } from '../../components/api/types'
 import { CartState, ItemInCart } from './model'
 
 const initialState: CartState = {
