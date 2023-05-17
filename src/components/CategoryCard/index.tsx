@@ -1,6 +1,6 @@
 import React, { memo, PropsWithChildren } from 'react'
 import { useDispatch } from 'react-redux'
-import { productActions } from '../../features/products/reducer'
+import { tagActions } from '../../features/tags/reducer'
 import { Image } from '../Image'
 import { Paper } from '../Paper'
 import { Text } from '../Text'
@@ -14,7 +14,7 @@ export const CategoryCard = memo(({ category, selected }: Props) => {
     <Paper>
       <StyledCategoryCard
         category={category}
-        onClick={() => dispatch(productActions.selectedTags(category!.id))}
+        onClick={() => dispatch(tagActions.selectedTags(category!.id))}
         selected={selected}
       >
         <Image url={category?.imageUrl} />

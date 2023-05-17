@@ -6,9 +6,7 @@ const initialState: ProductsState = {
   products: [],
   reviews: [],
   recommendeds: [],
-  tags: [],
-  productDetail: null,
-  selectedTag: null
+  productDetail: null
 }
 
 const productsSlice = createSlice({
@@ -26,12 +24,6 @@ const productsSlice = createSlice({
     },
     fetchRandomProductsSuccess: (state, { payload }: PayloadAction<ProductDto[]>) => {
       state.recommendeds = payload
-    },
-    fetchTagsProductsSuccess: (state, { payload }: PayloadAction<TagDto[]>) => {
-      state.tags = payload
-    },
-    selectedTags: (state, { payload }: PayloadAction<string>) => {
-      state.selectedTag = payload
     },
     clearDetail: (state) => {
       state.productDetail = null
@@ -51,8 +43,6 @@ export const productActions = {
   fetchProductById: createAction<string>('products/fetchProductById'),
   fetchReviewsByProductId: createAction<string>('products/fetchReviewsByProductId'),
   fetchRandomProducts: createAction('products/fetchRandomProducts'),
-  fetchTags: createAction('products/fetchTags'),
-  fetchFilteredProducts: createAction('products/fetchFilteredProducts'),
   postReview: createAction<ReviewDto>('products/postReview')
 }
 

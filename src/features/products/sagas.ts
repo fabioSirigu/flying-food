@@ -1,14 +1,12 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
 import {
   addReviewOnProduct,
-  getAllOrders,
   getProductById,
   getProducts,
   getProductsRandom,
-  getReviewsByProductId,
-  getTags
+  getReviewsByProductId
 } from '../../components/api'
-import { OrderDto, ProductDto, ReviewDto, TagDto } from '../../components/api/types'
+import { ProductDto, ReviewDto } from '../../components/api/types'
 import { productActions as a } from './reducer'
 
 function* fetchProductsSaga() {
@@ -68,21 +66,10 @@ function* fetchProductRandomSaga() {
   }
 }
 
-function* fetchTagsSaga() {
-  try {
-    const tagsProduct: TagDto[] = yield call(getTags)
-
-    yield put(a.fetchTagsProductsSuccess(tagsProduct))
-  } catch (error) {
-    console.log((error as Error).message)
-  }
-}
-
 export function* productsSaga() {
   yield takeLatest(a.fetchProducts.toString(), fetchProductsSaga)
   yield takeLatest(a.fetchProductById.toString(), fetchProductByIdSaga)
   yield takeLatest(a.fetchReviewsByProductId.toString(), fetchProductReviewsSaga)
   yield takeLatest(a.postReview.toString(), postProductReviewSaga)
   yield takeLatest(a.fetchRandomProducts.toString(), fetchProductRandomSaga)
-  yield takeLatest(a.fetchTags.toString(), fetchTagsSaga)
 }

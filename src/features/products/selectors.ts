@@ -1,5 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
+import { selectSelectedTagId } from '../tags/selectors'
 
 export const selectProductState = (state: RootState) => state.products
 
@@ -23,16 +24,6 @@ export const selectAllRecommendeds = createSelector(
   (productState) => productState.recommendeds
 )
 
-export const selectSelectedTagId = createSelector(
-  selectProductState,
-  (productState) => productState.selectedTag
-)
-
-export const selectTags = createSelector(
-  selectProductState,
-  (productState) => productState.tags
-)
-
 // selettore pronto per filtrare i prodotti
 export const selectProductFilteredByTag = createSelector(
   selectAllProducts,
@@ -40,7 +31,3 @@ export const selectProductFilteredByTag = createSelector(
   (allProducts, tagId) =>
     tagId ? allProducts.filter((product) => product.tags.includes(tagId)) : allProducts
 )
-
-// export const selectAllOrders = createSelector(selectProductState, ({ orders }) => {
-//   return orders
-// })

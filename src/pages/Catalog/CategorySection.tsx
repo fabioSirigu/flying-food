@@ -2,7 +2,8 @@ import { memo, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CategoryCard } from '../../components/CategoryCard'
 import { productActions } from '../../features/products/reducer'
-import { selectSelectedTagId, selectTags } from '../../features/products/selectors'
+import { tagActions } from '../../features/tags/reducer'
+import { selectSelectedTagId, selectTags } from '../../features/tags/selectors'
 import { CategoryWrapper } from './styled'
 
 export const CategorySection = memo(() => {
@@ -11,7 +12,7 @@ export const CategorySection = memo(() => {
   const categoryFiltered = categories.filter(({ hidden }) => !hidden)
   const selectedCategory = useSelector(selectSelectedTagId)
   useEffect(() => {
-    dispatch(productActions.fetchTags())
+    dispatch(tagActions.fetchTags())
   }, [dispatch])
 
   return (
