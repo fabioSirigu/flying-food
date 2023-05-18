@@ -1,7 +1,6 @@
 import { memo, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CategoryCard } from '../../components/CategoryCard'
-import { productActions } from '../../features/products/reducer'
 import { tagActions } from '../../features/tags/reducer'
 import { selectSelectedTagId, selectTags } from '../../features/tags/selectors'
 import { CategoryWrapper } from './styled'

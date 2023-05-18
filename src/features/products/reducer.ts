@@ -1,5 +1,5 @@
 import { createAction, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ProductDto, ReviewDto, TagDto } from '../../components/api/types'
+import { ProductDto, ReviewDto } from '../../components/api/types'
 import { ProductsState } from './model'
 
 const initialState: ProductsState = {
