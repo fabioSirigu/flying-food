@@ -10,8 +10,9 @@ import { StyledForm, TextAerea } from './styled'
 
 type Props = {
   id: string
+  onClose: () => void
 }
-export const FormReview = memo(({ id }: Props) => {
+export const FormReview = memo(({ id, onClose }: Props) => {
   const dispatch = useDispatch()
   const [author, setAuthor] = useState('')
   const [body, setBody] = useState('')
@@ -36,7 +37,10 @@ export const FormReview = memo(({ id }: Props) => {
 
   const handleClick = useCallback(() => {
     dispatch(productActions.postReview(review))
-  }, [dispatch, review])
+    setAuthor('')
+    setBody('')
+    onClose()
+  }, [dispatch, review, setAuthor, setBody, onClose])
 
   return (
     <StyledForm>

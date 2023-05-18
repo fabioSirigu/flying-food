@@ -27,7 +27,7 @@ export const ProductDetail = memo(() => {
   return (
     <>
       <Modal opened={showModal} onClose={toggleModal}>
-        <FormReview id={id!} />
+        <FormReview id={id!} onClose={toggleModal} />
       </Modal>
       <StyledDetails>
         <RowButton>
