@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga'
 import { all } from 'redux-saga/effects'
+import { serviceApi } from './api/serviceApi'
 import cartReducer from './cart/reducer'
 import { cartSaga } from './cart/sagas'
 import orderReducer from './orders/reducer'
@@ -14,7 +15,8 @@ const rootReducer = {
   products: productReducer,
   cart: cartReducer,
   orders: orderReducer,
-  tags: tagReducer
+  tags: tagReducer,
+  [serviceApi.reducerPath]: serviceApi.reducer
 }
 
 function* rootSaga() {
@@ -25,7 +27,8 @@ const sagaMiddleware = createSagaMiddleware()
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(sagaMiddleware).concat(serviceApi.middleware),
   devTools: process.env.NODE_ENV !== 'production'
 })
 
