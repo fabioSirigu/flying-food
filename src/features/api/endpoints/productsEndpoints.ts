@@ -1,4 +1,4 @@
-import { ProductDto } from '../../../components/api/types'
+import { ProductDto, ReviewDto } from '../../../components/api/types'
 import { serviceApi } from '../serviceApi'
 
 const productsApi = serviceApi.injectEndpoints({
@@ -8,8 +8,19 @@ const productsApi = serviceApi.injectEndpoints({
     }),
     getProductById: builder.query<ProductDto, string>({
       query: (id) => `products/${id}`
+    }),
+    getReviewsByProductId: builder.query<ReviewDto[], string>({
+      query: (id) => `reviews/${id}`
+    }),
+    getRandomProducts: builder.query<ProductDto[], void>({
+      query: () => 'products/random'
     })
   })
 })
 
-export const { useGetProductsQuery, useGetProductByIdQuery } = productsApi
+export const {
+  useGetProductsQuery,
+  useGetProductByIdQuery,
+  useGetReviewsByProductIdQuery,
+  useGetRandomProductsQuery
+} = productsApi

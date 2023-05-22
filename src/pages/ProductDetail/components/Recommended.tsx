@@ -1,25 +1,27 @@
 import { memo, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-
+import { useDispatch } from 'react-redux'
 import { Paper } from '../../../components/Paper'
 import { ProductCardVariant } from '../../../components/ProductCard/Variant'
 import { Text } from '../../../components/Text'
+import { useGetRandomProductsQuery } from '../../../features/api/endpoints/productsEndpoints'
 import { productActions } from '../../../features/products/reducer'
-import { selectAllRecommendeds } from '../../../features/products/selectors'
 import { RaccomandedWrapper } from '../styled'
 
 export const Recommended = memo(() => {
   const dispatch = useDispatch()
-  const recommendeds = useSelector(selectAllRecommendeds)
-
+  const { data: recommendeds, isLoading } = useGetRandomProductsQuery()
   useEffect(() => {
-    dispatch(productActions.fetchRandomProducts())
-
     return () => {
       dispatch(productActions.clearRecommended())
     }
   }, [dispatch])
 
+  if (isLoading)
+    return (
+      <Text variant="h3" color="secondary">
+        Recommendeds is loading. . .
+      </Text>
+    )
   return (
     <>
       <Text color="text" variant="h3">
