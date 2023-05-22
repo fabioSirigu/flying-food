@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import { FormReview } from '../../components/FormReview'
 import { Modal } from '../../components/Modal/Modal'
+import { useGetProductByIdQuery } from '../../features/api/endpoints/productsEndpoints'
 
 import { CardDetail } from './components/CardDetail'
 
@@ -13,6 +14,8 @@ import { RowButton, StyledDetails } from './styled'
 
 export const ProductDetail = memo(() => {
   const { id } = useParams()
+  const { data: product, isLoading } = useGetProductByIdQuery(id!)
+
   const navigate = useNavigate()
   const [showModal, setShowModal] = useState(false)
 
@@ -43,7 +46,7 @@ export const ProductDetail = memo(() => {
             onClick={handleNavigate}
           />
         </RowButton>
-        <CardDetail />
+        <CardDetail id={id!} loading={isLoading} product={product!} />
         <Reviews onClick={toggleModal} productId={id!} />
         <Recommended />
       </StyledDetails>

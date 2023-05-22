@@ -1,17 +1,16 @@
-import { memo, useCallback, useEffect, useMemo, useState } from 'react'
+import { memo, useCallback, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { ValueType } from '../../../components/api/types'
+import { ProductDto, ValueType } from '../../../components/api/types'
 import { Counter } from '../../../components/Counter'
 import { Image } from '../../../components/Image'
 import { Loader } from '../../../components/Loader'
 import { Price } from '../../../components/Price'
 import { Rating } from '../../../components/Rating'
 import { Text } from '../../../components/Text'
+import { useGetProductByIdQuery } from '../../../features/api/endpoints/productsEndpoints'
 import { cartActions } from '../../../features/cart/reducer'
 import { makeSelectQtyById } from '../../../features/cart/selectors'
-import { productActions } from '../../../features/products/reducer'
-import { selectProductDetail } from '../../../features/products/selectors'
 import {
   StyledButton,
   DetailCard,
@@ -21,44 +20,37 @@ import {
   OutOfStock
 } from '../styled'
 
-export const CardDetail = memo(() => {
-  const { id } = useParams()
+type Props = {
+  product: ProductDto
+  loading: boolean
+  id: string
+}
+
+export const CardDetail = memo(({ id, product, loading }: Props) => {
   const dispatch = useDispatch()
   const [counter, setCounter] = useState(0)
-  const productDetail = useSelector(selectProductDetail)
   const productQty = useSelector(makeSelectQtyById(id!))
 
-  const maximumItems =
-    productDetail && productQty ? productDetail.stock - productQty : productDetail?.stock
-
-  useEffect(() => {
-    if (id) dispatch(productActions.fetchProductById(id))
-
-    // Il return di una function viene eseguito all'unmount del componente
-    // Può essere vista come un'azione di clear
-    return () => {
-      dispatch(productActions.clearDetail())
-    }
-  }, [id, dispatch])
+  const maximumItems = product && productQty ? product.stock - productQty : product?.stock
 
   const handleSubmit = useCallback(() => {
-    if (counter < 1 || !productDetail) {
+    if (counter < 1 || !product) {
       return
     }
     dispatch(
       cartActions.addToCart({
-        product: productDetail,
+        product: product,
         quantity: counter
       })
     )
     setCounter(0)
-  }, [dispatch, counter, productDetail])
+  }, [dispatch, counter, product])
 
   const handleClickPlus = useCallback(() => {
-    if (productDetail && counter < maximumItems!) {
+    if (product && counter < maximumItems!) {
       setCounter(counter + 1)
     }
-  }, [productDetail, counter, maximumItems])
+  }, [product, counter, maximumItems])
 
   const handleClickMinus = useCallback(() => {
     if (counter > 0) {
@@ -69,42 +61,42 @@ export const CardDetail = memo(() => {
   const productImage = useMemo(() => {
     return (
       <ImageWrapper>
-        <Image url={productDetail?.imageUrl} />
+        <Image url={product?.imageUrl} />
       </ImageWrapper>
     )
-  }, [productDetail])
+  }, [product])
 
-  if (!productDetail) return <Loader />
+  if (loading) return <Loader />
 
   return (
     <DetailCard>
       <TextWrapper>
         <Text color="text" variant="h1">
-          {productDetail.name}
+          {product.name}
         </Text>
-        <Rating rating={productDetail.rating || 0} />
+        <Rating rating={product.rating || 0} />
         <Text color="textLight" variant="p">
-          {productDetail.description}
+          {product.description}
         </Text>
         <Text variant="h5" color="textLight">
           Ingredients
         </Text>
         <PriceWrapper>
-          <Price title={productDetail.price as ValueType} font="h2" />
+          <Price title={product.price as ValueType} font="h2" />
           <Counter
             onClickPlus={handleClickPlus}
             onClickMinus={handleClickMinus}
             counter={counter}
           />
         </PriceWrapper>
-        {productDetail.stock === 0 && (
+        {product.stock === 0 && (
           <OutOfStock>
             <Text variant="h2">Out Of Stock</Text>
           </OutOfStock>
         )}
         <StyledButton
           onClick={handleSubmit}
-          stock={productDetail.stock}
+          stock={product.stock}
           disabled={false}
           colorText="text"
           color="secondary"
