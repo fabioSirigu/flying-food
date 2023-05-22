@@ -31,3 +31,7 @@ export const selectProductFilteredByTag = createSelector(
   (allProducts, tagId) =>
     tagId ? allProducts.filter((product) => product.tags.includes(tagId)) : allProducts
 )
+
+/* export const sortReviewByDate = createSelector(selectAllReviews, (reviews) =>
+  reviews?.map((review, i) => review.date.split('-')).flat()
+) */

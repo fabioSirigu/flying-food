@@ -1,6 +1,7 @@
 import { ChangeEvent, memo, useCallback, useMemo, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { productActions } from '../../features/products/reducer'
+// import { sortReviewByDate } from '../../features/products/selectors'
 import { ReviewDto } from '../api/types'
 import { Button } from '../Button'
 import { Input } from '../Input'
@@ -14,6 +15,9 @@ type Props = {
 }
 export const FormReview = memo(({ id, onClose }: Props) => {
   const dispatch = useDispatch()
+  // const reviewFilter = useSelector(sortReviewByDate)
+  // console.log('🚀 ~ file: index.tsx:19 ~ FormReview ~ reviewFilter:', reviewFilter)
+
   const [author, setAuthor] = useState('')
   const [body, setBody] = useState('')
 
