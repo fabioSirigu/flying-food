@@ -35,6 +35,16 @@ const productsSlice = createSlice({
       state.reviews = null
     }
   }
+  // Ci permette di intercettare i 3 stati di una chiamata api 'fulfilled', 'rejected', 'pending'
+
+  // extraReducers: (builder) => {
+  //   builder.addMatcher(
+  //     productsApi.endpoints.getProducts.matchFulfilled,
+  //     (state, { payload }) => {
+  //       state.products = payload
+  //     }
+  //   )
+  // }
 })
 
 export const productActions = {

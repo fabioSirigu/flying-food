@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Layout } from './components/Layout'
+import { useLazyGetProductsQuery } from './features/api/endpoints/productsEndpoints'
 import { Cart } from './pages/Cart'
 import { Catalog } from './pages/Catalog'
 import { Home } from './pages/Home'
@@ -9,6 +10,12 @@ import { Orders } from './pages/Orders'
 import { ProductDetail } from './pages/ProductDetail'
 
 function App() {
+  const [getProducts] = useLazyGetProductsQuery()
+
+  useEffect(() => {
+    getProducts()
+  }, [getProducts])
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

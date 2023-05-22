@@ -1,7 +1,7 @@
 import { ProductDto, ReviewDto } from '../../../components/api/types'
 import { serviceApi } from '../serviceApi'
 
-const productsApi = serviceApi.injectEndpoints({
+export const productsApi = serviceApi.injectEndpoints({
   endpoints: (builder) => ({
     getProducts: builder.query<ProductDto[], void>({
       query: () => 'products'
@@ -22,5 +22,6 @@ export const {
   useGetProductsQuery,
   useGetProductByIdQuery,
   useGetReviewsByProductIdQuery,
-  useGetRandomProductsQuery
+  useGetRandomProductsQuery,
+  useLazyGetProductsQuery
 } = productsApi

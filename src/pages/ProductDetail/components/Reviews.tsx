@@ -1,11 +1,9 @@
 import { memo, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Loader } from '../../../components/Loader'
+import { useDispatch } from 'react-redux'
 import { Review } from '../../../components/Review'
 import { Text } from '../../../components/Text'
 import { useGetReviewsByProductIdQuery } from '../../../features/api/endpoints/productsEndpoints'
 import { productActions } from '../../../features/products/reducer'
-import { selectAllReviews } from '../../../features/products/selectors'
 import { StyledReview, CardsContainer } from '../styled'
 import { TitleSection } from './TitleSection'
 

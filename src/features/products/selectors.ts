@@ -1,8 +1,10 @@
 import { createSelector } from '@reduxjs/toolkit'
+import { productsApi } from '../api/endpoints/productsEndpoints'
 import type { RootState } from '../store'
 import { selectSelectedTagId } from '../tags/selectors'
 
 export const selectProductState = (state: RootState) => state.products
+export const selectGetProducts = productsApi.endpoints.getProducts.select()
 
 export const selectAllProducts = createSelector(
   selectProductState,
@@ -26,10 +28,14 @@ export const selectAllRecommendeds = createSelector(
 
 // selettore pronto per filtrare i prodotti
 export const selectProductFilteredByTag = createSelector(
-  selectAllProducts,
+  selectGetProducts,
   selectSelectedTagId,
-  (allProducts, tagId) =>
-    tagId ? allProducts.filter((product) => product.tags.includes(tagId)) : allProducts
+  ({ data = [], isLoading }, tagId) => {
+    return {
+      products: tagId ? data.filter((product) => product.tags.includes(tagId)) : data,
+      isLoading
+    }
+  }
 )
 
 /* export const sortReviewByDate = createSelector(selectAllReviews, (reviews) =>

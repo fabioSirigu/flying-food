@@ -1,12 +1,12 @@
 import React, { memo } from 'react'
-
+import { useSelector } from 'react-redux'
 import { Loader } from '../../components/Loader'
 import { ProductCard } from '../../components/ProductCard'
-import { useGetProductsQuery } from '../../features/api/endpoints/productsEndpoints'
+import { selectProductFilteredByTag } from '../../features/products/selectors'
 import { ProductWrapper } from './styled'
 
 export const ProductList = memo(() => {
-  const { data: products, isLoading } = useGetProductsQuery()
+  const { products, isLoading } = useSelector(selectProductFilteredByTag)
 
   if (isLoading) return <Loader />
 
