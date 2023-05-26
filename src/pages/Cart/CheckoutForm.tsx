@@ -1,10 +1,12 @@
 import { nanoid } from '@reduxjs/toolkit'
-import { memo, useCallback } from 'react'
+import { memo, useCallback, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import { isJsxClosingElement } from 'typescript'
 import { OrderDto, OrderItem } from '../../components/api/types'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
 import { Text } from '../../components/Text'
+import { useCreateOrderMutation } from '../../features/api/endpoints/ordersEndpoints'
 import { ItemInCart } from '../../features/cart/model'
 import { cartActions } from '../../features/cart/reducer'
 import { ExpirationForm } from './ExpirationForm'
@@ -21,6 +23,7 @@ type Props = {
 }
 export const CheckoutForm = memo(({ products }: Props) => {
   const dispatch = useDispatch()
+  const [createOrder] = useCreateOrderMutation()
 
   const items = products.map((cartObject) => {
     const orderItem: OrderItem = {
@@ -39,8 +42,11 @@ export const CheckoutForm = memo(({ products }: Props) => {
       items: items,
       date: new Date().toDateString()
     }
-    dispatch(cartActions.postOrderItem(order))
-  }, [dispatch, items])
+    // createOrder(order)
+
+    createOrder(order)
+    dispatch(cartActions.clearCart())
+  }, [items, createOrder, dispatch])
 
   return (
     <FormCheckoutWrapper>
